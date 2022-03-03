@@ -3,7 +3,7 @@ const sql = require("./sql");
 const download = (exchange, symbol, timeframe, since) => {
   return new Promise((resolve, reject) => {
     let lastTimestamp = sql.getLastTimestamp(symbol);
-    if (lastTimestamp > since) {
+    if (lastTimestamp !== null && lastTimestamp > since) {
       since = lastTimestamp + 1;
     }
     const timeoutFunc = async () => {

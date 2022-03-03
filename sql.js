@@ -32,7 +32,7 @@ const getAllDataInRange = (symbol, from, to) => {
 
 const insertCandles = (symbol, ohlcvs) => {
   let table = symbol.replace("/", "").toLowerCase();
-  createTable(symbol);
+  createTable(table);
   const insert = db.prepare(
     "INSERT INTO " +
       table +
@@ -49,9 +49,10 @@ const insertCandles = (symbol, ohlcvs) => {
 };
 
 const createTable = (symbol) => {
+  let table = symbol.replace("/", "").toLowerCase();
   db.exec(
     'CREATE TABLE IF NOT EXISTS "' +
-      symbol +
+      table +
       '" ("timestamp" integer NOT NULL,"open" integer,"high" integer,"low" integer,"close" integer,"volume" integer, PRIMARY KEY ("timestamp"));'
   );
 };
