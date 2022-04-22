@@ -1,7 +1,7 @@
 const ccxt = require("ccxt");
 const symbol = "FB";
 
-async function main() {
+(async () => {
   const exchange = new ccxt.ftx();
   let tickers = await exchange.fetchTickers();
   for (const ticker in tickers) {
@@ -10,6 +10,4 @@ async function main() {
     }
   }
   console.log("Done");
-}
-
-main();
+})();

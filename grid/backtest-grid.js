@@ -1,4 +1,4 @@
-const sql = require("./sql");
+const sql = require("../db/sql");
 const createGrid = require("./grid");
 let firstTimestamp = sql.getFirstTimestamp("BTC/USDT");
 let oneDayMS = 3600 * 1000 * 24;

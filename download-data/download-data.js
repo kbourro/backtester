@@ -1,12 +1,17 @@
-const sql = require("./sql");
+const sql = require("../db/sql");
 
-const download = (exchange, symbol, timeframe, since) => {
+const download = (exchange, symbol, timeframe, since, end) => {
+  symbol = symbol.toUpperCase();
   return new Promise((resolve, reject) => {
     let lastTimestamp = sql.getLastTimestamp(symbol);
     if (lastTimestamp !== null && lastTimestamp > since) {
       since = lastTimestamp + 1;
     }
     const timeoutFunc = async () => {
+      if (end !== null && since > end) {
+        resolve(true);
+        return;
+      }
       let response = await fetchOHLCVSince(exchange, symbol, timeframe, since);
       if (response.ohlcvs.length > 0) {
         sql.insertCandles(response.symbol, response.ohlcvs);
