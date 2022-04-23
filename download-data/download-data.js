@@ -21,7 +21,7 @@ export default (exchange, symbol, timeframe, since, end) => {
         resolve(true);
       }
     };
-    setTimeout(timeoutFunc, 100);
+    setTimeout(timeoutFunc, 10);
   });
 };
 
