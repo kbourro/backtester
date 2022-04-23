@@ -17,6 +17,7 @@ export default async ({ config, setups, symbol }) => {
     };
     let trade = { ...tradeTemplate };
     const trades = [];
+    let lastClosePrice = 0;
     while (true) {
       let ohlcvs = getAllDataInRangeLimit(
         symbol,
@@ -26,12 +27,19 @@ export default async ({ config, setups, symbol }) => {
       );
       if (ohlcvs.length <= 0) {
         if (trade.open !== null) {
+          if (trade.endTimestamp === null) {
+            trade.endTimestamp = toTimestamp;
+          }
+          if (trade.close === null) {
+            trade.close = lastClosePrice;
+          }
           trades.push({ ...trade });
         }
         break;
       }
       for (let dataIndex = 0; dataIndex < ohlcvs.length; dataIndex++) {
         const ohlcv = ohlcvs[dataIndex];
+        lastClosePrice = ohlcv.close;
         if (trade.open === null) {
           trade.open = ohlcv.open;
           trade.tpPrice =
@@ -76,10 +84,19 @@ export default async ({ config, setups, symbol }) => {
     }
     let totalProfit = 0;
     let deviationsUsed = 0;
+    let maxDeal = 0;
+    let upnl = 0;
     for (let tradesIndex = 0; tradesIndex < trades.length; tradesIndex++) {
       const trade = trades[tradesIndex];
       totalProfit += trade.profit;
       deviationsUsed = Math.max(deviationsUsed, trade.deviationsUsed);
+      maxDeal = Math.max(
+        maxDeal,
+        (trade.endTimestamp - trade.startTimestamp) / 1000 / 60 / 60
+      );
+      if (trade.close === null) {
+        upnl = trade.totalVolume[trade.deviationsUsed];
+      }
     }
     results.push({
       deviationsUsed,
@@ -87,6 +104,7 @@ export default async ({ config, setups, symbol }) => {
         ((totalProfit / setup.maxAmount) * 100).toFixed(2)
       ),
       totalTrades: trades.length,
+      maxDeal: Math.round(maxDeal),
       setup,
     });
   }
@@ -100,9 +118,18 @@ export default async ({ config, setups, symbol }) => {
   let tableToPrint = [];
   results.forEach((result) => {
     tableToPrint.push({
-      "Total Profit": result.totalProfit,
+      "Total Profit %": result.totalProfit,
       "Deviations Used": result.deviationsUsed,
       "Total Trades": result.totalTrades,
+      "Max Deal (h)": result.maxDeal,
+      "Last SO Required change": parseFloat(
+        result.setup.requiredChange[
+          result.setup.requiredChange.length - 1
+        ].toFixed(2)
+      ),
+      "Total volume": Math.round(
+        result.setup.totalVolume[result.setup.totalVolume.length - 1]
+      ),
       tp: result.setup.tp,
       bo: result.setup.bo,
       so: result.setup.so,
