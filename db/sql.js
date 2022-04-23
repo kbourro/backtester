@@ -1,4 +1,4 @@
-const db = require("better-sqlite3")("./data.db");
+const db = require("better-sqlite3")("./db/data.db");
 
 const getLastTimestamp = (symbol) => {
   let table = symbol.replace("/", "").toLowerCase();

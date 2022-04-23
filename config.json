@@ -1,7 +1,7 @@
 {
-  "symbols": { "symbol": "btc/usdt" },
+  "symbols": { "1": "btc/usdt", "2": "luna/usdt" },
   "setups": {
-    "setup": {
+    "1": {
       "tp": 1.7,
       "bo": 10,
       "so": 20,
@@ -11,7 +11,7 @@
       "mstc": 10
     }
   },
-  "from": "2022/01/01",
-  "to": "2022/04/23",
+  "from": "2021/01/01",
+  "to": "2022/01/01",
   "exchanger": "binance"
 }
