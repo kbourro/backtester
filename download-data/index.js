@@ -1,7 +1,7 @@
-const ccxt = require("ccxt");
-const downloadData = require("./download-data");
+import ccxt from "ccxt";
+import downloadData from "./download-data.js";
 
-const download = async (exchanger, symbol, from, to = null) => {
+export default async (exchanger, symbol, from, to = null) => {
   let exchange = null;
   if (exchanger === "ftx") {
     exchange = new ccxt.ftx();
@@ -13,5 +13,3 @@ const download = async (exchanger, symbol, from, to = null) => {
   const end = to !== null ? new Date(to).getTime() : null;
   await downloadData(exchange, symbol, timeframe, since, end);
 };
-
-module.exports = download;

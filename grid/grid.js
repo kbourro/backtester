@@ -1,4 +1,4 @@
-const createGrid = ({
+export default ({
   botEmulator,
   low,
   high,
@@ -35,5 +35,3 @@ const createGrid = ({
 // console.log(
 //   createGrid({ botEmulator: "3commas", high: 40000, low: 20000, grids: 40 })
 // );
-
-module.exports = createGrid;

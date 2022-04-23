@@ -1,4 +1,4 @@
-module.exports = (setups) => {
+export default (setups) => {
   for (let index = 0; index < setups.length; index++) {
     const setup = setups[index];
     setup.deviations = [0];

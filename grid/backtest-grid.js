@@ -1,5 +1,5 @@
-const sql = require("../db/sql");
-const createGrid = require("./grid");
+import sql from "../db/sql.js";
+import createGrid from "./grid.js";
 let firstTimestamp = sql.getFirstTimestamp("BTC/USDT");
 let oneDayMS = 3600 * 1000 * 24;
 let ohlcvs = sql.getAllDataInRange(

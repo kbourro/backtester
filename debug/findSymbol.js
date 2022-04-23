@@ -1,4 +1,4 @@
-const ccxt = require("ccxt");
+import ccxt from "ccxt";
 const symbol = "FB";
 
 (async () => {

@@ -3,14 +3,16 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "start": "node ./dca/backtest-dca.js",
+    "start": "node ./dca/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "better-sqlite3": "^7.5.0",
-    "ccxt": "^1.73.35"
+    "ccxt": "^1.73.35",
+    "p-limit": "^4.0.0"
   }
 }

@@ -1,4 +1,5 @@
-const db = require("better-sqlite3")("./db/data.db");
+import bsql from "better-sqlite3";
+const db = bsql("./db/data.db");
 
 const getLastTimestamp = (symbol) => {
   let table = symbol.replace("/", "").toLowerCase();
@@ -75,7 +76,7 @@ const createTable = (symbol) => {
   );
 };
 
-module.exports = {
+export {
   getLastTimestamp,
   getFirstTimestamp,
   insertCandles,

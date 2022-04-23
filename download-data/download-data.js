@@ -1,9 +1,9 @@
-const sql = require("../db/sql");
+import * as db from "../db/sql.js";
 
-const download = (exchange, symbol, timeframe, since, end) => {
+export default (exchange, symbol, timeframe, since, end) => {
   symbol = symbol.toUpperCase();
   return new Promise((resolve, reject) => {
-    let lastTimestamp = sql.getLastTimestamp(symbol);
+    let lastTimestamp = db.getLastTimestamp(symbol);
     if (lastTimestamp !== null && lastTimestamp > since) {
       since = lastTimestamp + 1;
     }
@@ -14,7 +14,7 @@ const download = (exchange, symbol, timeframe, since, end) => {
       }
       let response = await fetchOHLCVSince(exchange, symbol, timeframe, since);
       if (response.ohlcvs.length > 0) {
-        sql.insertCandles(response.symbol, response.ohlcvs);
+        db.insertCandles(response.symbol, response.ohlcvs);
         since = response.lastTimestamp + 1;
         setTimeout(timeoutFunc, 100);
       } else {
@@ -54,5 +54,3 @@ const fetchOHLCVSince = async (exchange, symbol, timeframe, since) => {
     console.log(e.constructor.name, e.message);
   }
 };
-
-module.exports = download;
