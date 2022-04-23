@@ -1,8 +1,9 @@
 import { getAllDataInRangeLimit } from "../db/sql.js";
 export default async ({ config, setups, symbol }) => {
-  let fromTimestamp = new Date(config.from).getTime();
-  const toTimestamp = new Date(config.to).getTime();
+  let results = [];
   for (let setupIndex = 0; setupIndex < setups.length; setupIndex++) {
+    let fromTimestamp = new Date(config.from).getTime();
+    const toTimestamp = new Date(config.to).getTime();
     const setup = setups[setupIndex];
     const tradeTemplate = {
       open: null,
@@ -16,7 +17,6 @@ export default async ({ config, setups, symbol }) => {
     };
     let trade = { ...tradeTemplate };
     const trades = [];
-    console.time("Backtest time");
     while (true) {
       let ohlcvs = getAllDataInRangeLimit(
         symbol,
@@ -81,14 +81,38 @@ export default async ({ config, setups, symbol }) => {
       totalProfit += trade.profit;
       deviationsUsed = Math.max(deviationsUsed, trade.deviationsUsed);
     }
-    console.log(`Symbol ${symbol}`);
-    console.timeEnd("Backtest time");
-    console.log(`Start date ${config.from} - End date ${config.to}`);
-    console.log(`Max deviations used ${deviationsUsed}`);
-    console.log(
-      `Total profits ${((totalProfit / setup.maxAmount) * 100).toFixed(2)}%`
-    );
-    console.log(`Total trades ${trades.length}`);
-    console.log(`---------------------------------------------`);
+    results.push({
+      deviationsUsed,
+      totalProfit: parseFloat(
+        ((totalProfit / setup.maxAmount) * 100).toFixed(2)
+      ),
+      totalTrades: trades.length,
+      setup,
+    });
   }
+  console.log(`Symbol ${symbol}`);
+  console.log(`Start date ${config.from} - End date ${config.to}`);
+  // results.forEach((result) => {
+  //   console.log(`Max deviations used ${result.deviationsUsed}`);
+  //   console.log(`Total profits ${result.totalProfit}%`);
+  //   console.log(`Total trades ${result.totalTrades}`);
+  // });
+  let tableToPrint = [];
+  results.forEach((result) => {
+    tableToPrint.push({
+      "Total Profit": result.totalProfit,
+      "Deviations Used": result.deviationsUsed,
+      "Total Trades": result.totalTrades,
+      tp: result.setup.tp,
+      bo: result.setup.bo,
+      so: result.setup.so,
+      sos: result.setup.sos,
+      os: result.setup.os,
+      ss: result.setup.ss,
+      mstc: result.setup.mstc,
+    });
+  });
+  console.table(tableToPrint);
+  console.log(`---------------------------------------------`);
+  return { symbol, startDate: config.from, endDate: config.to, results };
 };

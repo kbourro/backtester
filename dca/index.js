@@ -17,11 +17,11 @@ let promises = [];
   }
   await Promise.all(promises);
   promises = [];
-  console.time("All backtests completed in");
+  console.time("All backtests completed");
   for (let index = 0; index < symbols.length; index++) {
     const symbol = symbols[index];
     promises.push(limit(() => symbolBacktest({ config, setups, symbol })));
   }
-  await Promise.all(promises);
-  console.timeEnd("All backtests completed in");
+  const results = await Promise.all(promises);
+  console.timeEnd("All backtests completed");
 })();
