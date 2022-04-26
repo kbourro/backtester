@@ -12,8 +12,12 @@ export default async ({ config, setups, symbol }) => {
       startTimestamp: null,
       endTimestamp: null,
       profit: 0,
+      averageBuyPrice: 0,
       tpPrice: null,
+      upnl: 0,
       soPrices: [],
+      lastSOPrice: null,
+      requiredChangeForTP: setup.requiredChange[0],
     };
     let trade = { ...tradeTemplate };
     const trades = [];
@@ -32,6 +36,8 @@ export default async ({ config, setups, symbol }) => {
           }
           if (trade.close === null) {
             trade.close = lastClosePrice;
+            trade.upnl =
+              ((trade.close - trade.averageBuyPrice) / trade.close) * 100;
           }
           trades.push({ ...trade });
         }
@@ -41,7 +47,12 @@ export default async ({ config, setups, symbol }) => {
         const ohlcv = ohlcvs[dataIndex];
         lastClosePrice = ohlcv.close;
         if (trade.open === null) {
-          trade.open = ohlcv.open;
+          if (dataIndex === 0) {
+            trade.open = ohlcv.open;
+          } else {
+            trade.open = ohlcvs[dataIndex - 1].close;
+          }
+          trade.averageBuyPrice = trade.open;
           trade.tpPrice =
             (trade.open * setup.requiredChange[0]) / 100 + trade.open;
           trade.startTimestamp = ohlcv.timestamp;
@@ -55,6 +66,7 @@ export default async ({ config, setups, symbol }) => {
           }
         }
         if (ohlcv.high >= trade.tpPrice) {
+          trade.upnl = 0;
           trade.close = trade.tpPrice;
           trade.endTimestamp = ohlcv.timestamp;
           trade.profit =
@@ -75,17 +87,28 @@ export default async ({ config, setups, symbol }) => {
               trade.tpPrice =
                 (soPrice * setup.requiredChange[soPricesIndex + 1]) / 100 +
                 soPrice;
+              trade.lastSOPrice = soPrice;
+              trade.requiredChangeForTP =
+                setup.requiredChange[soPricesIndex + 1];
+              trade.averageBuyPrice =
+                (soPrice *
+                  (setup.requiredChange[soPricesIndex + 1] - setup.tp)) /
+                  100 +
+                soPrice;
               trade.deviationsUsed++;
+            } else {
+              break;
             }
           }
         }
       }
       fromTimestamp = ohlcvs[ohlcvs.length - 1].timestamp + 1;
     }
+    // console.log(trades);
+    // process.exit(0);
     let totalProfit = 0;
     let deviationsUsed = 0;
     let maxDeal = 0;
-    let upnl = 0;
     for (let tradesIndex = 0; tradesIndex < trades.length; tradesIndex++) {
       const trade = trades[tradesIndex];
       totalProfit += trade.profit;
@@ -94,9 +117,6 @@ export default async ({ config, setups, symbol }) => {
         maxDeal,
         (trade.endTimestamp - trade.startTimestamp) / 1000 / 60 / 60
       );
-      if (trade.close === null) {
-        upnl = trade.totalVolume[trade.deviationsUsed];
-      }
     }
     results.push({
       deviationsUsed,
@@ -105,6 +125,7 @@ export default async ({ config, setups, symbol }) => {
       ),
       totalTrades: trades.length,
       maxDeal: Math.round(maxDeal),
+      upnl: trades[trades.length - 1].upnl,
       setup,
     });
   }
@@ -119,10 +140,11 @@ export default async ({ config, setups, symbol }) => {
   results.forEach((result) => {
     tableToPrint.push({
       "Total Profit %": result.totalProfit,
+      "Upnl %": parseFloat(result.upnl.toFixed(2)),
       "Deviations Used": result.deviationsUsed,
       "Total Trades": result.totalTrades,
       "Max Deal (h)": result.maxDeal,
-      "Last SO Required change": parseFloat(
+      "Last SO Required change %": parseFloat(
         result.setup.requiredChange[
           result.setup.requiredChange.length - 1
         ].toFixed(2)
