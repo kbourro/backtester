@@ -1,10 +1,11 @@
-export default (setups) => {
+export default (setups, config) => {
   for (let index = 0; index < setups.length; index++) {
     const setup = setups[index];
     setup.deviations = [0];
     setup.volume = [setup.bo];
     setup.totalVolume = [setup.bo];
-    setup.requiredChange = [setup.tp];
+    let tempFees = config.fees * 2;
+    setup.requiredChange = [setup.tp + config.fees * 2];
     let tempTotalCoins = 1;
     let maxDeviation = 0;
     for (let i = 0; i < setup.mstc; i++) {
@@ -26,12 +27,15 @@ export default (setups) => {
       tempTotalCoins += volume / tempPricePerCoin;
       let tempAveragePrice =
         setup.totalVolume[setup.totalVolume.length - 1] / tempTotalCoins;
+      tempFees += config.fees;
       setup.requiredChange.push(
         ((tempAveragePrice - tempPricePerCoin) / tempPricePerCoin) * 100 +
-          setup.tp
+          (setup.tp + tempFees)
       );
       setup.deviations.push(maxDeviation);
     }
+    // console.log(setup);
+    // process.exit(0);
     // Correct way to round to 2 decimals
     setup.maxDeviation = +(Math.round(maxDeviation + "e+2") + "e-2");
     setup.maxAmount = Math.round(

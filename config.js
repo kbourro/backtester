@@ -1,13 +1,19 @@
 export default {
   symbols: [
     "btc/usdt",
-    // "luna/usdt",
-    // "vet/usdt",
-    // "sol/usdt",
-    // "ada/usdt",
-    // "ltc/usdt",
-    // "eth/usdt",
+    "luna/usdt",
+    "vet/usdt",
+    "sol/usdt",
+    "ada/usdt",
+    "ltc/usdt",
+    "eth/usdt",
+    "mana/usdt",
+    "sand/usdt",
   ],
+  from: "2021/11/01 00:00:00",
+  to: "2022/04/26 23:59:00",
+  fees: 0.1, // maker + taker fees
+  exchanger: "binance",
   setups: [
     {
       name: "itzwolf The Wolf Bot",
@@ -920,7 +926,4 @@ export default {
       mstc: 8,
     },
   ],
-  from: "2021/11/01",
-  to: "2022/04/25",
-  exchanger: "binance",
 };

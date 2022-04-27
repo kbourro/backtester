@@ -34,7 +34,10 @@ const run = async ({ config, setup, symbol }) => {
         if (trade.close === null) {
           trade.close = lastClosePrice;
           trade.upnl =
-            ((trade.close - trade.averageBuyPrice) / trade.close) * 100;
+            (setup.totalVolume[trade.deviationsUsed] *
+              (((trade.close - trade.averageBuyPrice) / trade.averageBuyPrice) *
+                100)) /
+            setup.maxAmount;
         }
         trades.push({ ...trade });
       }
@@ -111,11 +114,10 @@ const run = async ({ config, setup, symbol }) => {
       (trade.endTimestamp - trade.startTimestamp) / 1000 / 60 / 60
     );
   }
-  console.log("end");
   process.send({
     deviationsUsed,
     totalProfit: parseFloat(((totalProfit / setup.maxAmount) * 100).toFixed(2)),
-    totalTrades: trades.length,
+    totalTrades: trades.filter((trade) => trade.upnl === 0).length,
     maxDeal: Math.round(maxDeal),
     upnl: trades[trades.length - 1].upnl,
     setup,

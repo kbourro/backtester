@@ -1,13 +1,13 @@
 import PQueue from "p-queue";
+import config from "../config.js";
 import downloadData from "../download-data/index.js";
 import symbolBacktest from "./symbol.js";
 import prepareSetups from "./prepareSetups.js";
-import config from "../config.js";
 import { insertProperty } from "../utils.js";
 
 (async () => {
   const symbols = Object.values(config.symbols);
-  const setups = prepareSetups(Object.values(config.setups));
+  const setups = prepareSetups(Object.values(config.setups), config);
   const from = config.from;
   const to = config.to;
   const exchanger = config.exchanger;
@@ -29,7 +29,7 @@ import { insertProperty } from "../utils.js";
       temp.push({
         Name: result.setup.name,
         "ROI %": parseFloat((result.totalProfit + result.upnl).toFixed(2)),
-        "ROI Without Upnl %": result.totalProfit,
+        "ROI Without Upnl %": parseFloat(result.totalProfit.toFixed(2)),
         "Upnl %": parseFloat(result.upnl.toFixed(2)),
         DU: result.deviationsUsed,
         "Coverage %": result.setup.maxDeviation,
@@ -80,11 +80,15 @@ import { insertProperty } from "../utils.js";
           allSetups[index]["ROI %"] = parseFloat(
             (allSetups[index]["ROI %"] + result["ROI %"]).toFixed(2)
           );
-          allSetups[index]["ROI Without Upnl %"] =
-            allSetups[index]["ROI Without Upnl %"] +
-            result["ROI Without Upnl %"];
-          allSetups[index]["Upnl %"] =
-            allSetups[index]["Upnl %"] + result["Upnl %"];
+          allSetups[index]["ROI Without Upnl %"] = parseFloat(
+            (
+              allSetups[index]["ROI Without Upnl %"] +
+              result["ROI Without Upnl %"]
+            ).toFixed(2)
+          );
+          allSetups[index]["Upnl %"] = parseFloat(
+            (allSetups[index]["Upnl %"] + result["Upnl %"]).toFixed(2)
+          );
           allSetups[index]["Total Trades"] =
             allSetups[index]["Total Trades"] + result["Total Trades"];
           allSetups[index]["MD (h)"] = Math.max(
@@ -98,6 +102,7 @@ import { insertProperty } from "../utils.js";
       }
     });
     console.log(`Start date ${from} - End date ${to}`);
+    console.log(`Symbols ${config.symbols.join(", ")}`);
     console.log(`---------------------------------------------`);
     console.log("All symbols");
     console.table(allSetups);
