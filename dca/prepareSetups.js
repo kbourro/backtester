@@ -1,4 +1,55 @@
+const generateSetupsFromRanges = (setups) => {
+  let tempSetups = [];
+  for (let setupsIndex = 0; setupsIndex < setups.length; setupsIndex++) {
+    let arrayFound = false;
+    const setup = setups[setupsIndex];
+    let keys = Object.keys(setup);
+    for (let keysIndex = 0; keysIndex < keys.length; keysIndex++) {
+      const key = keys[keysIndex];
+      if (Array.isArray(setup[key])) {
+        arrayFound = true;
+        let internalSetups = [];
+        for (
+          let valuesIndex = 0;
+          valuesIndex < setup[key].length;
+          valuesIndex++
+        ) {
+          const value = setup[key][valuesIndex];
+          let tempSetup = { ...setup };
+          tempSetup[key] = value;
+          internalSetups.push({ ...tempSetup });
+        }
+        tempSetups = tempSetups.concat(
+          generateSetupsFromRanges([...internalSetups])
+        );
+        break;
+      }
+    }
+    if (!arrayFound) {
+      tempSetups.push({ ...setup });
+    }
+  }
+  return tempSetups;
+};
+
 export default (setups, config) => {
+  setups = generateSetupsFromRanges(setups);
+  // Remove duplicate
+  setups = setups.filter(
+    (setup, index, self) =>
+      index ===
+      self.findIndex((t) => JSON.stringify(t) === JSON.stringify(setup))
+  );
+  // Rename setups with same name
+  let tempSetups = [];
+  for (let index = 0; index < setups.length; index++) {
+    const setup = setups[index];
+    if (tempSetups.filter((s) => s.name === setup.name).length > 0) {
+      setup.name = `${setup.name} ${index}`;
+    }
+    tempSetups.push({ ...setup });
+  }
+  setups = [...tempSetups];
   for (let index = 0; index < setups.length; index++) {
     const setup = setups[index];
     setup.deviations = [0];
