@@ -1,9 +1,13 @@
 import { fork } from "child_process";
 import PQueue from "p-queue";
 import delay from "delay";
-const queue = new PQueue({ concurrency: 30 });
+const queue = new PQueue({ concurrency: 20 });
+let totalSetups = 0;
+queue.on("completed", (result) => {
+  console.log(`Setups pending: ${queue.size + queue.pending}/${totalSetups}`);
+});
 let childs = [];
-for (let index = 0; index < 10; index++) {
+for (let index = 0; index < 20; index++) {
   const child = fork("./dca/setup.js");
   const handleMessage = (message) => {
     if (message === "started") {
@@ -13,13 +17,15 @@ for (let index = 0; index < 10; index++) {
   };
   child.on("message", handleMessage);
 }
+let childsIndex = 0;
 
 export default async ({ config, setups, symbol }) => {
-  while (childs.length < 10) {
+  while (childs.length < 20) {
     await delay(200);
   }
+  totalSetups += setups.length;
   let promises = [];
-  let childsIndex = 0;
+
   for (let index = 0; index < setups.length; index++) {
     const setup = setups[index];
     let child = childs[childsIndex];

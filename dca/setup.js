@@ -1,6 +1,6 @@
 import PQueue from "p-queue";
 import { getAllDataInRangeLimit } from "../db/sql.js";
-const queue = new PQueue({ concurrency: 5 });
+const queue = new PQueue({ concurrency: 1 });
 const run = ({ config, setup, symbol }) => {
   return new Promise((resolve) => {
     let fromTimestamp = new Date(config.from).getTime();

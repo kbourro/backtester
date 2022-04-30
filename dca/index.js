@@ -2,24 +2,36 @@ import PQueue from "p-queue";
 import Exceljs from "exceljs";
 import * as fs from "fs";
 import path from "path";
-import config from "../config.js";
+import url from "url";
+if (!process.argv[2]) {
+  console.error("Config argument is missing");
+  process.exit(0);
+}
 import downloadData from "../download-data/index.js";
 import symbolBacktest from "./symbol.js";
 import prepareSetups from "./prepareSetups.js";
 import { insertProperty, roundToTwo } from "../utils.js";
-
 (async () => {
+  const config = (
+    await import(url.pathToFileURL(path.resolve(process.argv[2])).href)
+  ).default;
   const symbols = Object.values(config.symbols);
   const setups = prepareSetups(Object.values(config.setups), config);
   const from = config.from;
   const to = config.to;
   const exchanger = config.exchanger;
-  const queue = new PQueue({ concurrency: 10 });
-  let promises = symbols.map((symbol) =>
-    queue.add(() => downloadData(exchanger, symbol, from, to))
-  );
+  let queue = new PQueue({ concurrency: 5 });
+  let promises = symbols.map((symbol) => {
+    queue.add(() => downloadData(exchanger, symbol, from, to));
+  });
   await Promise.all(promises);
+  console.log(
+    `Test started for ${setups.length} setups and ${
+      symbols.length
+    } symbols. Total backtests ${setups.length * symbols.length}`
+  );
   promises = [];
+  queue = new PQueue({ concurrency: Infinity });
   console.time("All backtests completed");
   promises = symbols.map((symbol) =>
     queue.add(() => symbolBacktest({ config, setups, symbol }))
@@ -109,6 +121,9 @@ import { insertProperty, roundToTwo } from "../utils.js";
         allSetups[index]["Upnl %"] / config.symbols.length
       );
     }
+    allSetups.sort(function (a, b) {
+      return b["ROI %"] - a["ROI %"];
+    });
     console.log(`Start date ${from} - End date ${to}`);
     console.log(`Symbols ${config.symbols.join(", ")}`);
     console.log(`---------------------------------------------`);
@@ -116,6 +131,9 @@ import { insertProperty, roundToTwo } from "../utils.js";
     console.table(allSetups);
     console.log(`---------------------------------------------`);
     Object.keys(final).forEach((symbol) => {
+      final[symbol].sort(function (a, b) {
+        return b["ROI %"] - a["ROI %"];
+      });
       console.log(`Symbol ${symbol}`);
       console.table(final[symbol]);
       console.log(`---------------------------------------------`);

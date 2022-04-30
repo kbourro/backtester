@@ -44,6 +44,9 @@ export default (setups, config) => {
   let tempSetups = [];
   for (let index = 0; index < setups.length; index++) {
     const setup = setups[index];
+    if (setup.bo > 10 && setup.bo === setup.so) {
+      continue;
+    }
     if (tempSetups.filter((s) => s.name === setup.name).length > 0) {
       setup.name = `${setup.name} ${index}`;
     }
