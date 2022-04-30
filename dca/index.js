@@ -126,19 +126,27 @@ import { insertProperty, roundToTwo } from "../utils.js";
     });
     console.log(`Start date ${from} - End date ${to}`);
     console.log(`Symbols ${config.symbols.join(", ")}`);
-    console.log(`---------------------------------------------`);
-    console.log("All symbols");
-    console.table(allSetups);
-    console.log(`---------------------------------------------`);
-    Object.keys(final).forEach((symbol) => {
-      final[symbol].sort(function (a, b) {
-        return b["ROI %"] - a["ROI %"];
-      });
-      console.log(`Symbol ${symbol}`);
-      console.table(final[symbol]);
+    if (config.options.console) {
       console.log(`---------------------------------------------`);
-    });
-    getFooterInfo().forEach((info) => console.log(info));
+      console.log("All symbols");
+      console.table(allSetups);
+      console.log(`---------------------------------------------`);
+      Object.keys(final).forEach((symbol) => {
+        final[symbol].sort(function (a, b) {
+          return b["ROI %"] - a["ROI %"];
+        });
+        console.log(`Symbol ${symbol}`);
+        console.table(final[symbol]);
+        console.log(`---------------------------------------------`);
+      });
+      getFooterInfo().forEach((info) => console.log(info));
+    } else {
+      Object.keys(final).forEach((symbol) => {
+        final[symbol].sort(function (a, b) {
+          return b["ROI %"] - a["ROI %"];
+        });
+      });
+    }
     console.log(`---------------------------------------------`);
     console.timeEnd("All backtests completed");
     console.log("Writing to excel file");

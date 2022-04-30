@@ -1,4 +1,5 @@
 export default {
+  options: { console: false },
   symbols: [
     "btc/usdt",
     "luna/usdt",

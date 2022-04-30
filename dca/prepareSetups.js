@@ -34,17 +34,25 @@ const generateSetupsFromRanges = (setups) => {
 
 export default (setups, config) => {
   setups = generateSetupsFromRanges(setups);
-  // Remove duplicate
-  setups = setups.filter(
-    (setup, index, self) =>
-      index ===
-      self.findIndex((t) => JSON.stringify(t) === JSON.stringify(setup))
-  );
-  // Rename setups with same name
+  // Remove duplicates and Rename setups with same name
   let tempSetups = [];
   for (let index = 0; index < setups.length; index++) {
     const setup = setups[index];
     if (setup.bo > 10 && setup.bo === setup.so) {
+      continue;
+    }
+    if (
+      tempSetups.filter(
+        (s) =>
+          s.tp === setup.tp &&
+          s.bo === setup.bo &&
+          s.so === setup.so &&
+          s.sos === setup.sos &&
+          s.os === setup.os &&
+          s.ss === setup.ss &&
+          s.mstc === setup.mstc
+      ).length > 0
+    ) {
       continue;
     }
     if (tempSetups.filter((s) => s.name === setup.name).length > 0) {
