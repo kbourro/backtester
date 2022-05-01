@@ -1,0 +1,30 @@
+export default {
+  options: { console: false },
+  symbols: ["btc/usdt", "luna/usdt"],
+  from: "2021/11/09 00:00:00",
+  to: "2022/04/29 23:59:00",
+  fees: 0.1,
+  exchanger: "binance",
+  setups: [
+    {
+      name: "itzwolf The Wolf Bot",
+      tp: 2.0,
+      bo: 10,
+      so: 10,
+      sos: 1.5,
+      os: 1.1,
+      ss: 1.0,
+      mstc: 30,
+    },
+    {
+      name: "TheAlpha Alpha Deep Drop 1.01 SS",
+      tp: 3.0,
+      bo: 10,
+      so: 10,
+      sos: 2.0,
+      os: 1.17,
+      ss: 1.01,
+      mstc: 20,
+    },
+  ],
+};

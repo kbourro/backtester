@@ -66,8 +66,7 @@ export default (setups, config) => {
     setup.deviations = [0];
     setup.volume = [setup.bo];
     setup.totalVolume = [setup.bo];
-    let tempFees = config.fees * 2;
-    setup.requiredChange = [setup.tp + config.fees * 2];
+    setup.requiredChange = [setup.tp];
     let tempTotalCoins = 1;
     let maxDeviation = 0;
     for (let i = 0; i < setup.mstc; i++) {
@@ -89,10 +88,9 @@ export default (setups, config) => {
       tempTotalCoins += volume / tempPricePerCoin;
       let tempAveragePrice =
         setup.totalVolume[setup.totalVolume.length - 1] / tempTotalCoins;
-      tempFees += config.fees;
       setup.requiredChange.push(
         ((tempAveragePrice - tempPricePerCoin) / tempPricePerCoin) * 100 +
-          (setup.tp + tempFees)
+          setup.tp
       );
       setup.deviations.push(maxDeviation);
     }

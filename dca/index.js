@@ -41,6 +41,10 @@ import { insertProperty, roundToTwo } from "../utils.js";
   results.forEach((symbolResults) => {
     let temp = [];
     symbolResults.results.forEach((result) => {
+      let lastTradeStart = new Date(result.lastTrade.startTimestamp);
+      let lastTradeEnd = new Date(result.lastTrade.endTimestamp);
+      let longerTradeStart = new Date(result.longerTrade.startTimestamp);
+      let longerTradeEnd = new Date(result.longerTrade.endTimestamp);
       temp.push({
         Name: result.setup.name,
         "ROI %": roundToTwo(result.totalProfit + result.upnl),
@@ -49,7 +53,20 @@ import { insertProperty, roundToTwo } from "../utils.js";
         DU: result.deviationsUsed,
         "Coverage %": result.setup.maxDeviation,
         "Total Trades": result.totalTrades,
+        "MD trade started": `${longerTradeStart.getFullYear()}-${
+          longerTradeStart.getMonth() + 1
+        }-${longerTradeStart.getDate()}`,
+        "MD trade ended": `${longerTradeEnd.getFullYear()}-${
+          longerTradeEnd.getMonth() + 1
+        }-${longerTradeEnd.getDate()}`,
         "MD (h)": result.maxDeal,
+        "Last trade started": `${lastTradeStart.getFullYear()}-${
+          lastTradeStart.getMonth() + 1
+        }-${lastTradeStart.getDate()}`,
+        "Last trade ended": `${lastTradeEnd.getFullYear()}-${
+          lastTradeEnd.getMonth() + 1
+        }-${lastTradeEnd.getDate()}`,
+        "Last trade deal time (h)": result.lastTradeTime,
         "RC %": roundToTwo(
           result.setup.requiredChange[result.setup.requiredChange.length - 1]
         ),
@@ -80,7 +97,14 @@ import { insertProperty, roundToTwo } from "../utils.js";
         ) {
           allSetups[index] = {
             ...insertProperty(
-              { ...result },
+              (({
+                "MD trade started": _deleted1,
+                "MD trade ended": _deleted2,
+                "Last trade started": _deleted3,
+                "Last trade ended": _deleted4,
+                "Last trade deal time (h)": _deleted5,
+                ...o
+              }) => o)(result),
               "Profitable Pairs",
               result["ROI %"] >= 0 ? 1 : 0,
               4

@@ -113,15 +113,21 @@ const run = ({ config, setup, symbol }) => {
         let totalProfit = 0;
         let deviationsUsed = 0;
         let maxDeal = 0;
-        for (let tradesIndex = 0; tradesIndex < trades.length; tradesIndex++) {
+        let longerTrade = null;
+        let totalTrades = trades.length;
+        for (let tradesIndex = 0; tradesIndex < totalTrades; tradesIndex++) {
           const trade = trades[tradesIndex];
+          const tradeTime =
+            (trade.endTimestamp - trade.startTimestamp) / 1000 / 60 / 60;
           totalProfit += trade.profit;
           deviationsUsed = Math.max(deviationsUsed, trade.deviationsUsed);
-          maxDeal = Math.max(
-            maxDeal,
-            (trade.endTimestamp - trade.startTimestamp) / 1000 / 60 / 60
-          );
+          if (tradeTime >= maxDeal) {
+            maxDeal = tradeTime;
+            longerTrade = trade;
+          }
         }
+        let lastTrade = trades[trades.length - 1];
+
         process.send({
           deviationsUsed,
           totalProfit: parseFloat(
@@ -130,6 +136,11 @@ const run = ({ config, setup, symbol }) => {
           totalTrades: trades.filter((trade) => trade.upnl === 0).length,
           maxDeal: Math.round(maxDeal),
           upnl: trades[trades.length - 1].upnl,
+          longerTrade,
+          lastTrade,
+          lastTradeTime: Math.round(
+            (lastTrade.endTimestamp - lastTrade.startTimestamp) / 1000 / 60 / 60
+          ),
           setup,
           symbol,
         });
