@@ -1,3 +1,4 @@
+import fs from "fs";
 function roundToTwo(num) {
   return +(Math.round(num + "e+2") + "e-2");
 }
@@ -20,4 +21,10 @@ function insertProperty(obj, key, value, position) {
   return result;
 }
 
-export { roundToTwo, insertProperty };
+function getDirectories(path) {
+  return fs.readdirSync(path).filter(function (file) {
+    return fs.statSync(path + "/" + file).isDirectory();
+  });
+}
+
+export { roundToTwo, insertProperty, getDirectories };

@@ -1,4 +1,5 @@
 import { fork } from "child_process";
+import fs from "fs";
 import PQueue from "p-queue";
 import delay from "delay";
 import os from "os";
@@ -27,7 +28,6 @@ export default async ({ config, setups, symbol }) => {
   }
   totalSetups += setups.length;
   let promises = [];
-
   for (let index = 0; index < setups.length; index++) {
     const setup = setups[index];
     let child = childs[childsIndex];
@@ -45,12 +45,33 @@ export default async ({ config, setups, symbol }) => {
 
 const runSetupInChild = ({ config, setup, symbol, child }) => {
   return new Promise((resolve, reject) => {
+    const fromTimestamp = new Date(config.from).getTime();
+    const toTimestamp = new Date(config.to).getTime();
+    let mstcDir = `./results/${symbol
+      .replace("/", "")
+      .toLowerCase()}/${fromTimestamp}${toTimestamp}/${setup.mstc}`;
+    if (!fs.existsSync(mstcDir)) {
+      fs.mkdirSync(mstcDir, { recursive: true });
+    }
+    let finalFile = `${mstcDir}/${setup.tp}${setup.bo}${setup.so}${setup.sos}${setup.os}${setup.ss}.json`;
+    if (fs.existsSync(finalFile)) {
+      let message = JSON.parse(fs.readFileSync(finalFile));
+      resolve(message);
+      return;
+    }
     const handleMessage = function (message) {
       if (
         message.symbol === symbol &&
-        JSON.stringify(message.setup) === JSON.stringify(setup)
+        message.setup.tp === setup.tp &&
+        message.setup.bo === setup.bo &&
+        message.setup.so === setup.so &&
+        message.setup.sos === setup.sos &&
+        message.setup.os === setup.os &&
+        message.setup.ss === setup.ss &&
+        message.setup.mstc === setup.mstc
       ) {
         child.off("message", handleMessage);
+        fs.writeFileSync(finalFile, JSON.stringify(message));
         resolve(message);
       }
     };
