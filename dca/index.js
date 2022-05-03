@@ -174,88 +174,8 @@ import { insertProperty, roundToTwo } from "../utils.js";
     console.log(`---------------------------------------------`);
     console.timeEnd("All backtests completed");
     console.log("Writing to excel file");
-    const workbook = new Exceljs.Workbook();
     const dateFrom = new Date(from);
     const dateTo = new Date(to);
-    let worksheet = workbook.addWorksheet("All symbols", {
-      views: [{ state: "frozen", ySplit: 5 }],
-    });
-    worksheet.getCell("A1").value = `Start`;
-    worksheet.getCell("B1").value = from;
-    worksheet.getCell("A2").value = `End`;
-    worksheet.getCell("B2").value = to;
-    worksheet.getCell("A3").value = `Total pairs`;
-    worksheet.getCell("B3").value = symbols.length;
-    worksheet.getRow(5).values = Object.keys(allSetups[0]);
-    let columns = Object.keys(allSetups[0]).map((column) => {
-      return {
-        key: column,
-      };
-    });
-    worksheet.columns = columns;
-    allSetups.forEach((row) => worksheet.addRow(Object.values(row)));
-    worksheet.columns.forEach(function (column, i) {
-      var maxLength = 0;
-      column["eachCell"]({ includeEmpty: true }, function (cell) {
-        if (cell.row >= 5) {
-          var columnLength = cell.value ? cell.value.toString().length : 10;
-          if (columnLength > maxLength) {
-            maxLength = columnLength;
-          }
-          cell.style.alignment = { horizontal: "center" };
-          cell.style.border = {
-            top: { style: "thin" },
-            left: { style: "thin" },
-            bottom: { style: "thin" },
-            right: { style: "thin" },
-          };
-        }
-      });
-      column.width = maxLength < 10 ? 10 : maxLength;
-    });
-    let count = worksheet.rowCount + 2;
-    getFooterInfo().forEach((info) => {
-      worksheet.getCell(`A${count}`).value = info;
-      worksheet.mergeCells(`A${count}:R${count}`);
-      count = worksheet.rowCount + 1;
-    });
-    Object.keys(final).forEach((symbol) => {
-      worksheet = workbook.addWorksheet(symbol.replace("/", "-"), {
-        views: [{ state: "frozen", ySplit: 1 }],
-      });
-      columns = Object.keys(final[symbol][0]).map((column) => {
-        return {
-          header: column,
-          key: column,
-        };
-      });
-      worksheet.columns = columns;
-      final[symbol].forEach((row) => worksheet.addRow(Object.values(row)));
-      worksheet.columns.forEach(function (column, i) {
-        var maxLength = 0;
-        column["eachCell"]({ includeEmpty: true }, function (cell) {
-          var columnLength = cell.value ? cell.value.toString().length : 10;
-          if (columnLength > maxLength) {
-            maxLength = columnLength;
-          }
-          cell.style.alignment = { horizontal: "center" };
-          cell.style.border = {
-            top: { style: "thin" },
-            left: { style: "thin" },
-            bottom: { style: "thin" },
-            right: { style: "thin" },
-          };
-        });
-        column.width = maxLength < 10 ? 10 : maxLength;
-      });
-      let count = worksheet.rowCount + 2;
-      getFooterInfo().forEach((info) => {
-        worksheet.getCell(`A${count}`).value = info;
-        worksheet.getCell(`A${count}`).style.border = {};
-        worksheet.mergeCells(`A${count}:R${count}`);
-        count = worksheet.rowCount + 1;
-      });
-    });
     let file = path.resolve(
       `./results`,
       `${dateFrom.getFullYear()}-${
@@ -267,7 +187,129 @@ import { insertProperty, roundToTwo } from "../utils.js";
     if (fs.existsSync(file)) {
       fs.unlinkSync(file);
     }
-    await workbook.xlsx.writeFile(file);
+    const workbook = new Exceljs.stream.xlsx.WorkbookWriter({
+      filename: file,
+      useStyles: true,
+    });
+    let worksheet = workbook.addWorksheet("All symbols", {
+      views: [{ state: "frozen", ySplit: 5 }],
+    });
+    worksheet.getCell("A1").value = `Start`;
+    worksheet.getCell("B1").value = from;
+    worksheet.getCell("A2").value = `End`;
+    worksheet.getCell("B2").value = to;
+    worksheet.getCell("A3").value = `Total pairs`;
+    worksheet.getCell("B3").value = symbols.length;
+    worksheet.getRow(5).values = Object.keys(allSetups[0]);
+    let columnsLength = [];
+    let sheetRow = worksheet.getRow(5);
+    sheetRow.eachCell({ includeEmpty: true }, function (cell, colNumber) {
+      cell.style.alignment = { horizontal: "center" };
+      cell.style.border = {
+        top: { style: "thin" },
+        left: { style: "thin" },
+        bottom: { style: "thin" },
+        right: { style: "thin" },
+      };
+      let columnLength = cell.value ? cell.value.toString().length : 15;
+      columnsLength[colNumber] = columnLength < 10 ? 10 : columnLength;
+      worksheet.getColumn(colNumber).width = columnsLength[colNumber];
+    });
+    sheetRow.commit();
+    let columns = Object.keys(allSetups[0]).map((column, i) => {
+      return {
+        key: column,
+      };
+    });
+    worksheet.columns = columns;
+    let rowCount = 0;
+    allSetups.forEach((row) => {
+      worksheet.addRow(row);
+      sheetRow = worksheet.lastRow;
+      sheetRow.eachCell({ includeEmpty: true }, function (cell, colNumber) {
+        cell.style.alignment = { horizontal: "center" };
+        cell.style.border = {
+          top: { style: "thin" },
+          left: { style: "thin" },
+          bottom: { style: "thin" },
+          right: { style: "thin" },
+        };
+        let columnLength = cell.value ? cell.value.toString().length : 10;
+        if (columnLength > columnsLength[colNumber]) {
+          columnsLength[colNumber] = columnLength;
+          worksheet.getColumn(colNumber).width = columnLength;
+        }
+      });
+      rowCount = sheetRow.number;
+      sheetRow.commit();
+    });
+    rowCount += 2;
+    getFooterInfo().forEach((info) => {
+      worksheet.getCell(`A${rowCount}`).value = info;
+      worksheet.mergeCells(`A${rowCount}:R${rowCount}`);
+      rowCount++;
+    });
+    worksheet.commit();
+    Object.keys(final).forEach((symbol) => {
+      columnsLength = [];
+      worksheet = workbook.addWorksheet(symbol.replace("/", "-"), {
+        views: [{ state: "frozen", ySplit: 1 }],
+      });
+      columns = Object.keys(final[symbol][0]).map((column) => {
+        return {
+          header: column,
+          key: column,
+        };
+      });
+      worksheet.columns = columns;
+      sheetRow = worksheet.getRow(1);
+      sheetRow.eachCell({ includeEmpty: true }, function (cell, colNumber) {
+        cell.style.alignment = { horizontal: "center" };
+        cell.style.border = {
+          top: { style: "thin" },
+          left: { style: "thin" },
+          bottom: { style: "thin" },
+          right: { style: "thin" },
+        };
+        let columnLength = cell.value ? cell.value.toString().length : 10;
+        columnsLength[colNumber] = columnLength < 10 ? 10 : columnLength;
+        worksheet.getColumn(colNumber).width = columnsLength[colNumber];
+      });
+      sheetRow.commit();
+      rowCount = 0;
+      final[symbol].forEach((row) => {
+        worksheet.addRow(row);
+        let sheetRow = worksheet.lastRow;
+        sheetRow.eachCell({ includeEmpty: true }, function (cell, colNumber) {
+          cell.style.alignment = { horizontal: "center" };
+          cell.style.border = {
+            top: { style: "thin" },
+            left: { style: "thin" },
+            bottom: { style: "thin" },
+            right: { style: "thin" },
+          };
+          let columnLength = cell.value ? cell.value.toString().length : 10;
+          if (
+            !columnsLength[colNumber] ||
+            columnLength > columnsLength[colNumber]
+          ) {
+            columnsLength[colNumber] = columnLength;
+            worksheet.getColumn(colNumber).width = columnLength;
+          }
+        });
+        rowCount = sheetRow.number;
+        sheetRow.commit();
+      });
+      rowCount += 2;
+      getFooterInfo().forEach((info) => {
+        worksheet.getCell(`A${rowCount}`).value = info;
+        worksheet.getCell(`A${rowCount}`).style.border = {};
+        worksheet.mergeCells(`A${rowCount}:R${rowCount}`);
+        rowCount++;
+      });
+      worksheet.commit();
+    });
+    await workbook.commit();
   }
   console.log("Finished.");
   process.exit(0);
