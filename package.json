@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node ./dca/index.js",
+    "start": "node --max-old-space-size=32768 ./dca/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

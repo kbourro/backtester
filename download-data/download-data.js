@@ -3,7 +3,12 @@ import * as db from "../db/sql.js";
 export default (exchange, symbol, timeframe, since, end) => {
   symbol = symbol.toUpperCase();
   return new Promise((resolve, reject) => {
+    let firstTimestamp = db.getFirstTimestamp(symbol);
     let lastTimestamp = db.getLastTimestamp(symbol);
+    // if (firstTimestamp !== null && since < firstTimestamp) {
+
+    // }
+    // else
     if (lastTimestamp !== null && lastTimestamp > since) {
       since = lastTimestamp + 1;
     }

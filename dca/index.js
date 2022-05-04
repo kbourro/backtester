@@ -8,9 +8,11 @@ if (!process.argv[2]) {
   process.exit(0);
 }
 import downloadData from "../download-data/index.js";
-import symbolBacktest from "./symbol.js";
+import * as symbolBacktest from "./symbol.js";
 import prepareSetups from "./prepareSetups.js";
 import { insertProperty, roundToTwo } from "../utils.js";
+const queue = new PQueue({ concurrency: 5, autoStart: false });
+
 (async () => {
   const config = (
     await import(url.pathToFileURL(path.resolve(process.argv[2])).href)
@@ -20,69 +22,64 @@ import { insertProperty, roundToTwo } from "../utils.js";
   const from = config.from;
   const to = config.to;
   const exchanger = config.exchanger;
-  let queue = new PQueue({ concurrency: 5 });
-  let promises = symbols.map((symbol) => {
-    queue.add(() => downloadData(exchanger, symbol, from, to));
-  });
-  await Promise.all(promises);
   console.log(
     `Test started for ${setups.length} setups and ${
       symbols.length
     } symbols. Total backtests ${setups.length * symbols.length}`
   );
-  promises = [];
-  queue = new PQueue({ concurrency: Infinity });
   console.time("All backtests completed");
-  promises = symbols.map((symbol) =>
-    queue.add(() => symbolBacktest({ config, setups, symbol }))
-  );
-  const results = await Promise.all(promises);
   let final = [];
-  results.forEach((symbolResults) => {
-    let temp = [];
-    symbolResults.results.forEach((result) => {
-      let lastTradeStart = new Date(result.lastTrade.startTimestamp);
-      let lastTradeEnd = new Date(result.lastTrade.endTimestamp);
-      let longerTradeStart = new Date(result.longerTrade.startTimestamp);
-      let longerTradeEnd = new Date(result.longerTrade.endTimestamp);
-      temp.push({
-        Name: result.setup.name,
-        "ROI %": roundToTwo(result.totalProfit + result.upnl),
-        "ROI Without Upnl %": roundToTwo(result.totalProfit),
-        "Upnl %": roundToTwo(result.upnl),
-        DU: result.deviationsUsed,
-        "Coverage %": result.setup.maxDeviation,
-        "Total Trades": result.totalTrades,
-        "MD trade started": `${longerTradeStart.getFullYear()}-${
-          longerTradeStart.getMonth() + 1
-        }-${longerTradeStart.getDate()}`,
-        "MD trade ended": `${longerTradeEnd.getFullYear()}-${
-          longerTradeEnd.getMonth() + 1
-        }-${longerTradeEnd.getDate()}`,
-        "MD (h)": result.maxDeal,
-        "Last trade started": `${lastTradeStart.getFullYear()}-${
-          lastTradeStart.getMonth() + 1
-        }-${lastTradeStart.getDate()}`,
-        "Last trade ended": `${lastTradeEnd.getFullYear()}-${
-          lastTradeEnd.getMonth() + 1
-        }-${lastTradeEnd.getDate()}`,
-        "Last trade deal time (h)": result.lastTradeTime,
-        "RC %": roundToTwo(
-          result.setup.requiredChange[result.setup.requiredChange.length - 1]
-        ),
-        TV: Math.round(
-          result.setup.totalVolume[result.setup.totalVolume.length - 1]
-        ),
-        tp: result.setup.tp,
-        bo: result.setup.bo,
-        so: result.setup.so,
-        sos: result.setup.sos,
-        os: result.setup.os,
-        ss: result.setup.ss,
-        mstc: result.setup.mstc,
-      });
+  let promises = [];
+  for (let index = 0; index < symbols.length; index++) {
+    const symbol = symbols[index];
+    promises.push(queue.add(() => downloadData(exchanger, symbol, from, to)));
+    await symbolBacktest.add({ config, setups, symbol });
+    final[symbol] = [];
+  }
+  queue.start();
+  await Promise.all(promises);
+  const results = await symbolBacktest.start();
+  results.forEach((result) => {
+    let lastTradeStart = new Date(result.lastTrade.startTimestamp);
+    let lastTradeEnd = new Date(result.lastTrade.endTimestamp);
+    let longerTradeStart = new Date(result.longerTrade.startTimestamp);
+    let longerTradeEnd = new Date(result.longerTrade.endTimestamp);
+    final[result.symbol].push({
+      Name: result.setup.name,
+      "ROI %": roundToTwo(result.totalProfit + result.upnl),
+      "ROI Without Upnl %": roundToTwo(result.totalProfit),
+      "Upnl %": roundToTwo(result.upnl),
+      DU: result.deviationsUsed,
+      "Coverage %": result.setup.maxDeviation,
+      "Total Trades": result.totalTrades,
+      "MD trade started": `${longerTradeStart.getFullYear()}-${
+        longerTradeStart.getMonth() + 1
+      }-${longerTradeStart.getDate()}`,
+      "MD trade ended": `${longerTradeEnd.getFullYear()}-${
+        longerTradeEnd.getMonth() + 1
+      }-${longerTradeEnd.getDate()}`,
+      "MD (h)": result.maxDeal,
+      "Last trade started": `${lastTradeStart.getFullYear()}-${
+        lastTradeStart.getMonth() + 1
+      }-${lastTradeStart.getDate()}`,
+      "Last trade ended": `${lastTradeEnd.getFullYear()}-${
+        lastTradeEnd.getMonth() + 1
+      }-${lastTradeEnd.getDate()}`,
+      "Last trade deal time (h)": result.lastTradeTime,
+      "RC %": roundToTwo(
+        result.setup.requiredChange[result.setup.requiredChange.length - 1]
+      ),
+      TV: Math.round(
+        result.setup.totalVolume[result.setup.totalVolume.length - 1]
+      ),
+      tp: result.setup.tp,
+      bo: result.setup.bo,
+      so: result.setup.so,
+      sos: result.setup.sos,
+      os: result.setup.os,
+      ss: result.setup.ss,
+      mstc: result.setup.mstc,
     });
-    final[symbolResults.symbol] = temp;
   });
   let allSetups = [];
   if (Object.keys(final).length > 0) {

@@ -1,5 +1,5 @@
 export default {
-  options: { console: false },
+  options: { console: true },
   symbols: ["btc/usdt", "luna/usdt"],
   from: "2021/11/09 00:00:00",
   to: "2022/04/29 23:59:00",
