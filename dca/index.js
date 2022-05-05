@@ -11,7 +11,7 @@ import downloadData from "../download-data/index.js";
 import * as symbolBacktest from "./symbol.js";
 import prepareSetups from "./prepareSetups.js";
 import { insertProperty, roundToTwo } from "../utils.js";
-const queue = new PQueue({ concurrency: 5, autoStart: false });
+const queue = new PQueue({ concurrency: 50, autoStart: false });
 
 (async () => {
   const config = (

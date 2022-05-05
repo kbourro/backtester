@@ -1,10 +1,26 @@
+import fs from "fs";
 import PQueue from "p-queue";
 import { getAllDataInRangeLimit } from "../db/sql.js";
-const queue = new PQueue({ concurrency: 2 });
-const run = ({ config, setup, symbol }) => {
+//const queue = new PQueue({ concurrency: 2 });
+const run = ({ config, setup, symbol, id }) => {
   return new Promise((resolve) => {
     let fromTimestamp = new Date(config.from).getTime();
     const toTimestamp = new Date(config.to).getTime();
+    let mstcDir = `./results/${symbol
+      .replace("/", "")
+      .toLowerCase()}/${fromTimestamp}${toTimestamp}/${setup.mstc}`;
+    if (!fs.existsSync(mstcDir)) {
+      fs.mkdirSync(mstcDir, { recursive: true });
+    }
+    let finalFile = `${mstcDir}/${setup.tp}${setup.bo}${setup.so}${setup.sos}${setup.os}${setup.ss}.json`;
+    if (fs.existsSync(finalFile)) {
+      let response = JSON.parse(fs.readFileSync(finalFile));
+      if (response.setup.name !== setup.name) {
+        response.setup.name = setup.name;
+      }
+      resolve(response);
+      return;
+    }
     const tradeTemplate = {
       open: null,
       close: null,
@@ -30,7 +46,8 @@ const run = ({ config, setup, symbol }) => {
         toTimestamp,
         10000
       );
-      if (ohlcvs.length <= 0) {
+      let ohlcvsLength = ohlcvs.length;
+      if (ohlcvsLength <= 0) {
         keepRunning = false;
         if (trade.open !== null) {
           if (trade.endTimestamp === null) {
@@ -48,7 +65,7 @@ const run = ({ config, setup, symbol }) => {
           trades.push({ ...trade });
         }
       } else {
-        for (let dataIndex = 0; dataIndex < ohlcvs.length; dataIndex++) {
+        for (let dataIndex = 0; dataIndex < ohlcvsLength; dataIndex++) {
           const ohlcv = ohlcvs[dataIndex];
           lastClosePrice = ohlcv.close;
           if (trade.open === null) {
@@ -127,8 +144,7 @@ const run = ({ config, setup, symbol }) => {
           }
         }
         let lastTrade = trades[trades.length - 1];
-
-        process.send({
+        let response = {
           deviationsUsed,
           totalProfit: parseFloat(
             ((totalProfit / setup.maxAmount) * 100).toFixed(2)
@@ -143,9 +159,10 @@ const run = ({ config, setup, symbol }) => {
           ),
           setup,
           symbol,
-        });
+        };
+        fs.writeFileSync(finalFile, JSON.stringify(response));
         trades = [];
-        resolve();
+        resolve(response);
       } else {
         setTimeout(runBacktestsInAllTimestamps, 10);
       }
@@ -154,7 +171,27 @@ const run = ({ config, setup, symbol }) => {
   });
 };
 
+// const runMiltiple = async ({ config, setups, symbol, id }) => {
+//   let results = [];
+//   let totalSetups = setups.length;
+//   for (let index = 0; index < totalSetups; index++) {
+//     const setup = setups[index];
+//     results.push(run({ config, setup, symbol, id }));
+//   }
+//   return await Promise.all(results);
+// };
+
 process.on("message", function (message) {
-  queue.add(() => run({ ...message }));
+  // if (Array.isArray(message)) {
+  //   runMiltiple({ ...message }).then((response) => {
+  //     process.send(response);
+  //   });
+  // } else {
+  run({ ...message }).then((response) => {
+    process.send(response);
+  });
+  // }
+
+  //queue.add(() => run({ ...message }));
 });
 process.send("started");

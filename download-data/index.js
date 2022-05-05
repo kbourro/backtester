@@ -1,12 +1,14 @@
 import ccxt from "ccxt";
 import downloadData from "./download-data.js";
+const binance = new ccxt.binance({ enableRateLimit: true, rateLimit: 60 });
+const ftx = new ccxt.ftx();
 
 export default async (exchanger, symbol, from, to = null) => {
   let exchange = null;
   if (exchanger === "ftx") {
-    exchange = new ccxt.ftx();
+    exchange = ftx;
   } else {
-    exchange = new ccxt.binance();
+    exchange = binance;
   }
   const timeframe = "1m";
   const since = new Date(from).getTime();

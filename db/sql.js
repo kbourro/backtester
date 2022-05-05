@@ -62,6 +62,11 @@ const createTable = (symbol) => {
   );
 };
 
+const dropTable = (symbol) => {
+  let table = symbol.replace("/", "").toLowerCase();
+  db.exec(`DROP TABLE "${table}";`);
+};
+
 export {
   getLastTimestamp,
   getFirstTimestamp,
@@ -69,4 +74,5 @@ export {
   getAllData,
   getAllDataInRange,
   getAllDataInRangeLimit,
+  dropTable,
 };

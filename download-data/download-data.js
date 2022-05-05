@@ -5,11 +5,9 @@ export default (exchange, symbol, timeframe, since, end) => {
   return new Promise((resolve, reject) => {
     let firstTimestamp = db.getFirstTimestamp(symbol);
     let lastTimestamp = db.getLastTimestamp(symbol);
-    // if (firstTimestamp !== null && since < firstTimestamp) {
-
-    // }
-    // else
-    if (lastTimestamp !== null && lastTimestamp > since) {
+    if (firstTimestamp !== null && since < firstTimestamp) {
+      db.dropTable(symbol);
+    } else if (lastTimestamp !== null && lastTimestamp > since) {
       since = lastTimestamp + 1;
     }
     const timeoutFunc = async () => {
@@ -19,7 +17,11 @@ export default (exchange, symbol, timeframe, since, end) => {
       }
       let response = await fetchOHLCVSince(exchange, symbol, timeframe, since);
       if (response.ohlcvs.length > 0) {
-        db.insertCandles(response.symbol, response.ohlcvs);
+        try {
+          db.insertCandles(response.symbol, response.ohlcvs);
+        } catch (error) {
+          //ignore
+        }
         since = response.lastTimestamp + 1;
         setTimeout(timeoutFunc, 100);
       } else {
