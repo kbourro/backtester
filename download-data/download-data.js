@@ -3,32 +3,46 @@ import * as db from "../db/sql.js";
 export default (exchange, symbol, timeframe, since, end) => {
   symbol = symbol.toUpperCase();
   return new Promise((resolve, reject) => {
-    let firstTimestamp = db.getFirstTimestamp(symbol);
-    let lastTimestamp = db.getLastTimestamp(symbol);
-    if (firstTimestamp !== null && since < firstTimestamp) {
-      db.dropTable(symbol);
-    } else if (lastTimestamp !== null && lastTimestamp > since) {
-      since = lastTimestamp + 1;
-    }
-    const timeoutFunc = async () => {
-      if (end !== null && since > end) {
-        resolve(true);
-        return;
+    (async () => {
+      let firstTimestamp = db.getFirstTimestamp(symbol);
+      let lastTimestamp = db.getLastTimestamp(symbol);
+      if (firstTimestamp !== null && since < firstTimestamp) {
+        const ohlcvs = await exchange.fetchOHLCV(symbol, timeframe, since);
+        let test = exchange.safeInteger(exchange.safeValue(ohlcvs, 0), 0);
+        console.log(test);
+        process.exit();
+        // if (response.ohlcvs.length > 0 && ) {
+
+        // }
+        db.dropTable(symbol);
+      } else if (lastTimestamp !== null && lastTimestamp > since) {
+        since = lastTimestamp + 1;
       }
-      let response = await fetchOHLCVSince(exchange, symbol, timeframe, since);
-      if (response.ohlcvs.length > 0) {
-        try {
-          db.insertCandles(response.symbol, response.ohlcvs);
-        } catch (error) {
-          //ignore
+      const timeoutFunc = async () => {
+        if (end !== null && since > end) {
+          resolve(true);
+          return;
         }
-        since = response.lastTimestamp + 1;
-        setTimeout(timeoutFunc, 100);
-      } else {
-        resolve(true);
-      }
-    };
-    setTimeout(timeoutFunc, 10);
+        let response = await fetchOHLCVSince(
+          exchange,
+          symbol,
+          timeframe,
+          since
+        );
+        if (response.ohlcvs.length > 0) {
+          try {
+            db.insertCandles(response.symbol, response.ohlcvs);
+          } catch (error) {
+            //ignore
+          }
+          since = response.lastTimestamp + 1;
+          setTimeout(timeoutFunc, 100);
+        } else {
+          resolve(true);
+        }
+      };
+      setTimeout(timeoutFunc, 10);
+    })();
   });
 };
 

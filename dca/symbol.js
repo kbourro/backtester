@@ -6,18 +6,38 @@ let totalSetups = 0;
 let tasks = [];
 let tasksIndex = 0;
 let totalTasks = 0;
+let tasksPerCPU = 0;
 let childs = [];
 let results = [];
+let totalCompleted = 0;
 for (let index = 0; index < processes; index++) {
   const child = fork("./dca/setup.js");
   let started = false;
   const handleMessage = (message) => {
     if (started) {
-      results.push(message);
-      if (tasksIndex < totalTasks) {
-        child.send({ ...tasks[tasksIndex], id: tasksIndex });
-        tasksIndex++;
+      if (message.single) {
+        results.push(message.single);
+        totalCompleted++;
+      } else if (message.multiple) {
+        for (let index = 0; index < message.multiple.length; index++) {
+          results.push(message.multiple[index]);
+          totalCompleted++;
+        }
+        let childTasks = [];
+        for (let i = 0; i < tasksPerCPU; i++) {
+          if (tasksIndex < totalTasks) {
+            childTasks.push({ ...tasks[tasksIndex], id: tasksIndex });
+            tasksIndex++;
+          }
+        }
+        if (childTasks.length > 0) {
+          child.send(childTasks);
+        }
       }
+      // if (tasksIndex < totalTasks) {
+      //   child.send({ ...tasks[tasksIndex], id: tasksIndex });
+      //   tasksIndex++;
+      // }
     } else if (message === "started") {
       started = true;
       childs.push(child);
@@ -40,53 +60,40 @@ const add = async ({ config, setups, symbol }) => {
 const start = () => {
   return new Promise((resolve) => {
     totalTasks = tasks.length;
-    let tasksToSend = Math.min(childs.length, totalTasks);
-    for (let index = 0; index < tasksToSend; index++) {
-      childs[index].send(tasks[tasksIndex]);
-      tasksIndex++;
+    tasksPerCPU = Math.min(totalTasks / childs.length, 5);
+    for (let index = 0; index < childs.length; index++) {
+      const child = childs[index];
+      let childTasks = [];
+      for (let i = 0; i < tasksPerCPU; i++) {
+        if (tasksIndex < totalTasks) {
+          childTasks.push({ ...tasks[tasksIndex], id: tasksIndex });
+          tasksIndex++;
+        }
+      }
+      if (childTasks.length > 0) {
+        child.send(childTasks);
+      }
     }
+    // let tasksToSend = Math.min(childs.length, totalTasks);
+    // for (let index = 0; index < tasksToSend; index++) {
+    //   childs[index].send(tasks[tasksIndex]);
+    //   tasksIndex++;
+    // }
     const printCompletedResults = () => {
-      console.log(`Setups completed: ${results.length}/${totalSetups}`);
-      setTimeout(printCompletedResults, 5000);
+      console.log(`Setups completed: ${totalCompleted}/${totalSetups}`);
+      setTimeout(printCompletedResults, 2000);
     };
     const checkIfAllFinished = () => {
-      if (results.length === totalTasks) {
+      if (totalCompleted === totalTasks) {
         tasks = [];
-        console.log(`Setups completed: ${results.length}/${totalSetups}`);
+        console.log(`Setups completed: ${totalCompleted}/${totalSetups}`);
         resolve(results);
         return;
       }
       setTimeout(checkIfAllFinished, 1000);
     };
-    setTimeout(printCompletedResults, 5000);
+    setTimeout(printCompletedResults, 2000);
     setTimeout(checkIfAllFinished, 1000);
   });
 };
-
-// const runSetupInChild = ({ config, setup, symbol, child }) => {
-//   return new Promise((resolve, reject) => {
-//     const handleMessage = function (message) {
-//       if (
-//         message.symbol === symbol &&
-//         message.setup.tp === setup.tp &&
-//         message.setup.bo === setup.bo &&
-//         message.setup.so === setup.so &&
-//         message.setup.sos === setup.sos &&
-//         message.setup.os === setup.os &&
-//         message.setup.ss === setup.ss &&
-//         message.setup.mstc === setup.mstc
-//       ) {
-//         child.off("message", handleMessage);
-//         resolve(message);
-//       }
-//     };
-//     child.on("message", handleMessage);
-//     child.send({
-//       config: { from: config.from, to: config.to },
-//       setup,
-//       symbol,
-//     });
-//   });
-// };
-
 export { add, start };

@@ -1,6 +1,7 @@
 import fs from "fs";
-import PQueue from "p-queue";
+//import PQueue from "p-queue";
 import { getAllDataInRangeLimit } from "../db/sql.js";
+//let tempCompleted = 0;
 //const queue = new PQueue({ concurrency: 2 });
 const run = ({ config, setup, symbol, id }) => {
   return new Promise((resolve) => {
@@ -163,35 +164,46 @@ const run = ({ config, setup, symbol, id }) => {
         fs.writeFileSync(finalFile, JSON.stringify(response));
         trades = [];
         resolve(response);
+        return;
       } else {
-        setTimeout(runBacktestsInAllTimestamps, 10);
+        runBacktestsInAllTimestamps();
       }
     };
     runBacktestsInAllTimestamps();
   });
 };
 
-// const runMiltiple = async ({ config, setups, symbol, id }) => {
-//   let results = [];
-//   let totalSetups = setups.length;
-//   for (let index = 0; index < totalSetups; index++) {
-//     const setup = setups[index];
-//     results.push(run({ config, setup, symbol, id }));
-//   }
-//   return await Promise.all(results);
-// };
+const runMiltiple = async (tasks) => {
+  let results = [];
+  let totalTasks = tasks.length;
+  for (let index = 0; index < totalTasks; index++) {
+    const task = tasks[index];
+    results.push(await run({ ...task }));
+    //tempCompleted++;
+  }
+  return results;
+};
 
 process.on("message", function (message) {
-  // if (Array.isArray(message)) {
-  //   runMiltiple({ ...message }).then((response) => {
-  //     process.send(response);
-  //   });
-  // } else {
-  run({ ...message }).then((response) => {
-    process.send(response);
-  });
-  // }
+  if (Array.isArray(message)) {
+    runMiltiple(message).then((response) => {
+      process.send({ multiple: response });
+    });
+  } else {
+    run({ ...message }).then((response) => {
+      process.send({ single: response });
+    });
+  }
 
   //queue.add(() => run({ ...message }));
 });
+
 process.send("started");
+// const updateCompletedCounter = () => {
+//   if (tempCompleted > 0) {
+//     process.send({ completed: tempCompleted });
+//     tempCompleted = 0;
+//   }
+//   setTimeout(updateCompletedCounter, 1000);
+// };
+// setTimeout(updateCompletedCounter, 1000);
