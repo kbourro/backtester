@@ -80,6 +80,9 @@ const start = () => {
     //   tasksIndex++;
     // }
     const printCompletedResults = () => {
+      if (totalCompleted === totalTasks) {
+        return;
+      }
       console.log(`Setups completed: ${totalCompleted}/${totalSetups}`);
       setTimeout(printCompletedResults, 2000);
     };
