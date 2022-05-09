@@ -8,13 +8,13 @@ export default (exchange, symbol, timeframe, since, end) => {
       let lastTimestamp = db.getLastTimestamp(symbol);
       if (firstTimestamp !== null && since < firstTimestamp) {
         const ohlcvs = await exchange.fetchOHLCV(symbol, timeframe, since);
-        let test = exchange.safeInteger(exchange.safeValue(ohlcvs, 0), 0);
-        console.log(test);
-        process.exit();
-        // if (response.ohlcvs.length > 0 && ) {
-
-        // }
-        db.dropTable(symbol);
+        let firstTimestampOnExchanger = exchange.safeInteger(
+          exchange.safeValue(ohlcvs, 0),
+          0
+        );
+        if (firstTimestampOnExchanger < firstTimestamp) {
+          db.dropTable(symbol);
+        }
       } else if (lastTimestamp !== null && lastTimestamp > since) {
         since = lastTimestamp + 1;
       }
