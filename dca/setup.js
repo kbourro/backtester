@@ -16,11 +16,16 @@ const run = ({ config, setup, symbol, id }) => {
     let finalFile = `${mstcDir}/${setup.tp}${setup.bo}${setup.so}${setup.sos}${setup.os}${setup.ss}.json`;
     if (fs.existsSync(finalFile)) {
       let response = JSON.parse(fs.readFileSync(finalFile));
-      if (response.setup.name !== setup.name) {
-        response.setup.name = setup.name;
+      if (response.upnl === undefined || response.upnl === null) {
+        fs.unlinkSync(finalFile);
+        response = null;
+      } else {
+        if (response.setup.name !== setup.name) {
+          response.setup.name = setup.name;
+        }
+        resolve(response);
+        return;
       }
-      resolve(response);
-      return;
     }
     const tradeTemplate = {
       open: null,
@@ -79,6 +84,7 @@ const run = ({ config, setup, symbol, id }) => {
             trade.tpPrice =
               (trade.open * setup.requiredChange[0]) / 100 + trade.open;
             trade.startTimestamp = ohlcv.timestamp;
+            trade.upnl = 0;
             for (
               let deviationsIndex = 1;
               deviationsIndex < setup.deviations.length;
@@ -145,6 +151,12 @@ const run = ({ config, setup, symbol, id }) => {
           }
         }
         let lastTrade = trades[trades.length - 1];
+        if (
+          trades[trades.length - 1] === undefined ||
+          trades[trades.length - 1].upnl === undefined
+        ) {
+          console.error(symbol);
+        }
         let response = {
           deviationsUsed,
           totalProfit: parseFloat(

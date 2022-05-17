@@ -1,106 +1,123 @@
-const generateSetupsFromRanges = (setups) => {
-  let tempSetups = [];
-  for (let setupsIndex = 0; setupsIndex < setups.length; setupsIndex++) {
-    let arrayFound = false;
-    const setup = setups[setupsIndex];
-    let keys = Object.keys(setup);
-    for (let keysIndex = 0; keysIndex < keys.length; keysIndex++) {
-      const key = keys[keysIndex];
-      if (Array.isArray(setup[key])) {
-        arrayFound = true;
-        let internalSetups = [];
-        for (
-          let valuesIndex = 0;
-          valuesIndex < setup[key].length;
-          valuesIndex++
-        ) {
-          const value = setup[key][valuesIndex];
-          let tempSetup = { ...setup };
-          tempSetup[key] = value;
-          internalSetups.push({ ...tempSetup });
-        }
-        tempSetups = tempSetups.concat(
-          generateSetupsFromRanges([...internalSetups])
-        );
-        break;
+import { fork } from "child_process";
+import delay from "delay";
+import os from "os";
+const processes = os.cpus().length - 1;
+let childs = [];
+let finalSetups = [];
+for (let index = 0; index < processes; index++) {
+  const child = fork("./dca/generateSetupsFromRanges.js");
+  let started = false;
+  const handleMessage = (message) => {
+    if (started) {
+      finalSetups = finalSetups.concat(finalSetups, message);
+      childs = childs.filter((val) => val !== child);
+      child.off("message", handleMessage);
+      child.kill();
+    } else if (message === "started") {
+      started = true;
+      childs.push(child);
+    }
+  };
+  child.on("message", handleMessage);
+}
+
+const run = (setups, config) => {
+  return new Promise((resolve) => {
+    let childIndex = 0;
+    for (let index = 0; index < setups.length; index++) {
+      const setup = setups[index];
+      childs[childIndex].send(setup);
+      childIndex++;
+      if (childIndex >= childs.length) {
+        childIndex = 0;
       }
     }
-    if (!arrayFound) {
-      tempSetups.push({ ...setup });
+    for (let index = 0; index < childs.length; index++) {
+      const child = childs[index];
+      child.send("start");
     }
-  }
-  return tempSetups;
+    const finalize = () => {
+      if (childs.length > 0) {
+        setTimeout(finalize, 1000);
+        return;
+      }
+      // Remove duplicates and Rename setups with same name
+      let tempSetups = [];
+      for (let index = 0; index < finalSetups.length; index++) {
+        const setup = finalSetups[index];
+        if (setup.bo > 10 && setup.bo === setup.so) {
+          continue;
+        }
+        if (
+          tempSetups.filter(
+            (s) =>
+              s.tp === setup.tp &&
+              s.bo === setup.bo &&
+              s.so === setup.so &&
+              s.sos === setup.sos &&
+              s.os === setup.os &&
+              s.ss === setup.ss &&
+              s.mstc === setup.mstc
+          ).length > 0
+        ) {
+          continue;
+        }
+        if (tempSetups.filter((s) => s.name === setup.name).length > 0) {
+          setup.name = `${setup.name} ${index}`;
+        }
+        tempSetups.push({ ...setup });
+      }
+      finalSetups = [...tempSetups];
+      for (let index = 0; index < finalSetups.length; index++) {
+        const setup = finalSetups[index];
+        setup.deviations = [0];
+        setup.volume = [setup.bo];
+        setup.totalVolume = [setup.bo];
+        setup.requiredChange = [setup.tp];
+        let tempTotalCoins = 1;
+        let maxDeviation = 0;
+        for (let i = 0; i < setup.mstc; i++) {
+          let volume = 0;
+          if (i === 0) {
+            volume = setup.so;
+            maxDeviation = setup.sos;
+            setup.volume.push(setup.so);
+            setup.totalVolume.push(setup.bo + setup.so);
+          } else {
+            volume = setup.volume[setup.volume.length - 1] * setup.os;
+            maxDeviation = maxDeviation * setup.ss + setup.sos;
+            setup.volume.push(volume);
+            setup.totalVolume.push(
+              setup.totalVolume[setup.totalVolume.length - 1] + volume
+            );
+          }
+          let tempPricePerCoin = setup.bo - (setup.bo * maxDeviation) / 100;
+          tempTotalCoins += volume / tempPricePerCoin;
+          let tempAveragePrice =
+            setup.totalVolume[setup.totalVolume.length - 1] / tempTotalCoins;
+          setup.requiredChange.push(
+            ((tempAveragePrice - tempPricePerCoin) / tempPricePerCoin) * 100 +
+              setup.tp
+          );
+          setup.deviations.push(maxDeviation);
+        }
+        // console.log(setup);
+        // process.exit(0);
+        // Correct way to round to 2 decimals
+        setup.maxDeviation = +(Math.round(maxDeviation + "e+2") + "e-2");
+        setup.maxAmount = Math.round(
+          setup.volume.reduce((partialSum, a) => partialSum + a, 0)
+        );
+      }
+      resolve(finalSetups);
+    };
+    setTimeout(finalize, 10);
+  });
 };
 
-export default (setups, config) => {
-  setups = generateSetupsFromRanges(setups);
-  // Remove duplicates and Rename setups with same name
-  let tempSetups = [];
-  for (let index = 0; index < setups.length; index++) {
-    const setup = setups[index];
-    if (setup.bo > 10 && setup.bo === setup.so) {
-      continue;
-    }
-    if (
-      tempSetups.filter(
-        (s) =>
-          s.tp === setup.tp &&
-          s.bo === setup.bo &&
-          s.so === setup.so &&
-          s.sos === setup.sos &&
-          s.os === setup.os &&
-          s.ss === setup.ss &&
-          s.mstc === setup.mstc
-      ).length > 0
-    ) {
-      continue;
-    }
-    if (tempSetups.filter((s) => s.name === setup.name).length > 0) {
-      setup.name = `${setup.name} ${index}`;
-    }
-    tempSetups.push({ ...setup });
+export default async (setups, config) => {
+  while (childs.length < processes) {
+    await delay(200);
   }
-  setups = [...tempSetups];
-  for (let index = 0; index < setups.length; index++) {
-    const setup = setups[index];
-    setup.deviations = [0];
-    setup.volume = [setup.bo];
-    setup.totalVolume = [setup.bo];
-    setup.requiredChange = [setup.tp];
-    let tempTotalCoins = 1;
-    let maxDeviation = 0;
-    for (let i = 0; i < setup.mstc; i++) {
-      let volume = 0;
-      if (i === 0) {
-        volume = setup.so;
-        maxDeviation = setup.sos;
-        setup.volume.push(setup.so);
-        setup.totalVolume.push(setup.bo + setup.so);
-      } else {
-        volume = setup.volume[setup.volume.length - 1] * setup.os;
-        maxDeviation = maxDeviation * setup.ss + setup.sos;
-        setup.volume.push(volume);
-        setup.totalVolume.push(
-          setup.totalVolume[setup.totalVolume.length - 1] + volume
-        );
-      }
-      let tempPricePerCoin = setup.bo - (setup.bo * maxDeviation) / 100;
-      tempTotalCoins += volume / tempPricePerCoin;
-      let tempAveragePrice =
-        setup.totalVolume[setup.totalVolume.length - 1] / tempTotalCoins;
-      setup.requiredChange.push(
-        ((tempAveragePrice - tempPricePerCoin) / tempPricePerCoin) * 100 +
-          setup.tp
-      );
-      setup.deviations.push(maxDeviation);
-    }
-    // console.log(setup);
-    // process.exit(0);
-    // Correct way to round to 2 decimals
-    setup.maxDeviation = +(Math.round(maxDeviation + "e+2") + "e-2");
-    setup.maxAmount = Math.round(
-      setup.volume.reduce((partialSum, a) => partialSum + a, 0)
-    );
-  }
-  return setups;
+  return await run(setups, config);
 };

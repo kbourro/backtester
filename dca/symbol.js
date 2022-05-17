@@ -1,7 +1,7 @@
 import { fork } from "child_process";
 import delay from "delay";
 import os from "os";
-const processes = os.cpus().length - 1;
+const processes = os.cpus().length -1;
 let totalSetups = 0;
 let tasks = [];
 let tasksIndex = 0;

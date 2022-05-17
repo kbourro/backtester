@@ -14,6 +14,8 @@ export default (exchange, symbol, timeframe, since, end) => {
         );
         if (firstTimestampOnExchanger < firstTimestamp) {
           db.dropTable(symbol);
+        } else {
+          since = lastTimestamp + 1;
         }
       } else if (lastTimestamp !== null && lastTimestamp > since) {
         since = lastTimestamp + 1;
@@ -33,7 +35,7 @@ export default (exchange, symbol, timeframe, since, end) => {
           try {
             db.insertCandles(response.symbol, response.ohlcvs);
           } catch (error) {
-            //ignore
+            console.error(error);
           }
           since = response.lastTimestamp + 1;
           setTimeout(timeoutFunc, 100);

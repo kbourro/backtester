@@ -18,7 +18,7 @@ const queue = new PQueue({ concurrency: 50, autoStart: false });
     await import(url.pathToFileURL(path.resolve(process.argv[2])).href)
   ).default;
   const symbols = Object.values(config.symbols);
-  const setups = prepareSetups(Object.values(config.setups), config);
+  const setups = await prepareSetups(Object.values(config.setups), config);
   const from = config.from;
   const to = config.to;
   const exchanger = config.exchanger;
