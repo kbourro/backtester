@@ -9,7 +9,10 @@ for (let index = 0; index < processes; index++) {
   let started = false;
   const handleMessage = (message) => {
     if (started) {
-      finalSetups = finalSetups.concat(finalSetups, message);
+      for (let index = 0; index < message.length; index++) {
+        const setup = message[index];
+        finalSetups.push(setup);
+      }
       childs = childs.filter((val) => val !== child);
       child.off("message", handleMessage);
       child.kill();
@@ -43,30 +46,34 @@ const run = (setups, config) => {
       }
       // Remove duplicates and Rename setups with same name
       let tempSetups = [];
-      for (let index = 0; index < finalSetups.length; index++) {
+      let finalSetupsLength = finalSetups.length;
+      console.log(`Preparing setups`);
+      loop1: for (let index = 0; index < finalSetupsLength; index++) {
         const setup = finalSetups[index];
         if (setup.bo > 10 && setup.bo === setup.so) {
-          continue;
+          continue loop1;
         }
-        if (
-          tempSetups.filter(
-            (s) =>
-              s.tp === setup.tp &&
-              s.bo === setup.bo &&
-              s.so === setup.so &&
-              s.sos === setup.sos &&
-              s.os === setup.os &&
-              s.ss === setup.ss &&
-              s.mstc === setup.mstc
-          ).length > 0
-        ) {
-          continue;
-        }
-        if (tempSetups.filter((s) => s.name === setup.name).length > 0) {
-          setup.name = `${setup.name} ${index}`;
+        let tempSetupsLength = tempSetups.length;
+        for (let i = 0; i < tempSetupsLength; i++) {
+          const s = tempSetups[i];
+          if (
+            s.os === setup.os &&
+            s.ss === setup.ss &&
+            s.sos === setup.sos &&
+            s.mstc === setup.mstc &&
+            s.tp === setup.tp &&
+            s.bo === setup.bo &&
+            s.so === setup.so
+          ) {
+            continue loop1;
+          }
+          if (s.name === setup.name) {
+            setup.name = `${setup.name} ${index}`;
+          }
         }
         tempSetups.push({ ...setup });
       }
+      console.log("Preparing setups filters completed.");
       finalSetups = [...tempSetups];
       for (let index = 0; index < finalSetups.length; index++) {
         const setup = finalSetups[index];
@@ -109,6 +116,7 @@ const run = (setups, config) => {
           setup.volume.reduce((partialSum, a) => partialSum + a, 0)
         );
       }
+      console.log("Preparing setups completed.");
       resolve(finalSetups);
     };
     setTimeout(finalize, 10);
