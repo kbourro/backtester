@@ -79,6 +79,7 @@ const queue = new PQueue({ concurrency: 50, autoStart: false });
       os: result.setup.os,
       ss: result.setup.ss,
       mstc: result.setup.mstc,
+      groupid: `${result.setup.sos}${result.setup.os}${result.setup.ss}${result.setup.mstc}`,
     });
   });
   let allSetups = [];

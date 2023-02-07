@@ -11,10 +11,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "better-sqlite3": "^7.5.0",
-    "ccxt": "^1.73.35",
+    "better-sqlite3": "^8.0.1",
+    "ccxt": "^2.6.36",
     "delay": "^5.0.0",
     "exceljs": "^4.3.0",
-    "p-queue": "^7.2.0"
+    "p-queue": "^7.3.3"
   }
 }
