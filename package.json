@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node --max-old-space-size=32768 ./dca/index.js",
+    "start": "cross-env NODE_ENV=production NODE_OPTIONS=--max-old-space-size=29000 node --max-old-space-size=29000 ./dca/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -13,6 +13,7 @@
   "dependencies": {
     "better-sqlite3": "^8.0.1",
     "ccxt": "^2.6.36",
+    "cross-env": "^7.0.3",
     "delay": "^5.0.0",
     "exceljs": "^4.3.0",
     "p-queue": "^7.3.3"

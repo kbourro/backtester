@@ -50,6 +50,7 @@ const queue = new PQueue({ concurrency: 50, autoStart: false });
       "ROI Without Upnl %": roundToTwo(result.totalProfit),
       "Upnl %": roundToTwo(result.upnl),
       DU: result.deviationsUsed,
+      "SL hit": result.slHitCounter,
       "Coverage %": result.setup.maxDeviation,
       "Total Trades": result.totalTrades,
       "MD trade started": `${longerTradeStart.getFullYear()}-${
@@ -79,6 +80,7 @@ const queue = new PQueue({ concurrency: 50, autoStart: false });
       os: result.setup.os,
       ss: result.setup.ss,
       mstc: result.setup.mstc,
+      sl: result.setup.sl,
       groupid: `${result.setup.sos}${result.setup.os}${result.setup.ss}${result.setup.mstc}`,
     });
   });

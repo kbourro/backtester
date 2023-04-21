@@ -1,36 +1,8 @@
 export default {
   options: { console: false },
-  symbols: [
-    "btc/usdt",
-    // "luna/usdt",
-    // "vet/usdt",
-    // "sol/usdt",
-    // "ada/usdt",
-    // "ltc/usdt",
-    // "eth/usdt",
-    // "mana/usdt",
-    // "sand/usdt",
-    // "enj/usdt",
-    // "lrc/usdt",
-    // "waves/usdt",
-    // "avax/usdt",
-    // "algo/usdt",
-    // "axs/usdt",
-    // "ftm/usdt",
-    // "bnb/usdt",
-    // "uni/usdt",
-    // "cake/usdt",
-    // "ftt/usdt",
-    // "dot/usdt",
-    // "link/usdt",
-    // "1inch/usdt",
-    // "comp/usdt",
-    // "hbar/usdt",
-  ],
-  from: "2022/01/01 00:00:00",
-  //from: "2021/04/14 00:00:00",
-  //from: "2021/11/09 00:00:00",
-  to: "2023/02/06 06:00:00",
+  symbols: ["btc/usdt"],
+  from: "2020/01/01 00:00:00",
+  to: "2023/03/20 06:00:00",
   fees: 0.1,
   exchanger: "binance",
   setups: [
@@ -53,6 +25,8 @@ export default {
       os: 1.1,
       ss: 1.0,
       mstc: 30,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "TheAlpha Alpha Deep Drop 1.01 SS",
@@ -63,6 +37,8 @@ export default {
       os: 1.17,
       ss: 1.01,
       mstc: 20,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "TheAlpha Alpha Deep Drop 1.01 SS",
@@ -73,6 +49,8 @@ export default {
       os: 1.17,
       ss: 1.01,
       mstc: 20,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "ZachTech BitMan",
@@ -83,6 +61,8 @@ export default {
       os: 1.33,
       ss: 1.11,
       mstc: 10,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Sellium Neimoidian",
@@ -93,6 +73,8 @@ export default {
       os: 1.25,
       ss: 1.13,
       mstc: 15,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Ribsy Set 5 - Test 8",
@@ -103,6 +85,8 @@ export default {
       os: 1.25,
       ss: 1.05,
       mstc: 18,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "MegaAramisoff Nutcracker-2",
@@ -113,6 +97,8 @@ export default {
       os: 1.53,
       ss: 1.2,
       mstc: 10,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Trade Alts TA Standard",
@@ -123,6 +109,8 @@ export default {
       os: 1.05,
       ss: 1.0,
       mstc: 30,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Ribsy Set 5 - Test 10",
@@ -133,6 +121,8 @@ export default {
       os: 1.2,
       ss: 1.01,
       mstc: 25,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Sellium Profundity",
@@ -143,6 +133,8 @@ export default {
       os: 1.23,
       ss: 1.11,
       mstc: 15,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "BlueCookie ScarTA+",
@@ -153,6 +145,8 @@ export default {
       os: 1.08,
       ss: 0.97,
       mstc: 31,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Nooun Verrb",
@@ -163,6 +157,8 @@ export default {
       os: 1.4,
       ss: 1.2,
       mstc: 12,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Trade Alts TA Safer",
@@ -173,6 +169,8 @@ export default {
       os: 1.05,
       ss: 1.0,
       mstc: 25,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "BlueCoockie ScarTA",
@@ -183,6 +181,8 @@ export default {
       os: 1.05,
       ss: 0.97,
       mstc: 31,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Trade Alts TA Riskier",
@@ -193,6 +193,8 @@ export default {
       os: 1.05,
       ss: 1.0,
       mstc: 30,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "BlueCoockie ScarTEC",
@@ -203,6 +205,8 @@ export default {
       os: 1.05,
       ss: 0.96,
       mstc: 40,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "willieblunt halfnhalf",
@@ -213,6 +217,8 @@ export default {
       os: 1.05,
       ss: 0.97,
       mstc: 38,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Trade Alts TA Very Aggressive",
@@ -223,6 +229,8 @@ export default {
       os: 1.05,
       ss: 1.0,
       mstc: 20,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Mearin91 Mearin91",
@@ -233,6 +241,8 @@ export default {
       os: 1.06,
       ss: 1.01,
       mstc: 33,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Trade Alts TA Riskier 2",
@@ -243,6 +253,8 @@ export default {
       os: 1.05,
       ss: 1.0,
       mstc: 25,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "TheAlpha Alpha Deep Drop MSTC 25 (Passive)",
@@ -253,6 +265,8 @@ export default {
       os: 1.17,
       ss: 1.0,
       mstc: 25,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Bobwood 0.6 SOS Sniping/DCA",
@@ -263,6 +277,8 @@ export default {
       os: 1.4,
       ss: 1.3,
       mstc: 13,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Trade Alts TA Standard v2",
@@ -273,6 +289,8 @@ export default {
       os: 1.09,
       ss: 1.0,
       mstc: 30,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Shwao Shwao - ConsoliKing",
@@ -283,6 +301,8 @@ export default {
       os: 1.05,
       ss: 1.0,
       mstc: 36,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Bluecookie BlueTec (beta)",
@@ -293,6 +313,8 @@ export default {
       os: 1.01,
       ss: 0.97,
       mstc: 79,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Ribsy Set 5 - Test 9",
@@ -303,6 +325,8 @@ export default {
       os: 1.6,
       ss: 1.05,
       mstc: 14,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Ribsy Set 5 - Test 5",
@@ -313,6 +337,8 @@ export default {
       os: 1.7,
       ss: 1.26,
       mstc: 9,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Mantis Big BankRoll",
@@ -323,6 +349,8 @@ export default {
       os: 1.06,
       ss: 1.0,
       mstc: 42,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Ribsy Set 5 - Test 1 (passive)",
@@ -333,6 +361,8 @@ export default {
       os: 1.15,
       ss: 1.07,
       mstc: 20,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Bobwood 1.0 SOS Sniping/DCA",
@@ -343,6 +373,8 @@ export default {
       os: 1.3,
       ss: 1.23,
       mstc: 13,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Bluecookie GreenTec (beta)",
@@ -353,6 +385,8 @@ export default {
       os: 1.01,
       ss: 0.97,
       mstc: 76,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Ribsy Set 5 - Test 5 (passive)",
@@ -363,6 +397,8 @@ export default {
       os: 1.7,
       ss: 1.26,
       mstc: 11,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Ribsy Set 5 - Test 7",
@@ -373,6 +409,8 @@ export default {
       os: 1.7,
       ss: 1.27,
       mstc: 9,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Anked Scarlet",
@@ -383,6 +421,8 @@ export default {
       os: 1.03,
       ss: 0.97,
       mstc: 53,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Ribsy Set 5 - Test 6",
@@ -393,6 +433,8 @@ export default {
       os: 1.2,
       ss: 1.03,
       mstc: 20,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Ryzen Catalyst",
@@ -403,6 +445,8 @@ export default {
       os: 1.12,
       ss: 1.0,
       mstc: 11,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Shwao ConsoliQueen",
@@ -413,6 +457,8 @@ export default {
       os: 1.09,
       ss: 1.02,
       mstc: 18,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Trade Alts TA Strong Uptrend",
@@ -423,6 +469,8 @@ export default {
       os: 1.4,
       ss: 1.23,
       mstc: 10,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Trade Alts TA Deep Retracement",
@@ -433,6 +481,8 @@ export default {
       os: 2.0,
       ss: 1.4,
       mstc: 8,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Heopas Heopas",
@@ -443,6 +493,8 @@ export default {
       os: 1.04,
       ss: 1.0,
       mstc: 30,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Ribsy Chimera",
@@ -453,6 +505,8 @@ export default {
       os: 1.2,
       ss: 1.11,
       mstc: 15,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Zeke Kiri v2",
@@ -463,6 +517,8 @@ export default {
       os: 1.01,
       ss: 0.98,
       mstc: 100,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Ribsy Aqrabuamelu",
@@ -473,6 +529,8 @@ export default {
       os: 1.4,
       ss: 1.26,
       mstc: 12,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "TheAlpha Alpha+",
@@ -483,6 +541,8 @@ export default {
       os: 1.5,
       ss: 1.2,
       mstc: 9,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Bobwood FrontLoaded 0.6 SOS Sniping/DCA",
@@ -493,6 +553,8 @@ export default {
       os: 1.4,
       ss: 1.3,
       mstc: 13,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Ribsy Mercury",
@@ -503,6 +565,8 @@ export default {
       os: 1.5,
       ss: 1.3,
       mstc: 8,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Thrill  XL v2",
@@ -513,6 +577,8 @@ export default {
       os: 1.05,
       ss: 1.0,
       mstc: 45,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Thrill + Sellium XL v3",
@@ -523,6 +589,8 @@ export default {
       os: 1.17,
       ss: 1.06,
       mstc: 20,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Sellium Hammerhead",
@@ -533,6 +601,8 @@ export default {
       os: 1.41,
       ss: 1.21,
       mstc: 9,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Thrill  XL v1",
@@ -543,6 +613,8 @@ export default {
       os: 1.16,
       ss: 1.07,
       mstc: 21,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Ribsy Set 5 - Test 2 (passive)",
@@ -553,6 +625,8 @@ export default {
       os: 1.01,
       ss: 0.99,
       mstc: 55,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Ribsy Set 5 - Test 4 (passive)",
@@ -563,6 +637,8 @@ export default {
       os: 1.19,
       ss: 1.12,
       mstc: 17,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Sellium Profundity Value Opt3",
@@ -573,6 +649,8 @@ export default {
       os: 1.15,
       ss: 1.1,
       mstc: 16,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Bobwood FrontLoad 1.0 SOS Sniping/DCA",
@@ -583,6 +661,8 @@ export default {
       os: 1.3,
       ss: 1.23,
       mstc: 13,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Zeke Kiri v4",
@@ -593,6 +673,8 @@ export default {
       os: 1.02,
       ss: 0.99,
       mstc: 51,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Sellium Profundity Value",
@@ -603,6 +685,8 @@ export default {
       os: 1.15,
       ss: 1.09,
       mstc: 15,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "TheAlpha Alpha",
@@ -613,6 +697,8 @@ export default {
       os: 1.4,
       ss: 1.2,
       mstc: 9,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Ribsy Banshee (passive)",
@@ -623,6 +709,8 @@ export default {
       os: 1.4,
       ss: 1.35,
       mstc: 9,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Ribsy Mars (passive)",
@@ -633,6 +721,8 @@ export default {
       os: 1.4,
       ss: 1.3,
       mstc: 9,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "RN RN v1",
@@ -643,6 +733,8 @@ export default {
       os: 1.15,
       ss: 1.11,
       mstc: 11,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Matteo Cazu",
@@ -653,6 +745,8 @@ export default {
       os: 1.52,
       ss: 1.39,
       mstc: 10,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Ali poise",
@@ -663,6 +757,8 @@ export default {
       os: 1.3,
       ss: 1.3,
       mstc: 9,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Ribsy Set 5 - Test 1",
@@ -673,6 +769,8 @@ export default {
       os: 1.15,
       ss: 1.07,
       mstc: 16,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Ribsy Kraken",
@@ -683,6 +781,8 @@ export default {
       os: 1.55,
       ss: 1.45,
       mstc: 8,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Ribsy Set 5 - Test 4",
@@ -693,6 +793,8 @@ export default {
       os: 1.19,
       ss: 1.12,
       mstc: 15,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Sellium Neimoidian Value Opt2",
@@ -703,6 +805,8 @@ export default {
       os: 1.13,
       ss: 1.11,
       mstc: 16,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Ribsy Banshee",
@@ -713,6 +817,8 @@ export default {
       os: 1.4,
       ss: 1.35,
       mstc: 8,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Sellium Acclamator",
@@ -723,6 +829,8 @@ export default {
       os: 1.09,
       ss: 1.07,
       mstc: 17,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "TheAlpha Alpha Lite",
@@ -733,6 +841,8 @@ export default {
       os: 1.4,
       ss: 1.22,
       mstc: 7,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Ribsy Set 5 - Test 3 (passive)",
@@ -743,6 +853,8 @@ export default {
       os: 1.01,
       ss: 1.0,
       mstc: 50,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "RN RN v4",
@@ -753,6 +865,8 @@ export default {
       os: 1.3,
       ss: 1.3,
       mstc: 8,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Ribsy Mars",
@@ -763,6 +877,8 @@ export default {
       os: 1.4,
       ss: 1.3,
       mstc: 8,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Sellium Ghost",
@@ -773,6 +889,8 @@ export default {
       os: 1.3,
       ss: 1.3,
       mstc: 8,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Sellium Neimoidian Value",
@@ -783,6 +901,8 @@ export default {
       os: 1.15,
       ss: 1.13,
       mstc: 15,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "C2-Dre Fuze",
@@ -793,6 +913,8 @@ export default {
       os: 1.29,
       ss: 1.22,
       mstc: 10,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Urma Urma V6",
@@ -803,6 +925,8 @@ export default {
       os: 1.4,
       ss: 1.5,
       mstc: 7,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Burak00 BRK Ultra V2",
@@ -813,6 +937,8 @@ export default {
       os: 1.01,
       ss: 1.0,
       mstc: 30,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Ribsy Set 5 - Test 2",
@@ -823,6 +949,8 @@ export default {
       os: 1.01,
       ss: 0.99,
       mstc: 35,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Sellium Scimitar",
@@ -833,6 +961,8 @@ export default {
       os: 1.33,
       ss: 1.27,
       mstc: 9,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Sellium OutRider",
@@ -843,6 +973,8 @@ export default {
       os: 1.31,
       ss: 1.28,
       mstc: 8,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Jupiter-Orange Jora",
@@ -853,6 +985,8 @@ export default {
       os: 1.19,
       ss: 1.12,
       mstc: 15,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Ribsy Set 5 - Test 3",
@@ -863,6 +997,8 @@ export default {
       os: 1.01,
       ss: 1.0,
       mstc: 40,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Ribsy Oni",
@@ -873,6 +1009,8 @@ export default {
       os: 1.4,
       ss: 1.45,
       mstc: 8,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Mizukage Mizukage v3.1",
@@ -883,6 +1021,8 @@ export default {
       os: 1.0,
       ss: 1.01,
       mstc: 100,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Thrill L v1 - (as in large)",
@@ -893,6 +1033,8 @@ export default {
       os: 1.1,
       ss: 1.33,
       mstc: 10,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Sellium The 69er",
@@ -903,6 +1045,8 @@ export default {
       os: 0.85,
       ss: 1.05,
       mstc: 12,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Sellium The 69er SS",
@@ -913,6 +1057,8 @@ export default {
       os: 0.85,
       ss: 1.04,
       mstc: 12,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Dynamix RedBull(BullMarketOnly)",
@@ -923,6 +1069,8 @@ export default {
       os: 0.99,
       ss: 1.1,
       mstc: 21,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Beam",
@@ -933,6 +1081,8 @@ export default {
       os: 1.56,
       ss: 1.23,
       mstc: 10,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "Nutscracker",
@@ -943,6 +1093,8 @@ export default {
       os: 1.53,
       ss: 1.2,
       mstc: 10,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "411",
@@ -953,6 +1105,8 @@ export default {
       os: 1.48,
       ss: 1.11,
       mstc: 11,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
     {
       name: "438",
@@ -963,6 +1117,8 @@ export default {
       os: 1.72,
       ss: 1.24,
       mstc: 8,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 20,
     },
   ],
 };

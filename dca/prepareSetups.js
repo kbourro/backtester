@@ -23,7 +23,10 @@ for (let index = 0; index < processes; index++) {
   };
   child.on("message", handleMessage);
 }
-
+function getSetupKey(setup) {
+  const { os, ss, sos, mstc, tp, bo, so, sl } = setup;
+  return `${os}|${ss}|${sos}|${mstc}|${tp}|${bo}|${so}|${sl}`;
+}
 const run = (setups, config) => {
   return new Promise((resolve) => {
     let childIndex = 0;
@@ -48,35 +51,32 @@ const run = (setups, config) => {
       let tempSetups = [];
       let finalSetupsLength = finalSetups.length;
       console.log(`Preparing setups`);
-      loop1: for (let index = 0; index < finalSetupsLength; index++) {
+      let uniqueCombinations = new Set();
+      let uniqueNames = new Set();
+      for (let index = 0; index < finalSetupsLength; index++) {
         const setup = finalSetups[index];
         if (setup.bo > 10 && setup.bo === setup.so) {
-          continue loop1;
+          continue;
         }
-        let tempSetupsLength = tempSetups.length;
-        for (let i = 0; i < tempSetupsLength; i++) {
-          const s = tempSetups[i];
-          if (
-            s.os === setup.os &&
-            s.ss === setup.ss &&
-            s.sos === setup.sos &&
-            s.mstc === setup.mstc &&
-            s.tp === setup.tp &&
-            s.bo === setup.bo &&
-            s.so === setup.so
-          ) {
-            continue loop1;
-          }
-          if (s.name === setup.name) {
-            setup.name = `${setup.name} ${index}`;
-          }
+        const uniqueKey = getSetupKey(setup);
+        if (uniqueCombinations.has(uniqueKey)) {
+          continue;
         }
+        if (uniqueNames.has(setup.name)) {
+          setup.name = `${setup.name} ${index}`;
+        }
+        uniqueCombinations.add(uniqueKey);
+        uniqueNames.add(setup.name);
         tempSetups.push({ ...setup });
       }
-      console.log("Preparing setups filters completed.");
-      finalSetups = [...tempSetups];
-      for (let index = 0; index < finalSetups.length; index++) {
-        const setup = finalSetups[index];
+      console.log(
+        `Preparing setups filters completed with ${tempSetups.length} setups.`
+      );
+      finalSetups = [];
+      for (const setup of tempSetups) {
+        if (setup.sl === undefined || setup.sl === null) {
+          setup.sl = 0;
+        }
         setup.deviations = [0];
         setup.volume = [setup.bo];
         setup.totalVolume = [setup.bo];
@@ -108,13 +108,23 @@ const run = (setups, config) => {
           );
           setup.deviations.push(maxDeviation);
         }
-        // console.log(setup);
-        // process.exit(0);
         // Correct way to round to 2 decimals
         setup.maxDeviation = +(Math.round(maxDeviation + "e+2") + "e-2");
         setup.maxAmount = Math.round(
           setup.volume.reduce((partialSum, a) => partialSum + a, 0)
         );
+        if (
+          setup.maxAmount >= 5000 ||
+          setup.maxDeviation <= 1 ||
+          setup.maxDeviation >= 100 ||
+          (setup.sl !== 0 && setup.sl <= setup.maxDeviation) ||
+          (setup.maxslfromlastdeviation !== undefined &&
+            setup.sl - setup.maxDeviation > setup.maxslfromlastdeviation)
+        ) {
+          continue;
+        } else {
+          finalSetups.push(setup);
+        }
       }
       console.log("Preparing setups completed.");
       resolve(finalSetups);

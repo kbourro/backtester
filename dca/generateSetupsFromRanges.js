@@ -1,37 +1,32 @@
 let setupsToRun = [];
-const generateSetupsFromRanges = (setups) => {
-  let tempSetups = [];
-  for (let setupsIndex = 0; setupsIndex < setups.length; setupsIndex++) {
+function generateSetupsFromRanges(setups) {
+  const result = [];
+  const stack = setups.slice();
+
+  while (stack.length) {
+    const setup = stack.pop();
     let arrayFound = false;
-    const setup = setups[setupsIndex];
-    let keys = Object.keys(setup);
-    for (let keysIndex = 0; keysIndex < keys.length; keysIndex++) {
-      const key = keys[keysIndex];
+
+    for (const key in setup) {
       if (Array.isArray(setup[key])) {
         arrayFound = true;
-        let internalSetups = [];
-        for (
-          let valuesIndex = 0;
-          valuesIndex < setup[key].length;
-          valuesIndex++
-        ) {
-          const value = setup[key][valuesIndex];
-          let tempSetup = { ...setup };
-          tempSetup[key] = value;
-          internalSetups.push({ ...tempSetup });
+        const values = setup[key];
+        for (let i = 0; i < values.length; i++) {
+          const newSetup = Object.assign({}, setup);
+          newSetup[key] = values[i];
+          stack.push(newSetup);
         }
-        tempSetups = tempSetups.concat(
-          generateSetupsFromRanges([...internalSetups])
-        );
         break;
       }
     }
+
     if (!arrayFound) {
-      tempSetups.push({ ...setup });
+      result.push(setup);
     }
   }
-  return tempSetups;
-};
+
+  return result;
+}
 
 process.on("message", function (message) {
   if (message === "start") {

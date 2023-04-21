@@ -1,11 +1,8 @@
 export default {
   options: { console: false },
   symbols: ["btc/usdt"],
-  from: "2017/12/11 00:00:00",
-  //from: "2021/04/14 00:00:00",
-  //from: "2021/11/09 00:00:00",
-  //to: "2022/04/29 23:59:00",
-  to: "2022/05/12 15:00:00",
+  from: "2020/01/01 00:00:00",
+  to: "2023/03/20 06:00:00",
   fees: 0.1,
   exchanger: "binance",
   setups: [
@@ -21,6 +18,8 @@ export default {
       ],
       ss: 0.99,
       mstc: 7,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -34,6 +33,8 @@ export default {
       ],
       ss: 0.99,
       mstc: 7,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -47,6 +48,8 @@ export default {
       ],
       ss: 0.99,
       mstc: 7,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -60,6 +63,8 @@ export default {
       ],
       ss: 0.99,
       mstc: 7,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -73,6 +78,8 @@ export default {
       ],
       ss: 0.99,
       mstc: 7,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -86,6 +93,8 @@ export default {
       ],
       ss: 0.99,
       mstc: 7,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -99,6 +108,8 @@ export default {
       ],
       ss: 0.99,
       mstc: 7,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -112,6 +123,8 @@ export default {
       ],
       ss: 0.99,
       mstc: 7,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -125,6 +138,8 @@ export default {
       ],
       ss: [0.95, 0.97, 0.98, 0.99],
       mstc: 8,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -138,6 +153,8 @@ export default {
       ],
       ss: [0.95, 0.97, 0.98, 0.99],
       mstc: 8,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -151,6 +168,8 @@ export default {
       ],
       ss: [0.95, 0.97, 0.98, 0.99],
       mstc: 8,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -163,6 +182,8 @@ export default {
       ],
       ss: [0.95, 0.97, 0.98, 0.99],
       mstc: 8,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -176,6 +197,8 @@ export default {
       ],
       ss: [0.95, 0.97, 0.98, 0.99],
       mstc: 8,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -189,6 +212,8 @@ export default {
       ],
       ss: [0.95, 0.97, 0.98, 0.99],
       mstc: 8,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -202,6 +227,8 @@ export default {
       ],
       ss: [0.95, 0.97, 0.98, 0.99],
       mstc: 8,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -215,6 +242,8 @@ export default {
       ],
       ss: [0.95, 0.97, 0.98, 0.99],
       mstc: 8,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -228,6 +257,8 @@ export default {
       ],
       ss: [0.98, 0.99],
       mstc: 9,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -241,6 +272,8 @@ export default {
       ],
       ss: [0.98, 0.99],
       mstc: 9,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -254,6 +287,8 @@ export default {
       ],
       ss: [0.98, 0.99],
       mstc: 9,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -267,6 +302,8 @@ export default {
       ],
       ss: [0.98, 0.99],
       mstc: 9,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -280,6 +317,8 @@ export default {
       ],
       ss: [0.98, 0.99],
       mstc: 9,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -293,6 +332,8 @@ export default {
       ],
       ss: [0.98, 0.99],
       mstc: 9,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -306,6 +347,8 @@ export default {
       ],
       ss: [0.98, 0.99],
       mstc: 9,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -319,6 +362,8 @@ export default {
       ],
       ss: [0.98, 0.99],
       mstc: 9,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -332,6 +377,8 @@ export default {
       ],
       ss: [0.93, 0.94, 0.95, 0.96, 0.98, 0.99],
       mstc: 9,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -345,6 +392,8 @@ export default {
       ],
       ss: [0.93, 0.94, 0.95, 0.96, 0.98, 0.99],
       mstc: 9,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -358,6 +407,8 @@ export default {
       ],
       ss: [0.93, 0.94, 0.95, 0.96, 0.98, 0.99],
       mstc: 9,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -371,6 +422,8 @@ export default {
       ],
       ss: [0.93, 0.94, 0.95, 0.96, 0.98, 0.99],
       mstc: 9,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -384,6 +437,8 @@ export default {
       ],
       ss: [0.93, 0.94, 0.95, 0.96, 0.98, 0.99],
       mstc: 9,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -397,6 +452,8 @@ export default {
       ],
       ss: [0.93, 0.94, 0.95, 0.96, 0.98, 0.99],
       mstc: 9,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -410,6 +467,8 @@ export default {
       ],
       ss: [0.93, 0.94, 0.95, 0.96, 0.98, 0.99],
       mstc: 9,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -423,6 +482,8 @@ export default {
       ],
       ss: [0.93, 0.94, 0.95, 0.96, 0.98, 0.99],
       mstc: 9,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -436,6 +497,8 @@ export default {
       ],
       ss: [0.95, 0.97, 0.98, 0.99],
       mstc: 10,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -449,6 +512,8 @@ export default {
       ],
       ss: [0.95, 0.97, 0.98, 0.99],
       mstc: 10,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -462,6 +527,8 @@ export default {
       ],
       ss: [0.95, 0.97, 0.98, 0.99],
       mstc: 10,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -475,6 +542,8 @@ export default {
       ],
       ss: [0.95, 0.97, 0.98, 0.99],
       mstc: 10,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -487,6 +556,8 @@ export default {
       ],
       ss: [0.95, 0.97, 0.98, 0.99],
       mstc: 10,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -500,6 +571,8 @@ export default {
       ],
       ss: [0.95, 0.97, 0.98, 0.99],
       mstc: 10,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -513,6 +586,8 @@ export default {
       ],
       ss: [0.95, 0.97, 0.98, 0.99],
       mstc: 10,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -525,6 +600,8 @@ export default {
       ],
       ss: [0.95, 0.97, 0.98, 0.99],
       mstc: 10,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -538,6 +615,8 @@ export default {
       ],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96],
       mstc: 10,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -551,6 +630,8 @@ export default {
       ],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96],
       mstc: 10,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -564,6 +645,8 @@ export default {
       ],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96],
       mstc: 10,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -577,6 +660,8 @@ export default {
       ],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96],
       mstc: 10,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -589,6 +674,8 @@ export default {
       ],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96],
       mstc: 10,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -602,6 +689,8 @@ export default {
       ],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96],
       mstc: 10,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -615,6 +704,8 @@ export default {
       ],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96],
       mstc: 10,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -627,6 +718,8 @@ export default {
       ],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96],
       mstc: 10,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -640,6 +733,8 @@ export default {
       ],
       ss: 0.99,
       mstc: 11,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -653,6 +748,8 @@ export default {
       ],
       ss: 0.99,
       mstc: 11,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -666,6 +763,8 @@ export default {
       ],
       ss: 0.99,
       mstc: 11,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -679,6 +778,8 @@ export default {
       ],
       ss: 0.99,
       mstc: 11,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -692,6 +793,8 @@ export default {
       ],
       ss: 0.99,
       mstc: 11,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -705,6 +808,8 @@ export default {
       ],
       ss: 0.99,
       mstc: 11,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -718,6 +823,8 @@ export default {
       ],
       ss: 0.99,
       mstc: 11,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -731,6 +838,8 @@ export default {
       ],
       ss: 0.99,
       mstc: 11,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -744,6 +853,8 @@ export default {
       ],
       ss: [0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 11,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -757,6 +868,8 @@ export default {
       ],
       ss: [0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 11,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -770,6 +883,8 @@ export default {
       ],
       ss: [0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 11,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -783,6 +898,8 @@ export default {
       ],
       ss: [0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 11,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -796,6 +913,8 @@ export default {
       ],
       ss: [0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 11,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -809,6 +928,8 @@ export default {
       ],
       ss: [0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 11,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -822,6 +943,8 @@ export default {
       ],
       ss: [0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 11,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -835,6 +958,8 @@ export default {
       ],
       ss: [0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 11,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -848,6 +973,8 @@ export default {
       ],
       ss: [0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.99],
       mstc: 11,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -861,6 +988,8 @@ export default {
       ],
       ss: [0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.99],
       mstc: 11,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -874,6 +1003,8 @@ export default {
       ],
       ss: [0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.99],
       mstc: 11,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -887,6 +1018,8 @@ export default {
       ],
       ss: [0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.99],
       mstc: 11,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -900,6 +1033,8 @@ export default {
       ],
       ss: [0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.99],
       mstc: 11,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -913,6 +1048,8 @@ export default {
       ],
       ss: [0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.99],
       mstc: 11,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -926,6 +1063,8 @@ export default {
       ],
       ss: [0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.99],
       mstc: 11,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -939,6 +1078,8 @@ export default {
       ],
       ss: [0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.99],
       mstc: 11,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -952,6 +1093,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 12,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -965,6 +1108,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 12,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -978,6 +1123,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 12,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -991,6 +1138,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 12,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1004,6 +1153,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 12,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1017,6 +1168,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 12,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1030,6 +1183,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 12,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1043,6 +1198,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 12,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1056,6 +1213,8 @@ export default {
       ],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98],
       mstc: 12,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1069,6 +1228,8 @@ export default {
       ],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98],
       mstc: 12,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1082,6 +1243,8 @@ export default {
       ],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98],
       mstc: 12,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1095,6 +1258,8 @@ export default {
       ],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98],
       mstc: 12,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1108,6 +1273,8 @@ export default {
       ],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98],
       mstc: 12,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1121,6 +1288,8 @@ export default {
       ],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98],
       mstc: 12,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1134,6 +1303,8 @@ export default {
       ],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98],
       mstc: 12,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1147,6 +1318,8 @@ export default {
       ],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98],
       mstc: 12,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1160,6 +1333,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.97],
       mstc: 12,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1173,6 +1348,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.97],
       mstc: 12,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1186,6 +1363,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.97],
       mstc: 12,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1199,6 +1378,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.97],
       mstc: 12,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1212,6 +1393,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.97],
       mstc: 12,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1225,6 +1408,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.97],
       mstc: 12,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1238,6 +1423,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.97],
       mstc: 12,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1251,6 +1438,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.97],
       mstc: 12,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1264,6 +1453,8 @@ export default {
       ],
       ss: [0.96, 0.97, 0.98, 0.99],
       mstc: 13,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1277,6 +1468,8 @@ export default {
       ],
       ss: [0.96, 0.97, 0.98, 0.99],
       mstc: 13,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1290,6 +1483,8 @@ export default {
       ],
       ss: [0.96, 0.97, 0.98, 0.99],
       mstc: 13,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1303,6 +1498,8 @@ export default {
       ],
       ss: [0.96, 0.97, 0.98, 0.99],
       mstc: 13,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1316,6 +1513,8 @@ export default {
       ],
       ss: [0.96, 0.97, 0.98, 0.99],
       mstc: 13,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1329,6 +1528,8 @@ export default {
       ],
       ss: [0.96, 0.97, 0.98, 0.99],
       mstc: 13,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1342,6 +1543,8 @@ export default {
       ],
       ss: [0.96, 0.97, 0.98, 0.99],
       mstc: 13,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1355,6 +1558,8 @@ export default {
       ],
       ss: [0.96, 0.97, 0.98, 0.99],
       mstc: 13,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1368,6 +1573,8 @@ export default {
       ],
       ss: [0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.99],
       mstc: 13,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1381,6 +1588,8 @@ export default {
       ],
       ss: [0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.99],
       mstc: 13,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1394,6 +1603,8 @@ export default {
       ],
       ss: [0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.99],
       mstc: 13,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1407,6 +1618,8 @@ export default {
       ],
       ss: [0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.99],
       mstc: 13,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1420,6 +1633,8 @@ export default {
       ],
       ss: [0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.99],
       mstc: 13,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1433,6 +1648,8 @@ export default {
       ],
       ss: [0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.99],
       mstc: 13,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1446,6 +1663,8 @@ export default {
       ],
       ss: [0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.99],
       mstc: 13,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1459,6 +1678,8 @@ export default {
       ],
       ss: [0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.99],
       mstc: 13,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1472,6 +1693,8 @@ export default {
       ],
       ss: [0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.96, 0.99],
       mstc: 13,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1485,6 +1708,8 @@ export default {
       ],
       ss: [0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.96, 0.99],
       mstc: 13,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1498,6 +1723,8 @@ export default {
       ],
       ss: [0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.96, 0.99],
       mstc: 13,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1511,6 +1738,8 @@ export default {
       ],
       ss: [0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.96, 0.99],
       mstc: 13,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1524,6 +1753,8 @@ export default {
       ],
       ss: [0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.96, 0.99],
       mstc: 13,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1537,6 +1768,8 @@ export default {
       ],
       ss: [0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.96, 0.99],
       mstc: 13,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1550,6 +1783,8 @@ export default {
       ],
       ss: [0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.96, 0.99],
       mstc: 13,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1563,6 +1798,8 @@ export default {
       ],
       ss: [0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.96, 0.99],
       mstc: 13,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1576,6 +1813,8 @@ export default {
       ],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 14,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1589,6 +1828,8 @@ export default {
       ],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 14,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1602,6 +1843,8 @@ export default {
       ],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 14,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1615,6 +1858,8 @@ export default {
       ],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 14,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1628,6 +1873,8 @@ export default {
       ],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 14,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1641,6 +1888,8 @@ export default {
       ],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 14,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1654,6 +1903,8 @@ export default {
       ],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 14,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1667,6 +1918,8 @@ export default {
       ],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 14,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1680,6 +1933,8 @@ export default {
       ],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.98],
       mstc: 14,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1693,6 +1948,8 @@ export default {
       ],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.98],
       mstc: 14,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1706,6 +1963,8 @@ export default {
       ],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.98],
       mstc: 14,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1719,6 +1978,8 @@ export default {
       ],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.98],
       mstc: 14,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1732,6 +1993,8 @@ export default {
       ],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.98],
       mstc: 14,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1745,6 +2008,8 @@ export default {
       ],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.98],
       mstc: 14,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1758,6 +2023,8 @@ export default {
       ],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.98],
       mstc: 14,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1771,6 +2038,8 @@ export default {
       ],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.98],
       mstc: 14,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1784,6 +2053,8 @@ export default {
       ],
       ss: [0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.95, 0.98],
       mstc: 14,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1797,6 +2068,8 @@ export default {
       ],
       ss: [0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.95, 0.98],
       mstc: 14,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1810,6 +2083,8 @@ export default {
       ],
       ss: [0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.95, 0.98],
       mstc: 14,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1823,6 +2098,8 @@ export default {
       ],
       ss: [0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.95, 0.98],
       mstc: 14,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1836,6 +2113,8 @@ export default {
       ],
       ss: [0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.95, 0.98],
       mstc: 14,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1849,6 +2128,8 @@ export default {
       ],
       ss: [0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.95, 0.98],
       mstc: 14,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1862,6 +2143,8 @@ export default {
       ],
       ss: [0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.95, 0.98],
       mstc: 14,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1875,6 +2158,8 @@ export default {
       ],
       ss: [0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.95, 0.98],
       mstc: 14,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1887,6 +2172,8 @@ export default {
       ],
       ss: 0.99,
       mstc: 15,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1899,6 +2186,8 @@ export default {
       ],
       ss: 0.99,
       mstc: 15,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1911,6 +2200,8 @@ export default {
       ],
       ss: 0.99,
       mstc: 15,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1923,6 +2214,8 @@ export default {
       ],
       ss: 0.99,
       mstc: 15,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1935,6 +2228,8 @@ export default {
       ],
       ss: 0.99,
       mstc: 15,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1947,6 +2242,8 @@ export default {
       ],
       ss: 0.99,
       mstc: 15,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1959,6 +2256,8 @@ export default {
       ],
       ss: 0.99,
       mstc: 15,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1972,6 +2271,8 @@ export default {
       ],
       ss: 0.99,
       mstc: 15,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1984,6 +2285,8 @@ export default {
       ],
       ss: [0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 15,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -1996,6 +2299,8 @@ export default {
       ],
       ss: [0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 15,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2008,6 +2313,8 @@ export default {
       ],
       ss: [0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 15,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2020,6 +2327,8 @@ export default {
       ],
       ss: [0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 15,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2032,6 +2341,8 @@ export default {
       ],
       ss: [0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 15,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2044,6 +2355,8 @@ export default {
       ],
       ss: [0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 15,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2056,6 +2369,8 @@ export default {
       ],
       ss: [0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 15,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2069,6 +2384,8 @@ export default {
       ],
       ss: [0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 15,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2081,6 +2398,8 @@ export default {
       ],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97],
       mstc: 15,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2093,6 +2412,8 @@ export default {
       ],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97],
       mstc: 15,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2105,6 +2426,8 @@ export default {
       ],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97],
       mstc: 15,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2117,6 +2440,8 @@ export default {
       ],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97],
       mstc: 15,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2129,6 +2454,8 @@ export default {
       ],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97],
       mstc: 15,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2141,6 +2468,8 @@ export default {
       ],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97],
       mstc: 15,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2153,6 +2482,8 @@ export default {
       ],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97],
       mstc: 15,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2166,6 +2497,8 @@ export default {
       ],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97],
       mstc: 15,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2178,6 +2511,8 @@ export default {
       ],
       ss: [0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.94, 0.97, 0.99],
       mstc: 15,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2190,6 +2525,8 @@ export default {
       ],
       ss: [0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.94, 0.97, 0.99],
       mstc: 15,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2202,6 +2539,8 @@ export default {
       ],
       ss: [0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.94, 0.97, 0.99],
       mstc: 15,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2214,6 +2553,8 @@ export default {
       ],
       ss: [0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.94, 0.97, 0.99],
       mstc: 15,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2226,6 +2567,8 @@ export default {
       ],
       ss: [0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.94, 0.97, 0.99],
       mstc: 15,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2238,6 +2581,8 @@ export default {
       ],
       ss: [0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.94, 0.97, 0.99],
       mstc: 15,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2250,6 +2595,8 @@ export default {
       ],
       ss: [0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.94, 0.97, 0.99],
       mstc: 15,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2263,6 +2610,8 @@ export default {
       ],
       ss: [0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.94, 0.97, 0.99],
       mstc: 15,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2276,6 +2625,8 @@ export default {
       ],
       ss: [0.98, 0.99],
       mstc: 16,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2289,6 +2640,8 @@ export default {
       ],
       ss: [0.98, 0.99],
       mstc: 16,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2302,6 +2655,8 @@ export default {
       ],
       ss: [0.98, 0.99],
       mstc: 16,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2315,6 +2670,8 @@ export default {
       ],
       ss: [0.98, 0.99],
       mstc: 16,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2328,6 +2685,8 @@ export default {
       ],
       ss: [0.98, 0.99],
       mstc: 16,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2341,6 +2700,8 @@ export default {
       ],
       ss: [0.98, 0.99],
       mstc: 16,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2354,6 +2715,8 @@ export default {
       ],
       ss: [0.98, 0.99],
       mstc: 16,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2367,6 +2730,8 @@ export default {
       ],
       ss: [0.98, 0.99],
       mstc: 16,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2380,6 +2745,8 @@ export default {
       ],
       ss: [0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 16,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2393,6 +2760,8 @@ export default {
       ],
       ss: [0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 16,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2406,6 +2775,8 @@ export default {
       ],
       ss: [0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 16,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2419,6 +2790,8 @@ export default {
       ],
       ss: [0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 16,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2432,6 +2805,8 @@ export default {
       ],
       ss: [0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 16,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2445,6 +2820,8 @@ export default {
       ],
       ss: [0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 16,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2458,6 +2835,8 @@ export default {
       ],
       ss: [0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 16,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2471,6 +2850,8 @@ export default {
       ],
       ss: [0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 16,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2484,6 +2865,8 @@ export default {
       ],
       ss: [0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.97, 0.99],
       mstc: 16,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2497,6 +2880,8 @@ export default {
       ],
       ss: [0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.97, 0.99],
       mstc: 16,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2510,6 +2895,8 @@ export default {
       ],
       ss: [0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.97, 0.99],
       mstc: 16,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2523,6 +2910,8 @@ export default {
       ],
       ss: [0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.97, 0.99],
       mstc: 16,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2536,6 +2925,8 @@ export default {
       ],
       ss: [0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.97, 0.99],
       mstc: 16,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2549,6 +2940,8 @@ export default {
       ],
       ss: [0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.97, 0.99],
       mstc: 16,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2562,6 +2955,8 @@ export default {
       ],
       ss: [0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.97, 0.99],
       mstc: 16,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2575,6 +2970,8 @@ export default {
       ],
       ss: [0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.97, 0.99],
       mstc: 16,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2588,6 +2985,8 @@ export default {
       ],
       ss: [0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.94, 0.96, 0.98],
       mstc: 16,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2601,6 +3000,8 @@ export default {
       ],
       ss: [0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.94, 0.96, 0.98],
       mstc: 16,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2614,6 +3015,8 @@ export default {
       ],
       ss: [0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.94, 0.96, 0.98],
       mstc: 16,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2627,6 +3030,8 @@ export default {
       ],
       ss: [0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.94, 0.96, 0.98],
       mstc: 16,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2640,6 +3045,8 @@ export default {
       ],
       ss: [0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.94, 0.96, 0.98],
       mstc: 16,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2653,6 +3060,8 @@ export default {
       ],
       ss: [0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.94, 0.96, 0.98],
       mstc: 16,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2666,6 +3075,8 @@ export default {
       ],
       ss: [0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.94, 0.96, 0.98],
       mstc: 16,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2679,6 +3090,8 @@ export default {
       ],
       ss: [0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.94, 0.96, 0.98],
       mstc: 16,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2692,6 +3105,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 17,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2705,6 +3120,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 17,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2718,6 +3135,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 17,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2731,6 +3150,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 17,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2744,6 +3165,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 17,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2757,6 +3180,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 17,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2770,6 +3195,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 17,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2783,6 +3210,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 17,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2796,6 +3225,8 @@ export default {
       ],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 17,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2809,6 +3240,8 @@ export default {
       ],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 17,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2822,6 +3255,8 @@ export default {
       ],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 17,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2835,6 +3270,8 @@ export default {
       ],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 17,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2848,6 +3285,8 @@ export default {
       ],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 17,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2861,6 +3300,8 @@ export default {
       ],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 17,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2874,6 +3315,8 @@ export default {
       ],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 17,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2887,6 +3330,8 @@ export default {
       ],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 17,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2900,6 +3345,8 @@ export default {
       ],
       ss: [0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.98],
       mstc: 17,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2913,6 +3360,8 @@ export default {
       ],
       ss: [0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.98],
       mstc: 17,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2926,6 +3375,8 @@ export default {
       ],
       ss: [0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.98],
       mstc: 17,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2939,6 +3390,8 @@ export default {
       ],
       ss: [0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.98],
       mstc: 17,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2952,6 +3405,8 @@ export default {
       ],
       ss: [0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.98],
       mstc: 17,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2965,6 +3420,8 @@ export default {
       ],
       ss: [0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.98],
       mstc: 17,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2978,6 +3435,8 @@ export default {
       ],
       ss: [0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.98],
       mstc: 17,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -2991,6 +3450,8 @@ export default {
       ],
       ss: [0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.98],
       mstc: 17,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3004,6 +3465,8 @@ export default {
       ],
       ss: [0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.96, 0.97, 0.99],
       mstc: 17,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3017,6 +3480,8 @@ export default {
       ],
       ss: [0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.96, 0.97, 0.99],
       mstc: 17,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3030,6 +3495,8 @@ export default {
       ],
       ss: [0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.96, 0.97, 0.99],
       mstc: 17,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3043,6 +3510,8 @@ export default {
       ],
       ss: [0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.96, 0.97, 0.99],
       mstc: 17,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3056,6 +3525,8 @@ export default {
       ],
       ss: [0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.96, 0.97, 0.99],
       mstc: 17,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3069,6 +3540,8 @@ export default {
       ],
       ss: [0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.96, 0.97, 0.99],
       mstc: 17,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3082,6 +3555,8 @@ export default {
       ],
       ss: [0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.96, 0.97, 0.99],
       mstc: 17,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3095,6 +3570,8 @@ export default {
       ],
       ss: [0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.96, 0.97, 0.99],
       mstc: 17,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3108,6 +3585,8 @@ export default {
       ],
       ss: 0.99,
       mstc: 18,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3121,6 +3600,8 @@ export default {
       ],
       ss: 0.99,
       mstc: 18,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3134,6 +3615,8 @@ export default {
       ],
       ss: 0.99,
       mstc: 18,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3147,6 +3630,8 @@ export default {
       ],
       ss: 0.99,
       mstc: 18,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3160,6 +3645,8 @@ export default {
       ],
       ss: 0.99,
       mstc: 18,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3173,6 +3660,8 @@ export default {
       ],
       ss: 0.99,
       mstc: 18,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3186,6 +3675,8 @@ export default {
       ],
       ss: 0.99,
       mstc: 18,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3199,6 +3690,8 @@ export default {
       ],
       ss: 0.99,
       mstc: 18,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3212,6 +3705,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 18,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3225,6 +3720,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 18,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3238,6 +3735,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 18,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3251,6 +3750,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 18,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3264,6 +3765,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 18,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3277,6 +3780,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 18,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3290,6 +3795,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 18,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3303,6 +3810,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 18,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3316,6 +3825,8 @@ export default {
       ],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 18,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3329,6 +3840,8 @@ export default {
       ],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 18,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3342,6 +3855,8 @@ export default {
       ],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 18,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3355,6 +3870,8 @@ export default {
       ],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 18,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3368,6 +3885,8 @@ export default {
       ],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 18,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3381,6 +3900,8 @@ export default {
       ],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 18,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3394,6 +3915,8 @@ export default {
       ],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 18,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3407,6 +3930,8 @@ export default {
       ],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 18,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3420,6 +3945,8 @@ export default {
       ],
       ss: [0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.99],
       mstc: 18,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3433,6 +3960,8 @@ export default {
       ],
       ss: [0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.99],
       mstc: 18,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3446,6 +3975,8 @@ export default {
       ],
       ss: [0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.99],
       mstc: 18,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3459,6 +3990,8 @@ export default {
       ],
       ss: [0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.99],
       mstc: 18,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3472,6 +4005,8 @@ export default {
       ],
       ss: [0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.99],
       mstc: 18,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3485,6 +4020,8 @@ export default {
       ],
       ss: [0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.99],
       mstc: 18,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3498,6 +4035,8 @@ export default {
       ],
       ss: [0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.99],
       mstc: 18,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3511,6 +4050,8 @@ export default {
       ],
       ss: [0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.99],
       mstc: 18,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3524,6 +4065,8 @@ export default {
       ],
       ss: [0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.93, 0.95, 0.97, 0.98],
       mstc: 18,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3537,6 +4080,8 @@ export default {
       ],
       ss: [0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.93, 0.95, 0.97, 0.98],
       mstc: 18,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3550,6 +4095,8 @@ export default {
       ],
       ss: [0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.93, 0.95, 0.97, 0.98],
       mstc: 18,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3563,6 +4110,8 @@ export default {
       ],
       ss: [0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.93, 0.95, 0.97, 0.98],
       mstc: 18,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3576,6 +4125,8 @@ export default {
       ],
       ss: [0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.93, 0.95, 0.97, 0.98],
       mstc: 18,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3589,6 +4140,8 @@ export default {
       ],
       ss: [0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.93, 0.95, 0.97, 0.98],
       mstc: 18,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3602,6 +4155,8 @@ export default {
       ],
       ss: [0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.93, 0.95, 0.97, 0.98],
       mstc: 18,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3615,6 +4170,8 @@ export default {
       ],
       ss: [0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.93, 0.95, 0.97, 0.98],
       mstc: 18,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3628,6 +4185,8 @@ export default {
       ],
       ss: 0.99,
       mstc: 19,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3641,6 +4200,8 @@ export default {
       ],
       ss: 0.99,
       mstc: 19,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3654,6 +4215,8 @@ export default {
       ],
       ss: 0.99,
       mstc: 19,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3667,6 +4230,8 @@ export default {
       ],
       ss: 0.99,
       mstc: 19,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3680,6 +4245,8 @@ export default {
       ],
       ss: 0.99,
       mstc: 19,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3693,6 +4260,8 @@ export default {
       ],
       ss: 0.99,
       mstc: 19,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3706,6 +4275,8 @@ export default {
       ],
       ss: 0.99,
       mstc: 19,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3719,6 +4290,8 @@ export default {
       ],
       ss: 0.99,
       mstc: 19,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3732,6 +4305,8 @@ export default {
       ],
       ss: [0.96, 0.97, 0.98, 0.99],
       mstc: 19,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3745,6 +4320,8 @@ export default {
       ],
       ss: [0.96, 0.97, 0.98, 0.99],
       mstc: 19,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3758,6 +4335,8 @@ export default {
       ],
       ss: [0.96, 0.97, 0.98, 0.99],
       mstc: 19,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3771,6 +4350,8 @@ export default {
       ],
       ss: [0.96, 0.97, 0.98, 0.99],
       mstc: 19,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3784,6 +4365,8 @@ export default {
       ],
       ss: [0.96, 0.97, 0.98, 0.99],
       mstc: 19,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3797,6 +4380,8 @@ export default {
       ],
       ss: [0.96, 0.97, 0.98, 0.99],
       mstc: 19,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3810,6 +4395,8 @@ export default {
       ],
       ss: [0.96, 0.97, 0.98, 0.99],
       mstc: 19,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3823,6 +4410,8 @@ export default {
       ],
       ss: [0.96, 0.97, 0.98, 0.99],
       mstc: 19,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3836,6 +4425,8 @@ export default {
       ],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 19,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3849,6 +4440,8 @@ export default {
       ],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 19,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3862,6 +4455,8 @@ export default {
       ],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 19,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3875,6 +4470,8 @@ export default {
       ],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 19,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3888,6 +4485,8 @@ export default {
       ],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 19,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3901,6 +4500,8 @@ export default {
       ],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 19,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3914,6 +4515,8 @@ export default {
       ],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 19,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3927,6 +4530,8 @@ export default {
       ],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 19,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3940,6 +4545,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.97, 0.99],
       mstc: 19,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3953,6 +4560,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.97, 0.99],
       mstc: 19,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3966,6 +4575,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.97, 0.99],
       mstc: 19,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3979,6 +4590,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.97, 0.99],
       mstc: 19,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -3992,6 +4605,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.97, 0.99],
       mstc: 19,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4005,6 +4620,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.97, 0.99],
       mstc: 19,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4018,6 +4635,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.97, 0.99],
       mstc: 19,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4031,6 +4650,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.97, 0.99],
       mstc: 19,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4044,6 +4665,8 @@ export default {
       ],
       ss: [0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.93, 0.95, 0.96, 0.98, 0.99],
       mstc: 19,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4057,6 +4680,8 @@ export default {
       ],
       ss: [0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.93, 0.95, 0.96, 0.98, 0.99],
       mstc: 19,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4070,6 +4695,8 @@ export default {
       ],
       ss: [0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.93, 0.95, 0.96, 0.98, 0.99],
       mstc: 19,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4083,6 +4710,8 @@ export default {
       ],
       ss: [0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.93, 0.95, 0.96, 0.98, 0.99],
       mstc: 19,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4096,6 +4725,8 @@ export default {
       ],
       ss: [0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.93, 0.95, 0.96, 0.98, 0.99],
       mstc: 19,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4109,6 +4740,8 @@ export default {
       ],
       ss: [0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.93, 0.95, 0.96, 0.98, 0.99],
       mstc: 19,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4122,6 +4755,8 @@ export default {
       ],
       ss: [0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.93, 0.95, 0.96, 0.98, 0.99],
       mstc: 19,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4135,6 +4770,8 @@ export default {
       ],
       ss: [0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.93, 0.95, 0.96, 0.98, 0.99],
       mstc: 19,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4148,6 +4785,8 @@ export default {
       ],
       ss: [0.98, 0.99],
       mstc: 20,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4161,6 +4800,8 @@ export default {
       ],
       ss: [0.98, 0.99],
       mstc: 20,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4174,6 +4815,8 @@ export default {
       ],
       ss: [0.98, 0.99],
       mstc: 20,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4187,6 +4830,8 @@ export default {
       ],
       ss: [0.98, 0.99],
       mstc: 20,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4200,6 +4845,8 @@ export default {
       ],
       ss: [0.98, 0.99],
       mstc: 20,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4213,6 +4860,8 @@ export default {
       ],
       ss: [0.98, 0.99],
       mstc: 20,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4226,6 +4875,8 @@ export default {
       ],
       ss: [0.98, 0.99],
       mstc: 20,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4239,6 +4890,8 @@ export default {
       ],
       ss: [0.98, 0.99],
       mstc: 20,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4252,6 +4905,8 @@ export default {
       ],
       ss: [0.96, 0.97, 0.98, 0.99],
       mstc: 20,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4265,6 +4920,8 @@ export default {
       ],
       ss: [0.96, 0.97, 0.98, 0.99],
       mstc: 20,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4278,6 +4935,8 @@ export default {
       ],
       ss: [0.96, 0.97, 0.98, 0.99],
       mstc: 20,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4291,6 +4950,8 @@ export default {
       ],
       ss: [0.96, 0.97, 0.98, 0.99],
       mstc: 20,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4304,6 +4965,8 @@ export default {
       ],
       ss: [0.96, 0.97, 0.98, 0.99],
       mstc: 20,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4317,6 +4980,8 @@ export default {
       ],
       ss: [0.96, 0.97, 0.98, 0.99],
       mstc: 20,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4330,6 +4995,8 @@ export default {
       ],
       ss: [0.96, 0.97, 0.98, 0.99],
       mstc: 20,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4343,6 +5010,8 @@ export default {
       ],
       ss: [0.96, 0.97, 0.98, 0.99],
       mstc: 20,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4356,6 +5025,8 @@ export default {
       ],
       ss: [0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 20,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4369,6 +5040,8 @@ export default {
       ],
       ss: [0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 20,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4382,6 +5055,8 @@ export default {
       ],
       ss: [0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 20,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4395,6 +5070,8 @@ export default {
       ],
       ss: [0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 20,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4408,6 +5085,8 @@ export default {
       ],
       ss: [0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 20,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4421,6 +5100,8 @@ export default {
       ],
       ss: [0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 20,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4434,6 +5115,8 @@ export default {
       ],
       ss: [0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 20,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4447,6 +5130,8 @@ export default {
       ],
       ss: [0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 20,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4460,6 +5145,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.97, 0.98, 0.99],
       mstc: 20,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4473,6 +5160,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.97, 0.98, 0.99],
       mstc: 20,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4486,6 +5175,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.97, 0.98, 0.99],
       mstc: 20,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4499,6 +5190,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.97, 0.98, 0.99],
       mstc: 20,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4512,6 +5205,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.97, 0.98, 0.99],
       mstc: 20,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4525,6 +5220,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.97, 0.98, 0.99],
       mstc: 20,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4538,6 +5235,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.97, 0.98, 0.99],
       mstc: 20,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4551,6 +5250,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.97, 0.98, 0.99],
       mstc: 20,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4564,6 +5265,8 @@ export default {
       ],
       ss: [0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.94, 0.96, 0.97, 0.99],
       mstc: 20,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4577,6 +5280,8 @@ export default {
       ],
       ss: [0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.94, 0.96, 0.97, 0.99],
       mstc: 20,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4590,6 +5295,8 @@ export default {
       ],
       ss: [0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.94, 0.96, 0.97, 0.99],
       mstc: 20,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4603,6 +5310,8 @@ export default {
       ],
       ss: [0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.94, 0.96, 0.97, 0.99],
       mstc: 20,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4616,6 +5325,8 @@ export default {
       ],
       ss: [0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.94, 0.96, 0.97, 0.99],
       mstc: 20,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4629,6 +5340,8 @@ export default {
       ],
       ss: [0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.94, 0.96, 0.97, 0.99],
       mstc: 20,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4642,6 +5355,8 @@ export default {
       ],
       ss: [0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.94, 0.96, 0.97, 0.99],
       mstc: 20,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4655,6 +5370,8 @@ export default {
       ],
       ss: [0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.94, 0.96, 0.97, 0.99],
       mstc: 20,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4668,6 +5385,8 @@ export default {
       ],
       ss: [0.98, 0.99],
       mstc: 21,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4681,6 +5400,8 @@ export default {
       ],
       ss: [0.98, 0.99],
       mstc: 21,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4694,6 +5415,8 @@ export default {
       ],
       ss: [0.98, 0.99],
       mstc: 21,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4706,6 +5429,8 @@ export default {
       ],
       ss: [0.98, 0.99],
       mstc: 21,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4718,6 +5443,8 @@ export default {
       ],
       ss: [0.98, 0.99],
       mstc: 21,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4730,6 +5457,8 @@ export default {
       ],
       ss: [0.98, 0.99],
       mstc: 21,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4742,6 +5471,8 @@ export default {
       ],
       ss: [0.98, 0.99],
       mstc: 21,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4754,6 +5485,8 @@ export default {
       ],
       ss: [0.98, 0.99],
       mstc: 21,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4767,6 +5500,8 @@ export default {
       ],
       ss: [0.96, 0.97, 0.98, 0.99],
       mstc: 21,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4780,6 +5515,8 @@ export default {
       ],
       ss: [0.96, 0.97, 0.98, 0.99],
       mstc: 21,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4793,6 +5530,8 @@ export default {
       ],
       ss: [0.96, 0.97, 0.98, 0.99],
       mstc: 21,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4805,6 +5544,8 @@ export default {
       ],
       ss: [0.96, 0.97, 0.98, 0.99],
       mstc: 21,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4817,6 +5558,8 @@ export default {
       ],
       ss: [0.96, 0.97, 0.98, 0.99],
       mstc: 21,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4829,6 +5572,8 @@ export default {
       ],
       ss: [0.96, 0.97, 0.98, 0.99],
       mstc: 21,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4841,6 +5586,8 @@ export default {
       ],
       ss: [0.96, 0.97, 0.98, 0.99],
       mstc: 21,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4853,6 +5600,8 @@ export default {
       ],
       ss: [0.96, 0.97, 0.98, 0.99],
       mstc: 21,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4866,6 +5615,8 @@ export default {
       ],
       ss: [0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 21,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4879,6 +5630,8 @@ export default {
       ],
       ss: [0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 21,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4892,6 +5645,8 @@ export default {
       ],
       ss: [0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 21,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4904,6 +5659,8 @@ export default {
       ],
       ss: [0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 21,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4916,6 +5673,8 @@ export default {
       ],
       ss: [0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 21,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4928,6 +5687,8 @@ export default {
       ],
       ss: [0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 21,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4940,6 +5701,8 @@ export default {
       ],
       ss: [0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 21,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4952,6 +5715,8 @@ export default {
       ],
       ss: [0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 21,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4965,6 +5730,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.98, 0.99],
       mstc: 21,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4978,6 +5745,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.98, 0.99],
       mstc: 21,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -4991,6 +5760,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.98, 0.99],
       mstc: 21,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5003,6 +5774,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.98, 0.99],
       mstc: 21,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5015,6 +5788,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.98, 0.99],
       mstc: 21,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5027,6 +5802,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.98, 0.99],
       mstc: 21,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5039,6 +5816,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.98, 0.99],
       mstc: 21,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5051,6 +5830,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.98, 0.99],
       mstc: 21,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5066,6 +5847,8 @@ export default {
         0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.94, 0.96, 0.97, 0.98, 0.99,
       ],
       mstc: 21,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5081,6 +5864,8 @@ export default {
         0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.94, 0.96, 0.97, 0.98, 0.99,
       ],
       mstc: 21,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5096,6 +5881,8 @@ export default {
         0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.94, 0.96, 0.97, 0.98, 0.99,
       ],
       mstc: 21,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5110,6 +5897,8 @@ export default {
         0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.94, 0.96, 0.97, 0.98, 0.99,
       ],
       mstc: 21,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5124,6 +5913,8 @@ export default {
         0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.94, 0.96, 0.97, 0.98, 0.99,
       ],
       mstc: 21,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5138,6 +5929,8 @@ export default {
         0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.94, 0.96, 0.97, 0.98, 0.99,
       ],
       mstc: 21,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5152,6 +5945,8 @@ export default {
         0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.94, 0.96, 0.97, 0.98, 0.99,
       ],
       mstc: 21,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5166,6 +5961,8 @@ export default {
         0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.94, 0.96, 0.97, 0.98, 0.99,
       ],
       mstc: 21,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5179,6 +5976,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 22,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5192,6 +5991,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 22,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5205,6 +6006,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 22,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5218,6 +6021,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 22,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5231,6 +6036,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 22,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5244,6 +6051,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 22,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5256,6 +6065,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 22,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5269,6 +6080,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 22,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5282,6 +6095,8 @@ export default {
       ],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 22,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5295,6 +6110,8 @@ export default {
       ],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 22,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5308,6 +6125,8 @@ export default {
       ],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 22,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5321,6 +6140,8 @@ export default {
       ],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 22,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5334,6 +6155,8 @@ export default {
       ],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 22,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5347,6 +6170,8 @@ export default {
       ],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 22,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5359,6 +6184,8 @@ export default {
       ],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 22,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5372,6 +6199,8 @@ export default {
       ],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 22,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5385,6 +6214,8 @@ export default {
       ],
       ss: [0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 22,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5398,6 +6229,8 @@ export default {
       ],
       ss: [0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 22,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5411,6 +6244,8 @@ export default {
       ],
       ss: [0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 22,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5424,6 +6259,8 @@ export default {
       ],
       ss: [0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 22,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5437,6 +6274,8 @@ export default {
       ],
       ss: [0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 22,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5450,6 +6289,8 @@ export default {
       ],
       ss: [0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 22,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5462,6 +6303,8 @@ export default {
       ],
       ss: [0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 22,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5475,6 +6318,8 @@ export default {
       ],
       ss: [0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 22,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5488,6 +6333,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.99],
       mstc: 22,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5501,6 +6348,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.99],
       mstc: 22,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5514,6 +6363,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.99],
       mstc: 22,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5527,6 +6378,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.99],
       mstc: 22,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5540,6 +6393,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.99],
       mstc: 22,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5553,6 +6408,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.99],
       mstc: 22,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5565,6 +6422,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.99],
       mstc: 22,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5578,6 +6437,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.99],
       mstc: 22,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5593,6 +6454,8 @@ export default {
         0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.94, 0.95, 0.97, 0.98, 0.99,
       ],
       mstc: 22,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5608,6 +6471,8 @@ export default {
         0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.94, 0.95, 0.97, 0.98, 0.99,
       ],
       mstc: 22,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5623,6 +6488,8 @@ export default {
         0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.94, 0.95, 0.97, 0.98, 0.99,
       ],
       mstc: 22,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5638,6 +6505,8 @@ export default {
         0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.94, 0.95, 0.97, 0.98, 0.99,
       ],
       mstc: 22,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5653,6 +6522,8 @@ export default {
         0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.94, 0.95, 0.97, 0.98, 0.99,
       ],
       mstc: 22,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5668,6 +6539,8 @@ export default {
         0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.94, 0.95, 0.97, 0.98, 0.99,
       ],
       mstc: 22,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5682,6 +6555,8 @@ export default {
         0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.94, 0.95, 0.97, 0.98, 0.99,
       ],
       mstc: 22,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5697,6 +6572,8 @@ export default {
         0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.94, 0.95, 0.97, 0.98, 0.99,
       ],
       mstc: 22,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5710,6 +6587,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 23,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5723,6 +6602,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 23,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5736,6 +6617,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 23,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5749,6 +6632,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 23,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5762,6 +6647,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 23,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5775,6 +6662,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 23,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5788,6 +6677,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 23,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5801,6 +6692,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 23,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5814,6 +6707,8 @@ export default {
       ],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 23,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5827,6 +6722,8 @@ export default {
       ],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 23,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5840,6 +6737,8 @@ export default {
       ],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 23,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5853,6 +6752,8 @@ export default {
       ],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 23,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5866,6 +6767,8 @@ export default {
       ],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 23,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5879,6 +6782,8 @@ export default {
       ],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 23,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5892,6 +6797,8 @@ export default {
       ],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 23,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5905,6 +6812,8 @@ export default {
       ],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 23,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5918,6 +6827,8 @@ export default {
       ],
       ss: [0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 23,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5931,6 +6842,8 @@ export default {
       ],
       ss: [0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 23,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5944,6 +6857,8 @@ export default {
       ],
       ss: [0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 23,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5957,6 +6872,8 @@ export default {
       ],
       ss: [0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 23,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5970,6 +6887,8 @@ export default {
       ],
       ss: [0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 23,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5983,6 +6902,8 @@ export default {
       ],
       ss: [0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 23,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -5996,6 +6917,8 @@ export default {
       ],
       ss: [0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 23,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6009,6 +6932,8 @@ export default {
       ],
       ss: [0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 23,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6022,6 +6947,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 23,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6035,6 +6962,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 23,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6048,6 +6977,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 23,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6061,6 +6992,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 23,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6074,6 +7007,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 23,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6087,6 +7022,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 23,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6100,6 +7037,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 23,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6113,6 +7052,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 23,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6129,6 +7070,8 @@ export default {
         0.99,
       ],
       mstc: 23,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6145,6 +7088,8 @@ export default {
         0.99,
       ],
       mstc: 23,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6161,6 +7106,8 @@ export default {
         0.99,
       ],
       mstc: 23,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6177,6 +7124,8 @@ export default {
         0.99,
       ],
       mstc: 23,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6193,6 +7142,8 @@ export default {
         0.99,
       ],
       mstc: 23,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6209,6 +7160,8 @@ export default {
         0.99,
       ],
       mstc: 23,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6225,6 +7178,8 @@ export default {
         0.99,
       ],
       mstc: 23,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6241,6 +7196,8 @@ export default {
         0.99,
       ],
       mstc: 23,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6254,6 +7211,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 24,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6267,6 +7226,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 24,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6280,6 +7241,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 24,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6293,6 +7256,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 24,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6306,6 +7271,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 24,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6319,6 +7286,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 24,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6332,6 +7301,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 24,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6345,6 +7316,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 24,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6358,6 +7331,8 @@ export default {
       ],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 24,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6371,6 +7346,8 @@ export default {
       ],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 24,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6384,6 +7361,8 @@ export default {
       ],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 24,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6397,6 +7376,8 @@ export default {
       ],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 24,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6410,6 +7391,8 @@ export default {
       ],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 24,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6423,6 +7406,8 @@ export default {
       ],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 24,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6436,6 +7421,8 @@ export default {
       ],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 24,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6449,6 +7436,8 @@ export default {
       ],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 24,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6462,6 +7451,8 @@ export default {
       ],
       ss: [0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 24,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6475,6 +7466,8 @@ export default {
       ],
       ss: [0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 24,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6488,6 +7481,8 @@ export default {
       ],
       ss: [0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 24,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6501,6 +7496,8 @@ export default {
       ],
       ss: [0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 24,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6514,6 +7511,8 @@ export default {
       ],
       ss: [0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 24,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6527,6 +7526,8 @@ export default {
       ],
       ss: [0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 24,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6540,6 +7541,8 @@ export default {
       ],
       ss: [0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 24,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6553,6 +7556,8 @@ export default {
       ],
       ss: [0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 24,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6566,6 +7571,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 24,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6579,6 +7586,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 24,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6592,6 +7601,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 24,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6605,6 +7616,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 24,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6618,6 +7631,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 24,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6631,6 +7646,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 24,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6644,6 +7661,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 24,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6657,6 +7676,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 24,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6673,6 +7694,8 @@ export default {
         0.99,
       ],
       mstc: 24,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6689,6 +7712,8 @@ export default {
         0.99,
       ],
       mstc: 24,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6705,6 +7730,8 @@ export default {
         0.99,
       ],
       mstc: 24,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6721,6 +7748,8 @@ export default {
         0.99,
       ],
       mstc: 24,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6737,6 +7766,8 @@ export default {
         0.99,
       ],
       mstc: 24,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6753,6 +7784,8 @@ export default {
         0.99,
       ],
       mstc: 24,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6769,6 +7802,8 @@ export default {
         0.99,
       ],
       mstc: 24,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6785,6 +7820,8 @@ export default {
         0.99,
       ],
       mstc: 24,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6798,6 +7835,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 25,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6811,6 +7850,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 25,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6824,6 +7865,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 25,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6837,6 +7880,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 25,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6850,6 +7895,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 25,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6863,6 +7910,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 25,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6876,6 +7925,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 25,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6889,6 +7940,8 @@ export default {
       ],
       ss: [0.97, 0.98, 0.99],
       mstc: 25,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6902,6 +7955,8 @@ export default {
       ],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 25,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6915,6 +7970,8 @@ export default {
       ],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 25,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6928,6 +7985,8 @@ export default {
       ],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 25,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6941,6 +8000,8 @@ export default {
       ],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 25,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6954,6 +8015,8 @@ export default {
       ],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 25,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6967,6 +8030,8 @@ export default {
       ],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 25,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6980,6 +8045,8 @@ export default {
       ],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 25,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -6993,6 +8060,8 @@ export default {
       ],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 25,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7006,6 +8075,8 @@ export default {
       ],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 25,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7019,6 +8090,8 @@ export default {
       ],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 25,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7032,6 +8105,8 @@ export default {
       ],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 25,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7045,6 +8120,8 @@ export default {
       ],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 25,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7058,6 +8135,8 @@ export default {
       ],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 25,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7071,6 +8150,8 @@ export default {
       ],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 25,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7084,6 +8165,8 @@ export default {
       ],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 25,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7097,6 +8180,8 @@ export default {
       ],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 25,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7110,6 +8195,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 25,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7123,6 +8210,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 25,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7136,6 +8225,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 25,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7149,6 +8240,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 25,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7162,6 +8255,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 25,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7175,6 +8270,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 25,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7188,6 +8285,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 25,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7201,6 +8300,8 @@ export default {
       ],
       ss: [0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 25,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7217,6 +8318,8 @@ export default {
         0.99,
       ],
       mstc: 25,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7233,6 +8336,8 @@ export default {
         0.99,
       ],
       mstc: 25,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7249,6 +8354,8 @@ export default {
         0.99,
       ],
       mstc: 25,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7265,6 +8372,8 @@ export default {
         0.99,
       ],
       mstc: 25,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7281,6 +8390,8 @@ export default {
         0.99,
       ],
       mstc: 25,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7297,6 +8408,8 @@ export default {
         0.99,
       ],
       mstc: 25,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7313,6 +8426,8 @@ export default {
         0.99,
       ],
       mstc: 25,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7329,6 +8444,8 @@ export default {
         0.99,
       ],
       mstc: 25,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7342,6 +8459,8 @@ export default {
       ],
       ss: [0.96, 0.97, 0.98, 0.99],
       mstc: 30,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7355,6 +8474,8 @@ export default {
       ],
       ss: [0.96, 0.97, 0.98, 0.99],
       mstc: 30,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7368,6 +8489,8 @@ export default {
       ],
       ss: [0.96, 0.97, 0.98, 0.99],
       mstc: 30,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7381,6 +8504,8 @@ export default {
       ],
       ss: [0.96, 0.97, 0.98, 0.99],
       mstc: 30,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7394,6 +8519,8 @@ export default {
       ],
       ss: [0.96, 0.97, 0.98, 0.99],
       mstc: 30,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7407,6 +8534,8 @@ export default {
       ],
       ss: [0.96, 0.97, 0.98, 0.99],
       mstc: 30,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7420,6 +8549,8 @@ export default {
       ],
       ss: [0.96, 0.97, 0.98, 0.99],
       mstc: 30,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7433,6 +8564,8 @@ export default {
       ],
       ss: [0.96, 0.97, 0.98, 0.99],
       mstc: 30,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7446,6 +8579,8 @@ export default {
       ],
       ss: [0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 30,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7459,6 +8594,8 @@ export default {
       ],
       ss: [0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 30,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7472,6 +8609,8 @@ export default {
       ],
       ss: [0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 30,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7485,6 +8624,8 @@ export default {
       ],
       ss: [0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 30,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7498,6 +8639,8 @@ export default {
       ],
       ss: [0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 30,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7511,6 +8654,8 @@ export default {
       ],
       ss: [0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 30,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7524,6 +8669,8 @@ export default {
       ],
       ss: [0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 30,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7537,6 +8684,8 @@ export default {
       ],
       ss: [0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 30,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7550,6 +8699,8 @@ export default {
       ],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 30,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7563,6 +8714,8 @@ export default {
       ],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 30,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7576,6 +8729,8 @@ export default {
       ],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 30,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7589,6 +8744,8 @@ export default {
       ],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 30,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7602,6 +8759,8 @@ export default {
       ],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 30,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7615,6 +8774,8 @@ export default {
       ],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 30,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7628,6 +8789,8 @@ export default {
       ],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 30,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7641,6 +8804,8 @@ export default {
       ],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 30,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7656,6 +8821,8 @@ export default {
         0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99,
       ],
       mstc: 30,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7671,6 +8838,8 @@ export default {
         0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99,
       ],
       mstc: 30,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7686,6 +8855,8 @@ export default {
         0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99,
       ],
       mstc: 30,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7701,6 +8872,8 @@ export default {
         0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99,
       ],
       mstc: 30,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7716,6 +8889,8 @@ export default {
         0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99,
       ],
       mstc: 30,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7731,6 +8906,8 @@ export default {
         0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99,
       ],
       mstc: 30,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7746,6 +8923,8 @@ export default {
         0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99,
       ],
       mstc: 30,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7761,6 +8940,8 @@ export default {
         0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99,
       ],
       mstc: 30,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7777,6 +8958,8 @@ export default {
         0.98,
       ],
       mstc: 30,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7793,6 +8976,8 @@ export default {
         0.98,
       ],
       mstc: 30,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7809,6 +8994,8 @@ export default {
         0.98,
       ],
       mstc: 30,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7825,6 +9012,8 @@ export default {
         0.98,
       ],
       mstc: 30,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7841,6 +9030,8 @@ export default {
         0.98,
       ],
       mstc: 30,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7857,6 +9048,8 @@ export default {
         0.98,
       ],
       mstc: 30,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7873,6 +9066,8 @@ export default {
         0.98,
       ],
       mstc: 30,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7889,6 +9084,8 @@ export default {
         0.98,
       ],
       mstc: 30,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7902,6 +9099,8 @@ export default {
       ],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 35,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7915,6 +9114,8 @@ export default {
       ],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 35,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7928,6 +9129,8 @@ export default {
       ],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 35,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7941,6 +9144,8 @@ export default {
       ],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 35,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7954,6 +9159,8 @@ export default {
       ],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 35,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7967,6 +9174,8 @@ export default {
       ],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 35,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7980,6 +9189,8 @@ export default {
       ],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 35,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -7990,6 +9201,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09, 1.1, 1.11],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 35,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8003,6 +9216,8 @@ export default {
       ],
       ss: [0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 35,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8016,6 +9231,8 @@ export default {
       ],
       ss: [0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 35,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8029,6 +9246,8 @@ export default {
       ],
       ss: [0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 35,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8042,6 +9261,8 @@ export default {
       ],
       ss: [0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 35,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8055,6 +9276,8 @@ export default {
       ],
       ss: [0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 35,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8068,6 +9291,8 @@ export default {
       ],
       ss: [0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 35,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8081,6 +9306,8 @@ export default {
       ],
       ss: [0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 35,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8091,6 +9318,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09, 1.1, 1.11],
       ss: [0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 35,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8104,6 +9333,8 @@ export default {
       ],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 35,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8117,6 +9348,8 @@ export default {
       ],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 35,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8130,6 +9363,8 @@ export default {
       ],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 35,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8143,6 +9378,8 @@ export default {
       ],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 35,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8156,6 +9393,8 @@ export default {
       ],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 35,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8169,6 +9408,8 @@ export default {
       ],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 35,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8182,6 +9423,8 @@ export default {
       ],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 35,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8192,6 +9435,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09, 1.1, 1.11],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 35,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8205,6 +9450,8 @@ export default {
       ],
       ss: [0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98],
       mstc: 35,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8218,6 +9465,8 @@ export default {
       ],
       ss: [0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98],
       mstc: 35,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8231,6 +9480,8 @@ export default {
       ],
       ss: [0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98],
       mstc: 35,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8244,6 +9495,8 @@ export default {
       ],
       ss: [0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98],
       mstc: 35,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8257,6 +9510,8 @@ export default {
       ],
       ss: [0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98],
       mstc: 35,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8270,6 +9525,8 @@ export default {
       ],
       ss: [0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98],
       mstc: 35,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8283,6 +9540,8 @@ export default {
       ],
       ss: [0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98],
       mstc: 35,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8293,6 +9552,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09, 1.1, 1.11],
       ss: [0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98],
       mstc: 35,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8308,6 +9569,8 @@ export default {
         0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97,
       ],
       mstc: 35,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8323,6 +9586,8 @@ export default {
         0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97,
       ],
       mstc: 35,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8338,6 +9603,8 @@ export default {
         0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97,
       ],
       mstc: 35,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8353,6 +9620,8 @@ export default {
         0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97,
       ],
       mstc: 35,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8368,6 +9637,8 @@ export default {
         0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97,
       ],
       mstc: 35,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8383,6 +9654,8 @@ export default {
         0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97,
       ],
       mstc: 35,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8398,6 +9671,8 @@ export default {
         0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97,
       ],
       mstc: 35,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8410,6 +9685,8 @@ export default {
         0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97,
       ],
       mstc: 35,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8422,6 +9699,8 @@ export default {
       ],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 40,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8434,6 +9713,8 @@ export default {
       ],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 40,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8446,6 +9727,8 @@ export default {
       ],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 40,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8459,6 +9742,8 @@ export default {
       ],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 40,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8469,6 +9754,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09, 1.1, 1.11],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 40,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8479,6 +9766,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09, 1.1, 1.11],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 40,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8489,6 +9778,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09, 1.1],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 40,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8499,6 +9790,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 40,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8511,6 +9804,8 @@ export default {
       ],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 40,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8523,6 +9818,8 @@ export default {
       ],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 40,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8535,6 +9832,8 @@ export default {
       ],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 40,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8548,6 +9847,8 @@ export default {
       ],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 40,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8558,6 +9859,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09, 1.1, 1.11],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 40,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8568,6 +9871,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09, 1.1, 1.11],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 40,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8578,6 +9883,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09, 1.1],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 40,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8588,6 +9895,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 40,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8600,6 +9909,8 @@ export default {
       ],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 40,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8612,6 +9923,8 @@ export default {
       ],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 40,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8624,6 +9937,8 @@ export default {
       ],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 40,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8637,6 +9952,8 @@ export default {
       ],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 40,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8647,6 +9964,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09, 1.1, 1.11],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 40,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8657,6 +9976,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09, 1.1, 1.11],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 40,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8667,6 +9988,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09, 1.1],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 40,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8677,6 +10000,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 40,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8689,6 +10014,8 @@ export default {
       ],
       ss: [0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98],
       mstc: 40,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8701,6 +10028,8 @@ export default {
       ],
       ss: [0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98],
       mstc: 40,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8713,6 +10042,8 @@ export default {
       ],
       ss: [0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98],
       mstc: 40,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8726,6 +10057,8 @@ export default {
       ],
       ss: [0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98],
       mstc: 40,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8736,6 +10069,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09, 1.1, 1.11],
       ss: [0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98],
       mstc: 40,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8746,6 +10081,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09, 1.1, 1.11],
       ss: [0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98],
       mstc: 40,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8756,6 +10093,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09, 1.1],
       ss: [0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98],
       mstc: 40,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8766,6 +10105,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09],
       ss: [0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98],
       mstc: 40,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8778,6 +10119,8 @@ export default {
       ],
       ss: [0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96],
       mstc: 40,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8790,6 +10133,8 @@ export default {
       ],
       ss: [0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96],
       mstc: 40,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8802,6 +10147,8 @@ export default {
       ],
       ss: [0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96],
       mstc: 40,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8815,6 +10162,8 @@ export default {
       ],
       ss: [0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96],
       mstc: 40,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8825,6 +10174,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09, 1.1, 1.11],
       ss: [0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96],
       mstc: 40,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8835,6 +10186,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09, 1.1, 1.11],
       ss: [0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96],
       mstc: 40,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8845,6 +10198,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09, 1.1],
       ss: [0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96],
       mstc: 40,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8855,6 +10210,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09],
       ss: [0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96],
       mstc: 40,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8865,6 +10222,8 @@ export default {
       os: [1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09, 1.1, 1.11],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 45,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8875,6 +10234,8 @@ export default {
       os: [1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09, 1.1, 1.11],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 45,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8885,6 +10246,8 @@ export default {
       os: [1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09, 1.1, 1.11],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 45,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8895,6 +10258,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09, 1.1],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 45,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8905,6 +10270,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 45,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8915,6 +10282,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 45,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8925,6 +10294,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 45,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8935,6 +10306,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 45,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8945,6 +10318,8 @@ export default {
       os: [1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09, 1.1, 1.11],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 45,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8955,6 +10330,8 @@ export default {
       os: [1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09, 1.1, 1.11],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 45,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8965,6 +10342,8 @@ export default {
       os: [1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09, 1.1, 1.11],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 45,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8975,6 +10354,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09, 1.1],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 45,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8985,6 +10366,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 45,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -8995,6 +10378,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 45,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9005,6 +10390,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 45,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9015,6 +10402,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 45,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9025,6 +10414,8 @@ export default {
       os: [1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09, 1.1, 1.11],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 45,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9035,6 +10426,8 @@ export default {
       os: [1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09, 1.1, 1.11],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 45,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9045,6 +10438,8 @@ export default {
       os: [1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09, 1.1, 1.11],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 45,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9055,6 +10450,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09, 1.1],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 45,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9065,6 +10462,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 45,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9075,6 +10474,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 45,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9085,6 +10486,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 45,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9095,6 +10498,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 45,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9105,6 +10510,8 @@ export default {
       os: [1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09, 1.1, 1.11],
       ss: [0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97],
       mstc: 45,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9115,6 +10522,8 @@ export default {
       os: [1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09, 1.1, 1.11],
       ss: [0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97],
       mstc: 45,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9125,6 +10534,8 @@ export default {
       os: [1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09, 1.1, 1.11],
       ss: [0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97],
       mstc: 45,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9135,6 +10546,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09, 1.1],
       ss: [0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97],
       mstc: 45,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9145,6 +10558,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09],
       ss: [0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97],
       mstc: 45,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9155,6 +10570,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09],
       ss: [0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97],
       mstc: 45,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9165,6 +10582,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08],
       ss: [0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97],
       mstc: 45,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9175,6 +10594,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08],
       ss: [0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97],
       mstc: 45,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9185,6 +10606,8 @@ export default {
       os: [1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09, 1.1, 1.11],
       ss: [0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96],
       mstc: 45,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9195,6 +10618,8 @@ export default {
       os: [1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09, 1.1, 1.11],
       ss: [0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96],
       mstc: 45,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9205,6 +10630,8 @@ export default {
       os: [1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09, 1.1, 1.11],
       ss: [0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96],
       mstc: 45,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9215,6 +10642,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09, 1.1],
       ss: [0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96],
       mstc: 45,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9225,6 +10654,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09],
       ss: [0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96],
       mstc: 45,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9235,6 +10666,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09],
       ss: [0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96],
       mstc: 45,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9245,6 +10678,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08],
       ss: [0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96],
       mstc: 45,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9255,6 +10690,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08],
       ss: [0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96],
       mstc: 45,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9265,6 +10702,8 @@ export default {
       os: [1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09, 1.1],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 50,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9275,6 +10714,8 @@ export default {
       os: [1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09, 1.1],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 50,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9285,6 +10726,8 @@ export default {
       os: [1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09, 1.1],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 50,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9295,6 +10738,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 50,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9305,6 +10750,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 50,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9315,6 +10762,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 50,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9325,6 +10774,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 50,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9335,6 +10786,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06],
       ss: [0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 50,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9345,6 +10798,8 @@ export default {
       os: [1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09, 1.1],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 50,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9355,6 +10810,8 @@ export default {
       os: [1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09, 1.1],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 50,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9365,6 +10822,8 @@ export default {
       os: [1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09, 1.1],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 50,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9375,6 +10834,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 50,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9385,6 +10846,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 50,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9395,6 +10858,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 50,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9405,6 +10870,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 50,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9415,6 +10882,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06],
       ss: [0.93, 0.94, 0.95, 0.96, 0.97, 0.98, 0.99],
       mstc: 50,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9425,6 +10894,8 @@ export default {
       os: [1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09, 1.1],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98],
       mstc: 50,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9435,6 +10906,8 @@ export default {
       os: [1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09, 1.1],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98],
       mstc: 50,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9445,6 +10918,8 @@ export default {
       os: [1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09, 1.1],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98],
       mstc: 50,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9455,6 +10930,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98],
       mstc: 50,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9465,6 +10942,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98],
       mstc: 50,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9475,6 +10954,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98],
       mstc: 50,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9485,6 +10966,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98],
       mstc: 50,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9495,6 +10978,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06],
       ss: [0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97, 0.98],
       mstc: 50,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9505,6 +10990,8 @@ export default {
       os: [1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09, 1.1],
       ss: [0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97],
       mstc: 50,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9515,6 +11002,8 @@ export default {
       os: [1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09, 1.1],
       ss: [0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97],
       mstc: 50,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9525,6 +11014,8 @@ export default {
       os: [1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09, 1.1],
       ss: [0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97],
       mstc: 50,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9535,6 +11026,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08],
       ss: [0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97],
       mstc: 50,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9545,6 +11038,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08],
       ss: [0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97],
       mstc: 50,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9555,6 +11050,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08],
       ss: [0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97],
       mstc: 50,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9565,6 +11062,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07],
       ss: [0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97],
       mstc: 50,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9575,6 +11074,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06],
       ss: [0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96, 0.97],
       mstc: 50,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9585,6 +11086,8 @@ export default {
       os: [1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09, 1.1],
       ss: [0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96],
       mstc: 50,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9595,6 +11098,8 @@ export default {
       os: [1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09, 1.1],
       ss: [0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96],
       mstc: 50,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9605,6 +11110,8 @@ export default {
       os: [1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08, 1.09, 1.1],
       ss: [0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96],
       mstc: 50,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9615,6 +11122,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08],
       ss: [0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96],
       mstc: 50,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9625,6 +11134,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08],
       ss: [0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96],
       mstc: 50,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9635,6 +11146,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07, 1.08],
       ss: [0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96],
       mstc: 50,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9645,6 +11158,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06, 1.07],
       ss: [0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96],
       mstc: 50,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
     {
       name: "Test",
@@ -9655,6 +11170,8 @@ export default {
       os: [1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.06],
       ss: [0.86, 0.87, 0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.96],
       mstc: 50,
+      sl: [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+      maxslfromlastdeviation: 30,
     },
   ],
 };

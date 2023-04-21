@@ -1,7 +1,7 @@
 import { fork } from "child_process";
 import delay from "delay";
 import os from "os";
-const processes = os.cpus().length -1;
+const processes = os.cpus().length - 1;
 let totalSetups = 0;
 let tasks = [];
 let tasksIndex = 0;
@@ -15,7 +15,9 @@ for (let index = 0; index < processes; index++) {
   let started = false;
   const handleMessage = (message) => {
     if (started) {
-      if (message.single) {
+      if (message.log) {
+        console.log(message.log);
+      } else if (message.single) {
         results.push(message.single);
         totalCompleted++;
       } else if (message.multiple) {
