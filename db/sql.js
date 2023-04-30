@@ -1,26 +1,26 @@
 import bsql from "better-sqlite3";
 const db = bsql("./db/data.db");
 
-const getLastTimestamp = (symbol) => {
-  let table = symbol.replace("/", "").toLowerCase();
+const getLastTimestamp = (echangerandsymbol) => {
+  let table = echangerandsymbol.replace("/", "").toLowerCase();
   createTable(table);
   return db.prepare(`SELECT MAX("timestamp") FROM "${table}"`).pluck().get();
 };
 
-const getFirstTimestamp = (symbol) => {
-  let table = symbol.replace("/", "").toLowerCase();
+const getFirstTimestamp = (echangerandsymbol) => {
+  let table = echangerandsymbol.replace("/", "").toLowerCase();
   createTable(table);
   return db.prepare(`SELECT MIN("timestamp") FROM "${table}"`).pluck().get();
 };
 
-const getAllData = (symbol) => {
-  let table = symbol.replace("/", "").toLowerCase();
+const getAllData = (echangerandsymbol) => {
+  let table = echangerandsymbol.replace("/", "").toLowerCase();
   createTable(table);
   return db.prepare(`SELECT * FROM "${table}"`).all();
 };
 
-const getAllDataInRange = (symbol, from, to) => {
-  let table = symbol.replace("/", "").toLowerCase();
+const getAllDataInRange = (echangerandsymbol, from, to) => {
+  let table = echangerandsymbol.replace("/", "").toLowerCase();
   createTable(table);
   return db
     .prepare(
@@ -29,8 +29,8 @@ const getAllDataInRange = (symbol, from, to) => {
     .all(from, to);
 };
 
-const getAllDataInRangeLimit = (symbol, from, to, limit) => {
-  let table = symbol.replace("/", "").toLowerCase();
+const getAllDataInRangeLimit = (echangerandsymbol, from, to, limit) => {
+  let table = echangerandsymbol.replace("/", "").toLowerCase();
   createTable(table);
   return db
     .prepare(
@@ -39,8 +39,8 @@ const getAllDataInRangeLimit = (symbol, from, to, limit) => {
     .all(from, to, limit);
 };
 
-const insertCandles = (symbol, ohlcvs) => {
-  let table = symbol.replace("/", "").toLowerCase();
+const insertCandles = (echangerandsymbol, ohlcvs) => {
+  let table = echangerandsymbol.replace("/", "").toLowerCase();
   createTable(table);
   const insert = db.prepare(
     `INSERT INTO "${table}" ("timestamp", "open", "high", "low", "close", "volume") VALUES (?, ?, ?, ?, ?, ?)`
@@ -55,15 +55,15 @@ const insertCandles = (symbol, ohlcvs) => {
   insertMany(ohlcvs);
 };
 
-const createTable = (symbol) => {
-  let table = symbol.replace("/", "").toLowerCase();
+const createTable = (echangerandsymbol) => {
+  let table = echangerandsymbol.replace("/", "").toLowerCase();
   db.exec(
     `CREATE TABLE IF NOT EXISTS "${table}" ("timestamp" integer NOT NULL,"open" integer,"high" integer,"low" integer,"close" integer,"volume" integer, PRIMARY KEY ("timestamp"));`
   );
 };
 
-const dropTable = (symbol) => {
-  let table = symbol.replace("/", "").toLowerCase();
+const dropTable = (echangerandsymbol) => {
+  let table = echangerandsymbol.replace("/", "").toLowerCase();
   db.exec(`DROP TABLE "${table}";`);
 };
 

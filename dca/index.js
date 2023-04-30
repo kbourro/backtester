@@ -17,24 +17,37 @@ const queue = new PQueue({ concurrency: 50, autoStart: false });
   const config = (
     await import(url.pathToFileURL(path.resolve(process.argv[2])).href)
   ).default;
-  const symbols = Object.values(config.symbols);
+  const exchangers = Object.getOwnPropertyNames(config.symbols);
+  let totalSymbols = 0;
+  const allSymbols = [];
+  exchangers.forEach((exchanger) => {
+    config.symbols[exchanger].forEach((symbol) => {
+      allSymbols.push(symbol);
+    });
+    totalSymbols += config.symbols[exchanger].length;
+  });
   const setups = await prepareSetups(Object.values(config.setups), config);
   const from = config.from;
   const to = config.to;
-  const exchanger = config.exchanger;
   console.log(
-    `Test started for ${setups.length} setups and ${
-      symbols.length
-    } symbols. Total backtests ${setups.length * symbols.length}`
+    `Test started for ${
+      setups.length
+    } setups and ${totalSymbols} symbols. Total backtests ${
+      setups.length * totalSymbols
+    }`
   );
   console.time("All backtests completed");
   let final = [];
   let promises = [];
-  for (let index = 0; index < symbols.length; index++) {
-    const symbol = symbols[index];
-    promises.push(queue.add(() => downloadData(exchanger, symbol, from, to)));
-    await symbolBacktest.add({ config, setups, symbol });
-    final[symbol] = [];
+  for (let index = 0; index < exchangers.length; index++) {
+    const exchanger = exchangers[index];
+    const symbols = config.symbols[exchanger];
+    for (let index = 0; index < symbols.length; index++) {
+      const symbol = symbols[index];
+      promises.push(queue.add(() => downloadData(exchanger, symbol, from, to)));
+      await symbolBacktest.add({ config, setups, symbol, exchanger });
+      final[`${exchanger}-${symbol}`] = [];
+    }
   }
   queue.start();
   await Promise.all(promises);
@@ -44,13 +57,15 @@ const queue = new PQueue({ concurrency: 50, autoStart: false });
     let lastTradeEnd = new Date(result.lastTrade.endTimestamp);
     let longerTradeStart = new Date(result.longerTrade.startTimestamp);
     let longerTradeEnd = new Date(result.longerTrade.endTimestamp);
-    final[result.symbol].push({
+    const exchangersymbol = `${result.exchanger}-${result.symbol}`;
+    final[exchangersymbol].push({
       Name: result.setup.name,
       "ROI %": roundToTwo(result.totalProfit + result.upnl),
       "ROI Without Upnl %": roundToTwo(result.totalProfit),
       "Upnl %": roundToTwo(result.upnl),
       DU: result.deviationsUsed,
       "SL hit": result.slHitCounter,
+      "Max drawdown": Number(result.maxDrawdown),
       "Coverage %": result.setup.maxDeviation,
       "Total Trades": result.totalTrades,
       "MD trade started": `${longerTradeStart.getFullYear()}-${
@@ -84,18 +99,14 @@ const queue = new PQueue({ concurrency: 50, autoStart: false });
       groupid: `${result.setup.sos}${result.setup.os}${result.setup.ss}${result.setup.mstc}`,
     });
   });
-  let allSetups = [];
+  const allSetupsMap = new Map();
   if (Object.keys(final).length > 0) {
-    Object.keys(final).forEach((symbol) => {
-      let setupsResults = final[symbol];
-      for (let index = 0; index < setupsResults.length; index++) {
-        const result = setupsResults[index];
-        if (
-          allSetups[index] === undefined ||
-          allSetups[index] === null ||
-          allSetups[index].length <= 0
-        ) {
-          allSetups[index] = {
+    Object.keys(final).forEach((exchangersymbol) => {
+      let exchangesymbolResults = final[exchangersymbol];
+      for (let index = 0; index < exchangesymbolResults.length; index++) {
+        const result = exchangesymbolResults[index];
+        if (!allSetupsMap.has(result.Name)) {
+          allSetupsMap.set(result.Name, {
             ...insertProperty(
               (({
                 "MD trade started": _deleted1,
@@ -109,64 +120,72 @@ const queue = new PQueue({ concurrency: 50, autoStart: false });
               result["ROI %"] >= 0 ? 1 : 0,
               4
             ),
-          };
+          });
         } else {
-          allSetups[index]["ROI %"] =
-            allSetups[index]["ROI %"] + result["ROI %"];
-          allSetups[index]["ROI Without Upnl %"] =
-            allSetups[index]["ROI Without Upnl %"] +
-            result["ROI Without Upnl %"];
-          allSetups[index]["Upnl %"] =
-            allSetups[index]["Upnl %"] + result["Upnl %"];
-          allSetups[index]["Total Trades"] =
-            allSetups[index]["Total Trades"] + result["Total Trades"];
-          allSetups[index]["MD (h)"] = Math.max(
-            allSetups[index]["MD (h)"],
+          const foundSetup = allSetupsMap.get(result.Name);
+          foundSetup["SL hit"] = Math.max(
+            foundSetup["SL hit"],
+            result["SL hit"]
+          );
+          foundSetup["Max drawdown"] = Math.min(
+            foundSetup["Max drawdown"],
+            result["Max drawdown"]
+          );
+          foundSetup["Max ROI %"] = Math.max(
+            foundSetup["ROI %"],
+            result["ROI %"]
+          );
+          foundSetup["ROI %"] = foundSetup["ROI %"] + result["ROI %"];
+          foundSetup["ROI Without Upnl %"] =
+            foundSetup["ROI Without Upnl %"] + result["ROI Without Upnl %"];
+          foundSetup["Upnl %"] = foundSetup["Upnl %"] + result["Upnl %"];
+          foundSetup["Total Trades"] =
+            foundSetup["Total Trades"] + result["Total Trades"];
+          foundSetup["MD (h)"] = Math.max(
+            foundSetup["MD (h)"],
             result["MD (h)"]
           );
-          allSetups[index]["DU"] = Math.max(
-            allSetups[index]["DU"],
-            result["DU"]
-          );
-          allSetups[index]["Profitable Pairs"] =
-            allSetups[index]["Profitable Pairs"] +
-            (result["ROI %"] >= 0 ? 1 : 0);
+          foundSetup["DU"] = Math.max(foundSetup["DU"], result["DU"]);
+          foundSetup["Profitable Pairs"] =
+            foundSetup["Profitable Pairs"] + (result["ROI %"] >= 0 ? 1 : 0);
         }
       }
     });
+    // Convert allSetupsMap to allSetups array
+    const allSetups = Array.from(allSetupsMap.values());
     for (let index = 0; index < allSetups.length; index++) {
       allSetups[index]["ROI %"] = roundToTwo(
-        allSetups[index]["ROI %"] / config.symbols.length
+        allSetups[index]["ROI %"] / totalSymbols
       );
       allSetups[index]["ROI Without Upnl %"] = roundToTwo(
-        allSetups[index]["ROI Without Upnl %"] / config.symbols.length
+        allSetups[index]["ROI Without Upnl %"] / totalSymbols
       );
       allSetups[index]["Upnl %"] = roundToTwo(
-        allSetups[index]["Upnl %"] / config.symbols.length
+        allSetups[index]["Upnl %"] / totalSymbols
       );
     }
     allSetups.sort(function (a, b) {
       return b["ROI %"] - a["ROI %"];
     });
     console.log(`Start date ${from} - End date ${to}`);
-    console.log(`Symbols ${config.symbols.join(", ")}`);
+    console.log(`Symbols ${allSymbols.join(", ")}`);
     if (config.options.console) {
       console.log(`---------------------------------------------`);
       console.log("All symbols");
       console.table(allSetups);
       console.log(`---------------------------------------------`);
-      Object.keys(final).forEach((symbol) => {
-        final[symbol].sort(function (a, b) {
+      Object.keys(final).forEach((exchangersymbol) => {
+        final[exchangersymbol].sort(function (a, b) {
           return b["ROI %"] - a["ROI %"];
         });
-        console.log(`Symbol ${symbol}`);
-        console.table(final[symbol]);
+        console.log(`Symbol ${exchangersymbol}`);
+        console.table(final[exchangersymbol]);
         console.log(`---------------------------------------------`);
       });
       getFooterInfo().forEach((info) => console.log(info));
     } else {
-      Object.keys(final).forEach((symbol) => {
-        final[symbol].sort(function (a, b) {
+      Object.keys(final).forEach((exchangersymbol) => {
+        final[exchangersymbol].sort(function (a, b) {
           return b["ROI %"] - a["ROI %"];
         });
       });
@@ -199,7 +218,7 @@ const queue = new PQueue({ concurrency: 50, autoStart: false });
     worksheet.getCell("A2").value = `End`;
     worksheet.getCell("B2").value = to;
     worksheet.getCell("A3").value = `Total pairs`;
-    worksheet.getCell("B3").value = symbols.length;
+    worksheet.getCell("B3").value = totalSymbols;
     worksheet.getRow(5).values = Object.keys(allSetups[0]);
     let columnsLength = [];
     let sheetRow = worksheet.getRow(5);
@@ -250,12 +269,12 @@ const queue = new PQueue({ concurrency: 50, autoStart: false });
       rowCount++;
     });
     worksheet.commit();
-    Object.keys(final).forEach((symbol) => {
+    Object.keys(final).forEach((exchangersymbol) => {
       columnsLength = [];
-      worksheet = workbook.addWorksheet(symbol.replace("/", "-"), {
+      worksheet = workbook.addWorksheet(exchangersymbol.replace("/", "-"), {
         views: [{ state: "frozen", ySplit: 1 }],
       });
-      columns = Object.keys(final[symbol][0]).map((column) => {
+      columns = Object.keys(final[exchangersymbol][0]).map((column) => {
         return {
           header: column,
           key: column,
@@ -277,7 +296,7 @@ const queue = new PQueue({ concurrency: 50, autoStart: false });
       });
       sheetRow.commit();
       rowCount = 0;
-      final[symbol].forEach((row) => {
+      final[exchangersymbol].forEach((row) => {
         worksheet.addRow(row);
         let sheetRow = worksheet.lastRow;
         sheetRow.eachCell({ includeEmpty: true }, function (cell, colNumber) {

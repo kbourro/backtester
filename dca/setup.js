@@ -3,11 +3,12 @@ import fs from "fs";
 import { getAllDataInRangeLimit } from "../db/sql.js";
 //let tempCompleted = 0;
 //const queue = new PQueue({ concurrency: 2 });
-const run = ({ config, setup, symbol, id }) => {
+const run = ({ config, setup, symbol, id, exchanger }) => {
   return new Promise((resolve) => {
+    const exchangersymbol = exchanger + "" + symbol;
     let fromTimestamp = new Date(config.from).getTime();
     const toTimestamp = new Date(config.to).getTime();
-    let mstcDir = `./results/${symbol
+    let mstcDir = `./results/${exchanger}${symbol
       .replace("/", "")
       .toLowerCase()}/${fromTimestamp}${toTimestamp}/${setup.mstc}`;
     if (!fs.existsSync(mstcDir)) {
@@ -15,16 +16,22 @@ const run = ({ config, setup, symbol, id }) => {
     }
     let finalFile = `${mstcDir}/${setup.tp}${setup.bo}${setup.so}${setup.sos}${setup.os}${setup.ss}${setup.sl}.json`;
     if (fs.existsSync(finalFile)) {
-      let response = JSON.parse(fs.readFileSync(finalFile));
-      if (response.upnl === undefined || response.upnl === null) {
+      try {
+        let response = JSON.parse(fs.readFileSync(finalFile));
+        if (response.upnl === undefined || response.upnl === null) {
+          fs.unlinkSync(finalFile);
+          response = null;
+        } else {
+          if (response.setup.name !== setup.name) {
+            response.setup.name = setup.name;
+          }
+          resolve(response);
+          return;
+        }
+      } catch (error) {
+        console.error("Cache file is corrupted. Deleting it.");
         fs.unlinkSync(finalFile);
         response = null;
-      } else {
-        if (response.setup.name !== setup.name) {
-          response.setup.name = setup.name;
-        }
-        resolve(response);
-        return;
       }
     }
     const tradeTemplate = {
@@ -46,11 +53,12 @@ const run = ({ config, setup, symbol, id }) => {
     let trade = { ...tradeTemplate };
     let trades = [];
     let lastClosePrice = 0;
+    let maxDrawdown = 0;
     // process.send({ log: setup });
     const runBacktestsInAllTimestamps = () => {
       let keepRunning = true;
       let ohlcvs = getAllDataInRangeLimit(
-        symbol,
+        exchangersymbol,
         fromTimestamp,
         toTimestamp,
         10000
@@ -70,6 +78,10 @@ const run = ({ config, setup, symbol, id }) => {
                   trade.averageBuyPrice) *
                   100)) /
               setup.maxAmount;
+            let maxDrawdownCalc = percentageChange(trade.open, lastClosePrice);
+            if (maxDrawdown >= maxDrawdownCalc) {
+              maxDrawdown = maxDrawdownCalc;
+            }
           }
           trades.push({ ...trade });
         }
@@ -97,6 +109,10 @@ const run = ({ config, setup, symbol, id }) => {
               const deviation = setup.deviations[deviationsIndex];
               trade.soPrices.push(trade.open - (trade.open * deviation) / 100);
             }
+          }
+          let maxDrawdownCalc = percentageChange(trade.open, lastClosePrice);
+          if (maxDrawdown > maxDrawdownCalc) {
+            maxDrawdown = maxDrawdownCalc;
           }
           if (ohlcv.high >= trade.tpPrice) {
             trade.upnl = 0;
@@ -195,6 +211,7 @@ const run = ({ config, setup, symbol, id }) => {
           maxDeal: Math.round(maxDeal),
           upnl: trades[lastTradeIndex].upnl,
           slHitCounter,
+          maxDrawdown: maxDrawdown.toFixed(2),
           longerTrade,
           lastTrade,
           lastTradeTime: Math.round(
@@ -202,6 +219,7 @@ const run = ({ config, setup, symbol, id }) => {
           ),
           setup,
           symbol,
+          exchanger,
         };
         fs.writeFileSync(finalFile, JSON.stringify(response));
         trades = [];
@@ -278,4 +296,35 @@ function splitNumberByWeight(originalNumber, bo, so) {
 
   // Return an object with the two calculated values
   return { bo: roundedValue1, so: roundedValue2 };
+}
+
+function calculateNewOrders(
+  baseOrder,
+  safetyOrder,
+  safetyOrderVolumeScale,
+  maxSafetyOrdersCount,
+  additionalInvestment
+) {
+  // Calculate current total invested amount
+  let totalInvestedAmount = baseOrder;
+  for (let i = 1; i <= maxSafetyOrdersCount; i++) {
+    totalInvestedAmount +=
+      safetyOrder * Math.pow(safetyOrderVolumeScale, i - 1);
+  }
+
+  // Calculate new total invested amount
+  const newTotalInvestedAmount = totalInvestedAmount + additionalInvestment;
+
+  // Calculate scaling factor
+  const scalingFactor = newTotalInvestedAmount / totalInvestedAmount;
+
+  // Calculate new base order and safety order amounts
+  const newBaseOrder = baseOrder * scalingFactor;
+  const newSafetyOrder = safetyOrder * scalingFactor;
+
+  // Return the new base order and safety order amounts
+  return {
+    newBaseOrder: Math.floor(newBaseOrder),
+    newSafetyOrder: Math.floor(newSafetyOrder),
+  };
 }

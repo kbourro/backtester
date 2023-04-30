@@ -2,10 +2,11 @@ import * as db from "../db/sql.js";
 
 export default (exchange, symbol, timeframe, since, end) => {
   symbol = symbol.toUpperCase();
+  const exchangersymbol = exchange.id + "" + symbol;
   return new Promise((resolve, reject) => {
     (async () => {
-      let firstTimestamp = db.getFirstTimestamp(symbol);
-      let lastTimestamp = db.getLastTimestamp(symbol);
+      let firstTimestamp = db.getFirstTimestamp(exchangersymbol);
+      let lastTimestamp = db.getLastTimestamp(exchangersymbol);
       if (firstTimestamp !== null && since < firstTimestamp) {
         const ohlcvs = await exchange.fetchOHLCV(symbol, timeframe, since);
         let firstTimestampOnExchanger = exchange.safeInteger(
@@ -13,7 +14,7 @@ export default (exchange, symbol, timeframe, since, end) => {
           0
         );
         if (firstTimestampOnExchanger < firstTimestamp) {
-          db.dropTable(symbol);
+          db.dropTable(exchangersymbol);
         } else {
           since = lastTimestamp + 1;
         }
@@ -33,7 +34,7 @@ export default (exchange, symbol, timeframe, since, end) => {
         );
         if (response.ohlcvs.length > 0) {
           try {
-            db.insertCandles(response.symbol, response.ohlcvs);
+            db.insertCandles(exchangersymbol, response.ohlcvs);
           } catch (error) {
             console.error(error);
           }

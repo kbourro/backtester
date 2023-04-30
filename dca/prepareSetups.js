@@ -114,8 +114,9 @@ const run = (setups, config) => {
           setup.volume.reduce((partialSum, a) => partialSum + a, 0)
         );
         if (
-          setup.maxAmount >= 5000 ||
-          setup.maxDeviation <= 1 ||
+          setup.maxAmount >= 50000 ||
+          setup.maxAmount < 1000 ||
+          setup.maxDeviation <= 11 ||
           setup.maxDeviation >= 100 ||
           (setup.sl !== 0 && setup.sl <= setup.maxDeviation) ||
           (setup.maxslfromlastdeviation !== undefined &&

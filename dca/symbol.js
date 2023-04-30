@@ -48,14 +48,14 @@ for (let index = 0; index < processes; index++) {
   child.on("message", handleMessage);
 }
 
-const add = async ({ config, setups, symbol }) => {
+const add = async ({ config, setups, symbol, exchanger }) => {
   while (childs.length < processes) {
     await delay(200);
   }
   totalSetups += setups.length;
   for (let index = 0; index < setups.length; index++) {
     const setup = setups[index];
-    tasks.push({ config, setup, symbol });
+    tasks.push({ config, setup, symbol, exchanger });
   }
 };
 

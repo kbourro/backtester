@@ -4,8 +4,8 @@ const symbols = Object.values(config.symbols);
 const exchanger = config.exchanger;
 (async () => {
   let exchange = null;
-  if (exchanger === "ftx") {
-    exchange = new ccxt.ftx();
+  if (exchanger === "binanceusdm") {
+    exchange = new ccxt.binanceusdm();
   } else {
     exchange = new ccxt.binance();
   }
