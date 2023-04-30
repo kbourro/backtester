@@ -61,6 +61,7 @@ const queue = new PQueue({ concurrency: 50, autoStart: false });
     final[exchangersymbol].push({
       Name: result.setup.name,
       "ROI %": roundToTwo(result.totalProfit + result.upnl),
+      "Max ROI %": roundToTwo(result.totalProfit + result.upnl),
       "ROI Without Upnl %": roundToTwo(result.totalProfit),
       "Upnl %": roundToTwo(result.upnl),
       DU: result.deviationsUsed,
@@ -132,8 +133,8 @@ const queue = new PQueue({ concurrency: 50, autoStart: false });
             result["Max drawdown"]
           );
           foundSetup["Max ROI %"] = Math.max(
-            foundSetup["ROI %"],
-            result["ROI %"]
+            foundSetup["Max ROI %"],
+            result["Max ROI %"]
           );
           foundSetup["ROI %"] = foundSetup["ROI %"] + result["ROI %"];
           foundSetup["ROI Without Upnl %"] =
