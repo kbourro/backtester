@@ -12,7 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "better-sqlite3": "^8.0.1",
-    "ccxt": "^2.6.36",
+    "ccxt": "^2.9.16",
     "cross-env": "^7.0.3",
     "delay": "^5.0.0",
     "exceljs": "^4.3.0",

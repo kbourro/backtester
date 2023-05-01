@@ -1,3 +1,4 @@
+import ccxt from "ccxt";
 import * as db from "../db/sql.js";
 
 export default (exchange, symbol, timeframe, since, end) => {
@@ -75,6 +76,23 @@ const fetchOHLCVSince = async (exchange, symbol, timeframe, since) => {
     }
     return { symbol, lastTimestamp, ohlcvs };
   } catch (e) {
-    console.log(e.constructor.name, e.message);
+    console.error(exchange.id, e.message);
+    if (e instanceof ccxt.RateLimitExceeded) {
+      const oldRateLimit = exchange.rateLimit;
+      exchange.rateLimit = oldRateLimit * 2;
+      console.log(
+        `${exchange.id} Changing rate limit from ${oldRateLimit} to ${exchange.rateLimit}`
+      );
+      await new Promise((r) => {
+        setTimeout(r, 1000);
+      });
+      const response = await fetchOHLCVSince(
+        exchange,
+        symbol,
+        timeframe,
+        since
+      );
+      return response;
+    }
   }
 };

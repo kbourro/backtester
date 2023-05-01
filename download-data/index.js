@@ -4,12 +4,12 @@ const exchangers = new Map();
 export default async (exchanger, symbol, from, to = null) => {
   let exchange = null;
   if (!exchangers.has(exchanger)) {
-    exchange = new ccxt[exchanger]({ enableRateLimit: true, rateLimit: 60 });
+    exchange = new ccxt[exchanger]({ enableRateLimit: true, rateLimit: 100 });
     exchangers.set(exchanger, exchange);
   } else {
     exchange = exchangers.get(exchanger);
   }
-  const timeframe = "1m";
+  const timeframe = "5m";
   const since = new Date(from).getTime();
   const end = to !== null ? new Date(to).getTime() : null;
   // Object.keys(exchange).forEach((key) => {
