@@ -1,8 +1,10 @@
 import fs from "fs";
 //import PQueue from "p-queue";
-import { getAllDataInRangeLimit } from "../db/sql.js";
+//import { getAllDataInRangeLimit } from "../db/sql.js";
+import { getAllDataInRange } from "../db/sql.js";
 //let tempCompleted = 0;
 //const queue = new PQueue({ concurrency: 2 });
+const ohlcvsGlobal = new Map();
 const run = ({ config, setup, symbol, id, exchanger }) => {
   return new Promise((resolve) => {
     const exchangersymbol = exchanger + "" + symbol;
@@ -37,6 +39,14 @@ const run = ({ config, setup, symbol, id, exchanger }) => {
         response = null;
       }
     }
+    const ohlcvsKey = `${exchangersymbol}${fromTimestamp}${toTimestamp}`;
+    if (!ohlcvsGlobal.has(ohlcvsKey)) {
+      ohlcvsGlobal.set(
+        ohlcvsKey,
+        getAllDataInRange(exchangersymbol, fromTimestamp, toTimestamp)
+      );
+    }
+    const ohlcvs = ohlcvsGlobal.get(ohlcvsKey);
     const tradeTemplate = {
       open: null,
       close: null,
@@ -58,189 +68,137 @@ const run = ({ config, setup, symbol, id, exchanger }) => {
     let lastClosePrice = 0;
     let maxDrawdown = 0;
     // process.send({ log: setup });
-    const runBacktestsInAllTimestamps = () => {
-      let keepRunning = true;
-      while (keepRunning) {
-        let ohlcvs = getAllDataInRangeLimit(
-          exchangersymbol,
-          fromTimestamp,
-          toTimestamp,
-          100000
-        );
-        let ohlcvsLength = ohlcvs.length;
-        if (ohlcvsLength <= 0) {
-          keepRunning = false;
-          if (trade.open !== null) {
-            if (trade.endTimestamp === null) {
-              trade.endTimestamp = toTimestamp;
-            }
-            if (trade.close === null) {
-              trade.close = lastClosePrice;
-              trade.upnl =
-                (setup.totalVolume[trade.deviationsUsed] *
-                  (((trade.close - trade.averageBuyPrice) /
-                    trade.averageBuyPrice) *
-                    100)) /
-                setup.maxAmount;
-              let maxDrawdownCalc = percentageChange(
-                trade.open,
-                lastClosePrice
-              );
-              if (maxDrawdown >= maxDrawdownCalc) {
-                maxDrawdown = maxDrawdownCalc;
-              }
-            }
-            trades.push({ ...trade });
+    let ohlcvsLength = ohlcvs.length;
+    let ohlcvsLastDataIndex = ohlcvsLength - 1;
+    for (let dataIndex = 0; dataIndex < ohlcvsLength; dataIndex++) {
+      const ohlcv = ohlcvs[dataIndex];
+      lastClosePrice = ohlcv.close;
+      if (trade.open === null) {
+        trade.open = ohlcv.open;
+        trade.averageBuyPrice = trade.open;
+        trade.slPrice = trade.open - (trade.open * setup.sl) / 100;
+        trade.tpPrice =
+          (trade.open * setup.requiredChange[0]) / 100 + trade.open;
+        trade.startTimestamp = ohlcv.timestamp;
+        trade.upnl = 0;
+        trade.soPrices = setup.deviations
+          .slice(1)
+          .map((deviation) => trade.open - (trade.open * deviation) / 100);
+      }
+      let maxDrawdownCalc = percentageChange(trade.open, lastClosePrice);
+      if (maxDrawdown > maxDrawdownCalc) {
+        maxDrawdown = maxDrawdownCalc;
+      }
+      if (ohlcv.high >= trade.tpPrice) {
+        trade.upnl = 0;
+        trade.close = trade.tpPrice;
+        trade.endTimestamp = ohlcv.timestamp;
+        balance =
+          balance + (setup.totalVolume[trade.deviationsUsed] * setup.tp) / 100;
+        trades.push({ ...trade });
+        // process.send({ log: trade });
+        // process.send({ log: balance })
+        trade = { ...tradeTemplate };
+        trade.soPrices = [];
+      } else {
+        const deviationsUsed = trade.deviationsUsed;
+        const soPricesLength = trade.soPrices.length;
+        let i = deviationsUsed;
+        while (i < soPricesLength) {
+          const soPrice = trade.soPrices[i];
+          if (ohlcv.low <= soPrice) {
+            const requiredChange = setup.requiredChange[i + 1];
+            // We use soPricesIndex + 1 soPricesIndex table has a field lower than others. All other tables contains BO order info too.
+            trade.tpPrice = (soPrice * requiredChange) / 100 + soPrice;
+            trade.lastSOPrice = soPrice;
+            trade.requiredChangeForTP = requiredChange;
+            trade.averageBuyPrice =
+              (soPrice * (requiredChange - setup.tp)) / 100 + soPrice;
+            trade.deviationsUsed++;
+            i++;
+          } else {
+            break;
           }
-        } else {
-          for (let dataIndex = 0; dataIndex < ohlcvsLength; dataIndex++) {
-            const ohlcv = ohlcvs[dataIndex];
-            lastClosePrice = ohlcv.close;
-            if (trade.open === null) {
-              if (dataIndex === 0) {
-                trade.open = ohlcv.open;
-              } else {
-                trade.open = ohlcvs[dataIndex - 1].close;
-              }
-              trade.averageBuyPrice = trade.open;
-              trade.slPrice = trade.open - (trade.open * setup.sl) / 100;
-              trade.tpPrice =
-                (trade.open * setup.requiredChange[0]) / 100 + trade.open;
-              trade.startTimestamp = ohlcv.timestamp;
-              trade.upnl = 0;
-              for (
-                let deviationsIndex = 1;
-                deviationsIndex < setup.deviations.length;
-                deviationsIndex++
-              ) {
-                const deviation = setup.deviations[deviationsIndex];
-                trade.soPrices.push(
-                  trade.open - (trade.open * deviation) / 100
-                );
-              }
-            }
-            let maxDrawdownCalc = percentageChange(trade.open, lastClosePrice);
-            if (maxDrawdown > maxDrawdownCalc) {
-              maxDrawdown = maxDrawdownCalc;
-            }
-            if (ohlcv.high >= trade.tpPrice) {
-              trade.upnl = 0;
-              trade.close = trade.tpPrice;
-              trade.endTimestamp = ohlcv.timestamp;
-              balance =
-                balance +
-                (setup.totalVolume[trade.deviationsUsed] * setup.tp) / 100;
-              trades.push({ ...trade });
-              // process.send({ log: trade });
-              // process.send({ log: balance });
-              trade = { ...tradeTemplate };
-              trade.soPrices = [];
-            } else {
-              const deviationsUsed = trade.deviationsUsed;
-              for (
-                let soPricesIndex = deviationsUsed;
-                soPricesIndex < trade.soPrices.length;
-                soPricesIndex++
-              ) {
-                const soPrice = trade.soPrices[soPricesIndex];
-                if (ohlcv.low <= soPrice) {
-                  // We use soPricesIndex + 1 soPricesIndex table has a field lower than others. All other tables contains BO order info too.
-                  trade.tpPrice =
-                    (soPrice * setup.requiredChange[soPricesIndex + 1]) / 100 +
-                    soPrice;
-                  trade.lastSOPrice = soPrice;
-                  trade.requiredChangeForTP =
-                    setup.requiredChange[soPricesIndex + 1];
-                  trade.averageBuyPrice =
-                    (soPrice *
-                      (setup.requiredChange[soPricesIndex + 1] - setup.tp)) /
-                      100 +
-                    soPrice;
-                  trade.deviationsUsed++;
-                } else {
-                  break;
-                }
-              }
-              if (setup.sl !== 0 && trade.slPrice >= ohlcv.low) {
-                trade.upnl = 0;
-                trade.slHit = true;
-                trade.close = trade.slPrice;
-                trade.endTimestamp = ohlcv.timestamp;
-                balance = percentageIncreaseOrDecrease(
-                  balance,
-                  percentageChange(trade.averageBuyPrice, trade.slPrice)
-                );
-                trades.push({ ...trade });
-                // process.send({ log: trade });
-                // process.send({ log: balance });
-                trade = { ...tradeTemplate };
-                trade.soPrices = [];
-                if (balance <= 0 || balance <= setup.maxAmount) {
-                  keepRunning = false;
-                  break;
-                }
-              }
-            }
-          }
-          fromTimestamp = ohlcvs[ohlcvs.length - 1].timestamp + 1;
         }
-        if (!keepRunning) {
-          let deviationsUsed = 0;
-          let maxDeal = 0;
-          let longerTrade = null;
-          let slHitCounter = 0;
-          let totalTrades = trades.length;
-          let lastTradeIndex = trades.length - 1;
-          for (let tradesIndex = 0; tradesIndex < totalTrades; tradesIndex++) {
-            const trade = trades[tradesIndex];
-            const tradeTime =
-              (trade.endTimestamp - trade.startTimestamp) / 1000 / 60 / 60;
-            deviationsUsed = Math.max(deviationsUsed, trade.deviationsUsed);
-            if (tradeTime >= maxDeal) {
-              maxDeal = tradeTime;
-              longerTrade = trade;
-            }
-            if (trade.slHit) {
-              slHitCounter++;
-            }
+        if (setup.sl !== 0 && trade.slPrice >= ohlcv.low) {
+          trade.upnl = 0;
+          trade.slHit = true;
+          trade.close = trade.slPrice;
+          trade.endTimestamp = ohlcv.timestamp;
+          balance = percentageIncreaseOrDecrease(
+            balance,
+            percentageChange(trade.averageBuyPrice, trade.slPrice)
+          );
+          trades.push({ ...trade });
+          // process.send({ log: trade });
+          // process.send({ log: balance });
+          trade = { ...tradeTemplate };
+          trade.soPrices = [];
+          if (balance <= 0 || balance <= setup.maxAmount) {
+            break;
           }
-          let lastTrade = trades[lastTradeIndex];
-          if (
-            trades[lastTradeIndex] === undefined ||
-            trades[lastTradeIndex].upnl === undefined
-          ) {
-            console.error(symbol);
-          }
-          let response = {
-            deviationsUsed,
-            totalProfit: parseFloat(
-              percentageChange(setup.maxAmount, balance).toFixed(2)
-            ),
-            totalTrades: trades.filter((trade) => trade.upnl === 0).length,
-            maxDeal: Math.round(maxDeal),
-            upnl: trades[lastTradeIndex].upnl,
-            slHitCounter,
-            maxDrawdown: maxDrawdown.toFixed(2),
-            longerTrade,
-            lastTrade,
-            lastTradeTime: Math.round(
-              (lastTrade.endTimestamp - lastTrade.startTimestamp) /
-                1000 /
-                60 /
-                60
-            ),
-            setup,
-            symbol,
-            exchanger,
-          };
-          fs.writeFileSync(finalFile, JSON.stringify(response));
-          trades = [];
-          resolve(response);
-          return;
+        }
+        if (dataIndex === ohlcvsLastDataIndex) {
+          trade.endTimestamp = ohlcv.timestamp;
+          trade.close = lastClosePrice;
+          trade.upnl =
+            (setup.totalVolume[trade.deviationsUsed] *
+              (((trade.close - trade.averageBuyPrice) / trade.averageBuyPrice) *
+                100)) /
+            setup.maxAmount;
+          trades.push({ ...trade });
         }
       }
+    }
+    let deviationsUsed = 0;
+    let maxDeal = 0;
+    let longerTrade = null;
+    let slHitCounter = 0;
+    let totalTrades = trades.length;
+    let lastTradeIndex = trades.length - 1;
+    for (let tradesIndex = 0; tradesIndex < totalTrades; tradesIndex++) {
+      const trade = trades[tradesIndex];
+      const tradeTime =
+        (trade.endTimestamp - trade.startTimestamp) / 1000 / 60 / 60;
+      deviationsUsed = Math.max(deviationsUsed, trade.deviationsUsed);
+      if (tradeTime >= maxDeal) {
+        maxDeal = tradeTime;
+        longerTrade = trade;
+      }
+      if (trade.slHit) {
+        slHitCounter++;
+      }
+    }
+    let lastTrade = trades[lastTradeIndex];
+    if (
+      trades[lastTradeIndex] === undefined ||
+      trades[lastTradeIndex].upnl === undefined
+    ) {
+      console.log(symbol);
+    }
+    let response = {
+      deviationsUsed,
+      totalProfit: parseFloat(
+        percentageChange(setup.maxAmount, balance).toFixed(2)
+      ),
+      totalTrades: trades.filter((trade) => trade.upnl === 0).length,
+      maxDeal: Math.round(maxDeal),
+      upnl: trades[lastTradeIndex].upnl,
+      slHitCounter,
+      maxDrawdown: maxDrawdown.toFixed(2),
+      longerTrade,
+      lastTrade,
+      lastTradeTime: Math.round(
+        (lastTrade.endTimestamp - lastTrade.startTimestamp) / 1000 / 60 / 60
+      ),
+      setup,
+      symbol,
+      exchanger,
     };
-    runBacktestsInAllTimestamps();
+    fs.writeFileSync(finalFile, JSON.stringify(response));
+    trades = [];
+    resolve(response);
+    return;
   });
 };
 
@@ -270,14 +228,6 @@ process.on("message", function (message) {
 });
 
 process.send("started");
-// const updateCompletedCounter = () => {
-//   if (tempCompleted > 0) {
-//     process.send({ completed: tempCompleted });
-//     tempCompleted = 0;
-//   }
-//   setTimeout(updateCompletedCounter, 1000);
-// };
-// setTimeout(updateCompletedCounter, 1000);
 
 // Function that calculates percentage change between two numbers including negative values
 const percentageChange = (start, end) => {

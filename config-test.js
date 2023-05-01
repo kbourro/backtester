@@ -1,13 +1,13 @@
 export default {
   options: { console: true },
   symbols: {
-    // binance: ["btc/usdt", "btc/busd"],
+    binance: ["btc/usdt"],
     // binanceusdm: ["btc/usdt"],
     //kucoin: ["btc/usdt"],
     //kraken: ["btc/usdt"],
   },
   //from: "2022/05/04 00:00:00",
-  from: "2020/01/01 21:00:00",
+  from: "2023/01/01 21:00:00",
   to: "2023/04/30 00:00:00",
   // to: "2022/05/15 21:00:00",
   fees: 0.1,

@@ -1,10 +1,13 @@
 export default {
   options: { console: false },
-  symbols: ["btc/usdt"],
+  symbols: {
+    binance: ["btc/usdt", "btc/busd"],
+    binanceusdm: ["btc/usdt"],
+    kucoin: ["btc/usdt"],
+  },
   from: "2020/01/01 00:00:00",
   to: "2023/03/20 06:00:00",
   fees: 0.1,
-  exchanger: "binance",
   setups: [
     {
       name: "Buy and Hold",
