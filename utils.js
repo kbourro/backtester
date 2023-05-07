@@ -27,4 +27,11 @@ function getDirectories(path) {
   });
 }
 
-export { roundToTwo, insertProperty, getDirectories };
+function calculateProximity(num1, num2) {
+  const difference = Math.abs(num1 - num2);
+  const maxDifference = Math.max(Math.abs(num1), Math.abs(num2));
+  const proximity = 1 - difference / maxDifference;
+  return proximity;
+}
+
+export { roundToTwo, insertProperty, getDirectories, calculateProximity };

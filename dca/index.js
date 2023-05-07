@@ -3,6 +3,7 @@ import Exceljs from "exceljs";
 import * as fs from "fs";
 import path from "path";
 import url from "url";
+import { spawn } from "child_process";
 if (!process.argv[2]) {
   console.error("Config argument is missing");
   process.exit(0);
@@ -10,10 +11,21 @@ if (!process.argv[2]) {
 import downloadData from "../download-data/index.js";
 import * as symbolBacktest from "./symbol.js";
 import prepareSetups from "./prepareSetups.js";
-import { insertProperty, roundToTwo } from "../utils.js";
+import { insertProperty, roundToTwo, calculateProximity } from "../utils.js";
+process
+  .on("unhandledRejection", (reason, _) => {
+    console.log("unhandledRejection", reason);
+    process.exit(1);
+  })
+  .on("uncaughtException", (err) => {
+    console.log("uncaughtException", err);
+    process.exit(1);
+  });
+
 const queue = new PQueue({ concurrency: 50, autoStart: false });
 
 (async () => {
+  const args = process.argv.slice(3);
   const config = (
     await import(url.pathToFileURL(path.resolve(process.argv[2])).href)
   ).default;
@@ -58,6 +70,25 @@ const queue = new PQueue({ concurrency: 50, autoStart: false });
     let longerTradeStart = new Date(result.longerTrade.startTimestamp);
     let longerTradeEnd = new Date(result.longerTrade.endTimestamp);
     const exchangersymbol = `${result.exchanger}-${result.symbol}`;
+
+    if (
+      result.totalProfit === undefined ||
+      result.totalProfit === null ||
+      isNaN(result.totalProfit)
+    ) {
+      console.log("totalProfit", result.totalProfit);
+    }
+    if (
+      result.upnl === undefined ||
+      result.upnl === null ||
+      isNaN(result.upnl)
+    ) {
+      console.log("upnl", result.upnl);
+    }
+    const temp = roundToTwo(result.totalProfit + result.upnl);
+    if (temp === undefined || temp === null || isNaN(temp)) {
+      console.log("temp", temp);
+    }
     final[exchangersymbol].push({
       Name: result.setup.name,
       "ROI %": roundToTwo(result.totalProfit + result.upnl),
@@ -86,9 +117,7 @@ const queue = new PQueue({ concurrency: 50, autoStart: false });
       "RC %": roundToTwo(
         result.setup.requiredChange[result.setup.requiredChange.length - 1]
       ),
-      TV: Math.round(
-        result.setup.totalVolume[result.setup.totalVolume.length - 1]
-      ),
+      TV: Math.round(result.setup.initialBalance),
       tp: result.setup.tp,
       bo: result.setup.bo,
       so: result.setup.so,
@@ -98,6 +127,7 @@ const queue = new PQueue({ concurrency: 50, autoStart: false });
       mstc: result.setup.mstc,
       sl: result.setup.sl,
       groupid: `${result.setup.sos}${result.setup.os}${result.setup.ss}${result.setup.mstc}`,
+      groupidboso: `${result.setup.sos}${result.setup.os}${result.setup.ss}${result.setup.mstc}${result.setup.bo}${result.setup.so}`,
     });
   });
   const allSetupsMap = new Map();
@@ -136,10 +166,15 @@ const queue = new PQueue({ concurrency: 50, autoStart: false });
             foundSetup["Max ROI %"],
             result["Max ROI %"]
           );
-          foundSetup["ROI %"] = foundSetup["ROI %"] + result["ROI %"];
-          foundSetup["ROI Without Upnl %"] =
-            foundSetup["ROI Without Upnl %"] + result["ROI Without Upnl %"];
-          foundSetup["Upnl %"] = foundSetup["Upnl %"] + result["Upnl %"];
+          foundSetup["ROI %"] = roundToTwo(
+            foundSetup["ROI %"] + result["ROI %"]
+          );
+          foundSetup["ROI Without Upnl %"] = roundToTwo(
+            foundSetup["ROI Without Upnl %"] + result["ROI Without Upnl %"]
+          );
+          foundSetup["Upnl %"] = roundToTwo(
+            foundSetup["Upnl %"] + result["Upnl %"]
+          );
           foundSetup["Total Trades"] =
             foundSetup["Total Trades"] + result["Total Trades"];
           foundSetup["MD (h)"] = Math.max(
@@ -154,17 +189,80 @@ const queue = new PQueue({ concurrency: 50, autoStart: false });
     });
     // Convert allSetupsMap to allSetups array
     const allSetups = Array.from(allSetupsMap.values());
+    const groupidMap = new Map();
+    const groupidbosoMap = new Map();
     for (let index = 0; index < allSetups.length; index++) {
-      allSetups[index]["ROI %"] = roundToTwo(
-        allSetups[index]["ROI %"] / totalSymbols
+      const allSetup = allSetups[index];
+      const temp = roundToTwo(allSetup["ROI %"] / totalSymbols);
+      if (temp === undefined || temp === null || isNaN(temp)) {
+        console.log("temp1", temp);
+        console.log(`allSetup["ROI %"]`, allSetup["ROI %"]);
+        console.log(`totalSymbols`, totalSymbols);
+      }
+      allSetup["ROI %"] = roundToTwo(allSetup["ROI %"] / totalSymbols);
+      allSetup["ROI Without Upnl %"] = roundToTwo(
+        allSetup["ROI Without Upnl %"] / totalSymbols
       );
-      allSetups[index]["ROI Without Upnl %"] = roundToTwo(
-        allSetups[index]["ROI Without Upnl %"] / totalSymbols
-      );
-      allSetups[index]["Upnl %"] = roundToTwo(
-        allSetups[index]["Upnl %"] / totalSymbols
-      );
+      allSetup["Upnl %"] = roundToTwo(allSetup["Upnl %"] / totalSymbols);
+      const roi = allSetup["ROI %"];
+      const md = allSetup["MD (h)"];
+      const maxDrawdown = allSetup["Max drawdown"];
+      const coverage = allSetup["Coverage %"];
+      const groupid = allSetup["groupid"];
+      if (!groupidMap.has(groupid)) {
+        groupidMap.set(groupid, {
+          groupid: groupid,
+          mdAverage: [md],
+          maxRoi: roi,
+          minMD: md,
+          sumMD: md,
+          coverageAndDrawdown: calculateProximity(maxDrawdown, coverage),
+        });
+      } else {
+        const groupInfo = groupidMap.get(groupid);
+        groupInfo.mdAverage.push(md);
+        groupInfo.maxRoi = Math.max(roi, groupInfo.maxRoi);
+        groupInfo.minMD = Math.min(md, groupInfo.minMD);
+        groupInfo.sumMD = groupInfo.sumMD + md;
+        groupInfo.coverageAndDrawdown = Math.max(
+          groupInfo.coverageAndDrawdown,
+          calculateProximity(maxDrawdown, coverage)
+        );
+      }
+      const groupidboso = allSetup["groupidboso"];
+      if (!groupidbosoMap.has(groupidboso)) {
+        groupidbosoMap.set(groupidboso, {
+          groupidboso: groupidboso,
+          mdAverage: [md],
+          maxRoi: roi,
+          minMD: md,
+          sumMD: md,
+          coverageAndDrawdown: calculateProximity(maxDrawdown, coverage),
+        });
+      } else {
+        const groupInfo = groupidbosoMap.get(groupidboso);
+        groupInfo.mdAverage.push(md);
+        groupInfo.maxRoi = Math.max(roi, groupInfo.maxRoi);
+        groupInfo.minMD = Math.min(md, groupInfo.minMD);
+        groupInfo.sumMD = groupInfo.sumMD + md;
+        groupInfo.coverageAndDrawdown = Math.max(
+          groupInfo.coverageAndDrawdown,
+          calculateProximity(maxDrawdown, coverage)
+        );
+      }
     }
+    groupidMap.forEach((groupInfo, _) => {
+      groupInfo.mdAverage = roundToTwo(
+        groupInfo.mdAverage.reduce((a, b) => a + b, 0) /
+          groupInfo.mdAverage.length
+      );
+    });
+    groupidbosoMap.forEach((groupInfo, _) => {
+      groupInfo.mdAverage = roundToTwo(
+        groupInfo.mdAverage.reduce((a, b) => a + b, 0) /
+          groupInfo.mdAverage.length
+      );
+    });
     allSetups.sort(function (a, b) {
       return b["ROI %"] - a["ROI %"];
     });
@@ -244,22 +342,22 @@ const queue = new PQueue({ concurrency: 50, autoStart: false });
     worksheet.columns = columns;
     let rowCount = 0;
     allSetups.forEach((row) => {
-      worksheet.addRow(row);
+      worksheet.addRow(row, "i+");
       sheetRow = worksheet.lastRow;
-      sheetRow.eachCell({ includeEmpty: true }, function (cell, colNumber) {
-        cell.style.alignment = { horizontal: "center" };
-        cell.style.border = {
-          top: { style: "thin" },
-          left: { style: "thin" },
-          bottom: { style: "thin" },
-          right: { style: "thin" },
-        };
-        let columnLength = cell.value ? cell.value.toString().length : 10;
-        if (columnLength > columnsLength[colNumber]) {
-          columnsLength[colNumber] = columnLength;
-          worksheet.getColumn(colNumber).width = columnLength;
-        }
-      });
+      // sheetRow.eachCell({ includeEmpty: true }, function (cell, colNumber) {
+      //   cell.style.alignment = { horizontal: "center" };
+      //   cell.style.border = {
+      //     top: { style: "thin" },
+      //     left: { style: "thin" },
+      //     bottom: { style: "thin" },
+      //     right: { style: "thin" },
+      //   };
+      //   let columnLength = cell.value ? cell.value.toString().length : 10;
+      //   if (columnLength > columnsLength[colNumber]) {
+      //     columnsLength[colNumber] = columnLength;
+      //     worksheet.getColumn(colNumber).width = columnLength;
+      //   }
+      // });
       rowCount = sheetRow.number;
       sheetRow.commit();
     });
@@ -300,23 +398,23 @@ const queue = new PQueue({ concurrency: 50, autoStart: false });
       final[exchangersymbol].forEach((row) => {
         worksheet.addRow(row);
         let sheetRow = worksheet.lastRow;
-        sheetRow.eachCell({ includeEmpty: true }, function (cell, colNumber) {
-          cell.style.alignment = { horizontal: "center" };
-          cell.style.border = {
-            top: { style: "thin" },
-            left: { style: "thin" },
-            bottom: { style: "thin" },
-            right: { style: "thin" },
-          };
-          let columnLength = cell.value ? cell.value.toString().length : 10;
-          if (
-            !columnsLength[colNumber] ||
-            columnLength > columnsLength[colNumber]
-          ) {
-            columnsLength[colNumber] = columnLength;
-            worksheet.getColumn(colNumber).width = columnLength;
-          }
-        });
+        // sheetRow.eachCell({ includeEmpty: true }, function (cell, colNumber) {
+        //   cell.style.alignment = { horizontal: "center" };
+        //   cell.style.border = {
+        //     top: { style: "thin" },
+        //     left: { style: "thin" },
+        //     bottom: { style: "thin" },
+        //     right: { style: "thin" },
+        //   };
+        //   let columnLength = cell.value ? cell.value.toString().length : 10;
+        //   if (
+        //     !columnsLength[colNumber] ||
+        //     columnLength > columnsLength[colNumber]
+        //   ) {
+        //     columnsLength[colNumber] = columnLength;
+        //     worksheet.getColumn(colNumber).width = columnLength;
+        //   }
+        // });
         rowCount = sheetRow.number;
         sheetRow.commit();
       });
@@ -329,9 +427,112 @@ const queue = new PQueue({ concurrency: 50, autoStart: false });
       });
       worksheet.commit();
     });
+    const groupidArray = Array.from(groupidMap.values());
+    const groupidbosoArray = Array.from(groupidbosoMap.values());
+    worksheet = workbook.addWorksheet("groupid", {
+      views: [{ state: "frozen", ySplit: 1 }],
+    });
+    worksheet.columns = Object.keys(groupidArray[0]).map((column) => {
+      return {
+        header: column,
+        key: column,
+      };
+    });
+    sheetRow = worksheet.getRow(1);
+    sheetRow.eachCell({ includeEmpty: true }, function (cell, colNumber) {
+      cell.style.alignment = { horizontal: "center" };
+      cell.style.border = {
+        top: { style: "thin" },
+        left: { style: "thin" },
+        bottom: { style: "thin" },
+        right: { style: "thin" },
+      };
+      let columnLength = cell.value ? cell.value.toString().length : 10;
+      columnsLength[colNumber] = columnLength < 10 ? 10 : columnLength;
+      worksheet.getColumn(colNumber).width = columnsLength[colNumber];
+    });
+    sheetRow.commit();
+    groupidArray.forEach((row) => {
+      worksheet.addRow(row);
+      let sheetRow = worksheet.lastRow;
+      // sheetRow.eachCell({ includeEmpty: true }, function (cell, colNumber) {
+      //   cell.style.alignment = { horizontal: "center" };
+      //   cell.style.border = {
+      //     top: { style: "thin" },
+      //     left: { style: "thin" },
+      //     bottom: { style: "thin" },
+      //     right: { style: "thin" },
+      //   };
+      //   let columnLength = cell.value ? cell.value.toString().length : 10;
+      //   if (
+      //     !columnsLength[colNumber] ||
+      //     columnLength > columnsLength[colNumber]
+      //   ) {
+      //     columnsLength[colNumber] = columnLength;
+      //     worksheet.getColumn(colNumber).width = columnLength;
+      //   }
+      // });
+      sheetRow.commit();
+    });
+    worksheet.commit();
+    worksheet = workbook.addWorksheet("groupidboso", {
+      views: [{ state: "frozen", ySplit: 1 }],
+    });
+    worksheet.columns = Object.keys(groupidbosoArray[0]).map((column) => {
+      return {
+        header: column,
+        key: column,
+      };
+    });
+    sheetRow = worksheet.getRow(1);
+    sheetRow.eachCell({ includeEmpty: true }, function (cell, colNumber) {
+      cell.style.alignment = { horizontal: "center" };
+      cell.style.border = {
+        top: { style: "thin" },
+        left: { style: "thin" },
+        bottom: { style: "thin" },
+        right: { style: "thin" },
+      };
+      let columnLength = cell.value ? cell.value.toString().length : 10;
+      columnsLength[colNumber] = columnLength < 10 ? 10 : columnLength;
+      worksheet.getColumn(colNumber).width = columnsLength[colNumber];
+    });
+    sheetRow.commit();
+    groupidbosoArray.forEach((row) => {
+      worksheet.addRow(row);
+      let sheetRow = worksheet.lastRow;
+      // sheetRow.eachCell({ includeEmpty: true }, function (cell, colNumber) {
+      //   cell.style.alignment = { horizontal: "center" };
+      //   cell.style.border = {
+      //     top: { style: "thin" },
+      //     left: { style: "thin" },
+      //     bottom: { style: "thin" },
+      //     right: { style: "thin" },
+      //   };
+      //   let columnLength = cell.value ? cell.value.toString().length : 10;
+      //   if (
+      //     !columnsLength[colNumber] ||
+      //     columnLength > columnsLength[colNumber]
+      //   ) {
+      //     columnsLength[colNumber] = columnLength;
+      //     worksheet.getColumn(colNumber).width = columnLength;
+      //   }
+      // });
+      sheetRow.commit();
+    });
+    worksheet.commit();
     await workbook.commit();
   }
+
   console.log("Finished.");
+  if (args.length > 0) {
+    const appProcess = spawn("npm", ["start", ...args], {
+      detached: true,
+      stdio: "inherit",
+      shell: true,
+    });
+    appProcess.unref();
+  }
   process.exit(0);
 })();
 

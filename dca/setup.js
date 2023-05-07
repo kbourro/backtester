@@ -2,6 +2,7 @@ import fs from "fs";
 //import PQueue from "p-queue";
 //import { getAllDataInRangeLimit } from "../db/sql.js";
 import { getAllDataInRange } from "../db/sql.js";
+import { roundToTwo } from "../utils.js";
 //let tempCompleted = 0;
 //const queue = new PQueue({ concurrency: 2 });
 const ohlcvsGlobal = new Map();
@@ -20,15 +21,41 @@ const run = ({ config, setup, symbol, id, exchanger }) => {
     if (fs.existsSync(finalFile)) {
       try {
         let response = JSON.parse(fs.readFileSync(finalFile));
-        if (response.upnl === undefined || response.upnl === null) {
-          fs.unlinkSync(finalFile);
-          response = null;
+        let change = false;
+        if (
+          response === undefined ||
+          response === null ||
+          response.setup === undefined ||
+          response.setup === null
+        ) {
+          throw new Error("Cache file is corrupted. Deleting it.");
         } else {
+          if (response.setup.bo !== setup.bo) {
+            response.setup.bo = setup.bo;
+            change = true;
+          }
+          if (response.setup.so !== setup.so) {
+            response.setup.so = setup.so;
+            change = true;
+          }
           if (response.setup.name !== setup.name) {
             response.setup.name = setup.name;
+            change = true;
           }
           if (response.exchanger === undefined) {
             response.exchanger = exchanger;
+            change = true;
+          }
+          if (
+            response.upnl === undefined ||
+            (response.upnl === null) | isNaN(response.upnl)
+          ) {
+            response.upnl = 0;
+            change = true;
+          }
+          if (change) {
+            fs.unlinkSync(finalFile);
+            fs.writeFileSync(finalFile, JSON.stringify(response));
           }
           resolve(response);
           return;
@@ -46,7 +73,7 @@ const run = ({ config, setup, symbol, id, exchanger }) => {
         getAllDataInRange(exchangersymbol, fromTimestamp, toTimestamp)
       );
     }
-    const ohlcvs = ohlcvsGlobal.get(ohlcvsKey);
+    let ohlcvs = ohlcvsGlobal.get(ohlcvsKey);
     const tradeTemplate = {
       open: null,
       close: null,
@@ -62,11 +89,15 @@ const run = ({ config, setup, symbol, id, exchanger }) => {
       lastSOPrice: null,
       requiredChangeForTP: setup.requiredChange[0],
     };
-    let balance = setup.maxAmount;
+    let balance = setup.initialBalance;
+    let balanceToCompound = 0;
     let trade = { ...tradeTemplate };
     let trades = [];
     let lastClosePrice = 0;
     let maxDrawdown = 0;
+    let currentTotalVolume = setup.totalVolume[setup.totalVolume.length - 1];
+    let newBaseOrder = setup.bo;
+    let newSafetyOrder = setup.so;
     // process.send({ log: setup });
     let ohlcvsLength = ohlcvs.length;
     let ohlcvsLastDataIndex = ohlcvsLength - 1;
@@ -85,7 +116,8 @@ const run = ({ config, setup, symbol, id, exchanger }) => {
           .slice(1)
           .map((deviation) => trade.open - (trade.open * deviation) / 100);
       }
-      let maxDrawdownCalc = percentageChange(trade.open, lastClosePrice);
+      //let maxDrawdownCalc = percentageChange(trade.open, lastClosePrice);
+      let maxDrawdownCalc = ((lastClosePrice - trade.open) / trade.open) * 100;
       if (maxDrawdown > maxDrawdownCalc) {
         maxDrawdown = maxDrawdownCalc;
       }
@@ -93,8 +125,34 @@ const run = ({ config, setup, symbol, id, exchanger }) => {
         trade.upnl = 0;
         trade.close = trade.tpPrice;
         trade.endTimestamp = ohlcv.timestamp;
-        balance =
-          balance + (setup.totalVolume[trade.deviationsUsed] * setup.tp) / 100;
+        const profit =
+          (setup.totalVolume[trade.deviationsUsed] * setup.tp) / 100;
+        balance = balance + profit;
+        const { baseOrder, safetyOrder } = calculateNewOrders(
+          newBaseOrder,
+          newSafetyOrder,
+          setup.os,
+          setup.mstc,
+          profit + balanceToCompound
+        );
+        if (baseOrder !== newBaseOrder && safetyOrder !== newSafetyOrder) {
+          newBaseOrder = baseOrder;
+          newSafetyOrder = safetyOrder;
+          setup.volume = new Array(setup.mstc + 1);
+          setup.totalVolume = new Array(setup.mstc + 1);
+          setup.volume[0] = newBaseOrder;
+          setup.totalVolume[0] = newBaseOrder;
+          for (let i = 1; i <= setup.mstc; i++) {
+            let volume =
+              i === 1 ? newSafetyOrder : setup.volume[i - 1] * setup.os;
+            setup.volume[i] = volume;
+            setup.totalVolume[i] = setup.totalVolume[i - 1] + volume;
+          }
+          currentTotalVolume = setup.totalVolume[setup.totalVolume.length - 1];
+          balanceToCompound = 0;
+        } else {
+          balanceToCompound += profit;
+        }
         trades.push({ ...trade });
         // process.send({ log: trade });
         // process.send({ log: balance })
@@ -134,7 +192,7 @@ const run = ({ config, setup, symbol, id, exchanger }) => {
           // process.send({ log: balance });
           trade = { ...tradeTemplate };
           trade.soPrices = [];
-          if (balance <= 0 || balance <= setup.maxAmount) {
+          if (balance <= 0 || balance <= setup.initialBalance) {
             break;
           }
         }
@@ -145,7 +203,7 @@ const run = ({ config, setup, symbol, id, exchanger }) => {
             (setup.totalVolume[trade.deviationsUsed] *
               (((trade.close - trade.averageBuyPrice) / trade.averageBuyPrice) *
                 100)) /
-            setup.maxAmount;
+            currentTotalVolume;
           trades.push({ ...trade });
         }
       }
@@ -169,21 +227,19 @@ const run = ({ config, setup, symbol, id, exchanger }) => {
         slHitCounter++;
       }
     }
-    let lastTrade = trades[lastTradeIndex];
     if (
       trades[lastTradeIndex] === undefined ||
       trades[lastTradeIndex].upnl === undefined
     ) {
       console.log(symbol);
     }
+    let lastTrade = trades[lastTradeIndex];
     let response = {
       deviationsUsed,
-      totalProfit: parseFloat(
-        percentageChange(setup.maxAmount, balance).toFixed(2)
-      ),
+      totalProfit: roundToTwo(percentageChange(setup.initialBalance, balance)),
       totalTrades: trades.filter((trade) => trade.upnl === 0).length,
       maxDeal: Math.round(maxDeal),
-      upnl: trades[lastTradeIndex].upnl,
+      upnl: Math.round(trades[lastTradeIndex].upnl),
       slHitCounter,
       maxDrawdown: maxDrawdown.toFixed(2),
       longerTrade,
@@ -196,7 +252,6 @@ const run = ({ config, setup, symbol, id, exchanger }) => {
       exchanger,
     };
     fs.writeFileSync(finalFile, JSON.stringify(response));
-    trades = [];
     resolve(response);
     return;
   });
@@ -285,7 +340,7 @@ function calculateNewOrders(
 
   // Return the new base order and safety order amounts
   return {
-    newBaseOrder: Math.floor(newBaseOrder),
-    newSafetyOrder: Math.floor(newSafetyOrder),
+    baseOrder: Math.floor(newBaseOrder),
+    safetyOrder: Math.floor(newSafetyOrder),
   };
 }

@@ -7,15 +7,31 @@ let finalSetups = [];
 for (let index = 0; index < processes; index++) {
   const child = fork("./dca/generateSetupsFromRanges.js");
   let started = false;
+  let running = 0;
   const handleMessage = (message) => {
+    if (message === "done") {
+      const waitForRunning = () =>
+        new Promise((resolve) => {
+          if (running > 0) {
+            setTimeout(waitForRunning, 100);
+          } else {
+            resolve(true);
+          }
+        });
+      waitForRunning().then(() => {
+        childs = childs.filter((val) => val !== child);
+        child.off("message", handleMessage);
+        child.kill();
+      });
+      return;
+    }
     if (started) {
+      running++;
       for (let index = 0; index < message.length; index++) {
         const setup = message[index];
         finalSetups.push(setup);
       }
-      childs = childs.filter((val) => val !== child);
-      child.off("message", handleMessage);
-      child.kill();
+      running--;
     } else if (message === "started") {
       started = true;
       childs.push(child);
@@ -77,46 +93,46 @@ const run = (setups, config) => {
         if (setup.sl === undefined || setup.sl === null) {
           setup.sl = 0;
         }
-        setup.deviations = [0];
-        setup.volume = [setup.bo];
-        setup.totalVolume = [setup.bo];
-        setup.requiredChange = [setup.tp];
+        setup.deviations = new Array(setup.mstc + 1);
+        setup.volume = new Array(setup.mstc + 1);
+        setup.totalVolume = new Array(setup.mstc + 1);
+        setup.requiredChange = new Array(setup.mstc + 1);
+
+        setup.deviations[0] = 0;
+        setup.volume[0] = setup.bo;
+        setup.totalVolume[0] = setup.bo;
+        setup.requiredChange[0] = setup.tp;
+
         let tempTotalCoins = 1;
         let maxDeviation = 0;
-        for (let i = 0; i < setup.mstc; i++) {
-          let volume = 0;
-          if (i === 0) {
-            volume = setup.so;
-            maxDeviation = setup.sos;
-            setup.volume.push(setup.so);
-            setup.totalVolume.push(setup.bo + setup.so);
-          } else {
-            volume = setup.volume[setup.volume.length - 1] * setup.os;
-            maxDeviation = maxDeviation * setup.ss + setup.sos;
-            setup.volume.push(volume);
-            setup.totalVolume.push(
-              setup.totalVolume[setup.totalVolume.length - 1] + volume
-            );
-          }
+
+        for (let i = 1; i <= setup.mstc; i++) {
+          let volume = i === 1 ? setup.so : setup.volume[i - 1] * setup.os;
+          maxDeviation = maxDeviation * setup.ss + setup.sos;
+
+          setup.volume[i] = volume;
+          setup.totalVolume[i] = setup.totalVolume[i - 1] + volume;
+
           let tempPricePerCoin = setup.bo - (setup.bo * maxDeviation) / 100;
           tempTotalCoins += volume / tempPricePerCoin;
-          let tempAveragePrice =
-            setup.totalVolume[setup.totalVolume.length - 1] / tempTotalCoins;
-          setup.requiredChange.push(
+
+          let tempAveragePrice = setup.totalVolume[i] / tempTotalCoins;
+          setup.requiredChange[i] =
             ((tempAveragePrice - tempPricePerCoin) / tempPricePerCoin) * 100 +
-              setup.tp
-          );
-          setup.deviations.push(maxDeviation);
+            setup.tp;
+          setup.deviations[i] = maxDeviation;
         }
+
         // Correct way to round to 2 decimals
         setup.maxDeviation = +(Math.round(maxDeviation + "e+2") + "e-2");
-        setup.maxAmount = Math.round(
+
+        setup.initialBalance = Math.round(
           setup.volume.reduce((partialSum, a) => partialSum + a, 0)
         );
         if (
-          setup.maxAmount >= 50000 ||
-          setup.maxAmount < 1000 ||
-          setup.maxDeviation <= 11 ||
+          setup.initialBalance >= 50000 ||
+          setup.initialBalance < 1000 ||
+          setup.maxDeviation <= 10 ||
           setup.maxDeviation >= 100 ||
           (setup.sl !== 0 && setup.sl <= setup.maxDeviation) ||
           (setup.maxslfromlastdeviation !== undefined &&

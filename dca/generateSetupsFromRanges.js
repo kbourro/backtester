@@ -30,7 +30,16 @@ function generateSetupsFromRanges(setups) {
 
 process.on("message", function (message) {
   if (message === "start") {
-    process.send(generateSetupsFromRanges(setupsToRun));
+    const toSend = generateSetupsFromRanges(setupsToRun);
+    const chunkSize = 3000000;
+    const chunks = [];
+    for (let i = 0; i < toSend.length; i += chunkSize) {
+      chunks.push(toSend.slice(i, i + chunkSize));
+    }
+    chunks.forEach((chunk) => {
+      process.send(chunk);
+    });
+    process.send("done");
   } else if (Array.isArray(message)) {
     setupsToRun = setupsToRun.concat(message);
   } else {

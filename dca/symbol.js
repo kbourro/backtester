@@ -92,6 +92,9 @@ const start = () => {
       if (totalCompleted === totalTasks) {
         tasks = [];
         console.log(`Setups completed: ${totalCompleted}/${totalSetups}`);
+        childs.forEach((child) => {
+          child.kill();
+        });
         resolve(results);
         return;
       }

@@ -63,7 +63,7 @@ const fetchOHLCVSince = async (exchange, symbol, timeframe, since) => {
     );
     if (ohlcvs.length > 0) {
       console.log(
-        Date.now(),
+        new Date().toLocaleString(),
         symbol,
         timeframe,
         "fetched",
@@ -77,22 +77,20 @@ const fetchOHLCVSince = async (exchange, symbol, timeframe, since) => {
     return { symbol, lastTimestamp, ohlcvs };
   } catch (e) {
     console.error(exchange.id, e.message);
-    if (e instanceof ccxt.RateLimitExceeded) {
+    if (
+      e instanceof ccxt.RateLimitExceeded ||
+      e instanceof ccxt.ExchangeNotAvailable
+    ) {
       const oldRateLimit = exchange.rateLimit;
       exchange.rateLimit = oldRateLimit * 2;
       console.log(
         `${exchange.id} Changing rate limit from ${oldRateLimit} to ${exchange.rateLimit}`
       );
-      await new Promise((r) => {
-        setTimeout(r, 1000);
-      });
-      const response = await fetchOHLCVSince(
-        exchange,
-        symbol,
-        timeframe,
-        since
-      );
-      return response;
     }
+    await new Promise((r) => {
+      setTimeout(r, 1000);
+    });
+    const response = await fetchOHLCVSince(exchange, symbol, timeframe, since);
+    return response;
   }
 };
